@@ -1,0 +1,390 @@
+{
+  "accounts": [
+    {
+      "accountId": "1",
+      "email": "john@example.com",
+      "passwordHash": "hash123",
+      "isActive": true
+    },
+    {
+      "accountId": "acc2",
+      "email": "lisa@example.com",
+      "passwordHash": "hash456",
+      "isActive": true
+    },
+    {
+      "accountId": "acc3",
+      "email": "mike@example.com",
+      "passwordHash": "hash789",
+      "isActive": false
+    },
+    {
+      "accountId": "acc4",
+      "email": "anna@example.com",
+      "passwordHash": "hash321",
+      "isActive": true
+    }
+  ],
+  "users": [
+    {
+      "userId": "1",
+      "accountId": "acc1",
+      "name": "John Doe"
+    },
+    {
+      "userId": "user2",
+      "accountId": "acc2",
+      "name": "Lisa Smith"
+    },
+    {
+      "userId": "user3",
+      "accountId": "acc3",
+      "name": "Mike Lee"
+    },
+    {
+      "userId": "user4",
+      "accountId": "acc4",
+      "name": "Anna Kim"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "1",
+      "birthDate": "1990-01-01T00:00:00Z",
+      "userId": "1"
+    },
+    {
+      "clientId": "client2",
+      "birthDate": "1985-05-15T00:00:00Z",
+      "userId": "user2"
+    },
+    {
+      "clientId": "client3",
+      "birthDate": "1992-07-20T00:00:00Z",
+      "userId": "user3"
+    },
+    {
+      "clientId": "client4",
+      "birthDate": "1995-11-30T00:00:00Z",
+      "userId": "user4"
+    }
+  ],
+  "salons": [
+    {
+      "salonId": "1",
+      "location": "Downtown",
+      "phone": "123456789"
+    },
+    {
+      "salonId": "salon2",
+      "location": "Midtown",
+      "phone": "987654321"
+    }
+  ],
+  "workers": [
+    {
+      "workerId": "1",
+      "nombre": "Javier Herrera",
+      "especializacion": "Bridal hair stylist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "workerId": "2",
+      "nombre": "Lili Díaz",
+      "especializacion": "Hair extension specialist",
+      "fotoUrl": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "workerId": "3",
+      "nombre": "Manuel Ugarte",
+      "especializacion": "Haircut specialist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    {
+      "workerId": "4",
+      "nombre": "Lorenzo Ortega",
+      "especializacion": "Stylist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
+    }
+
+
+  ],
+  "services": [
+    {
+      "id": "srv1",
+      "name": "Simple haircut",
+      "duration": 45,
+      "price": 40,
+      "status": "Active"
+    },
+    {
+      "id": "srv2",
+      "name": "Keratin Treatment",
+      "duration": 60,
+      "price": 50,
+      "status": "Active"
+    },
+    {
+      "id": "srv3",
+      "name": "Color & cut",
+      "duration": 90,
+      "price": 100,
+      "status": "Paused"
+    },
+    {
+      "id": "srv4",
+      "name": "Hot styling",
+      "duration": 30,
+      "price": 30,
+      "status": "Active"
+    }
+  ],
+  "payments": [
+    {
+      "paymentId": "pay1",
+      "amount": 40.0,
+      "currency": "USD",
+      "status": true
+    },
+    {
+      "paymentId": "pay2",
+      "amount": 50.0,
+      "currency": "USD",
+      "status": true
+    },
+    {
+      "paymentId": "pay3",
+      "amount": 100.0,
+      "currency": "USD",
+      "status": true
+    },
+    {
+      "paymentId": "pay4",
+      "amount": 30.0,
+      "currency": "USD",
+      "status": false
+    }
+  ],
+  "reservationDetails": [
+    {
+      "reservationId": "1",
+      "tipo": "Simple haircut",
+      "client": {
+        "clientId": "1",
+        "birthDate": "1990-01-01T00:00:00Z",
+        "user": {
+          "userId": "user1",
+          "name": "John Doe"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "123456789"
+      },
+      "payment": {
+        "paymentId": "pay1",
+        "amount": 40.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "1",
+        "start": "2025-07-10T09:00:00Z",
+        "end": "2025-07-10T09:45:00Z",
+        "status": true,
+        "tipo": "Standard"
+      },
+      "worker": {
+        "name": "Kevin"
+      }
+    },
+    {
+      "reservationId": "2",
+      "tipo": "Keratin Treatment",
+      "client": {
+        "clientId": "client2",
+        "birthDate": "1985-05-15T00:00:00Z",
+        "user": {
+          "userId": "user2",
+          "name": "Lisa Smith"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "123456789"
+      },
+      "payment": {
+        "paymentId": "2",
+        "amount": 50.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts2",
+        "start": "2025-05-10T10:00:00Z",
+        "end": "2025-05-10T11:00:00Z",
+        "status": true,
+        "tipo": "Standard"
+      },
+      "worker": {
+        "name": "Gael"
+      }
+    },
+    {
+      "reservationId": "3",
+      "tipo": "Color & cut",
+      "client": {
+        "clientId": "client3",
+        "birthDate": "1992-07-20T00:00:00Z",
+        "user": {
+          "userId": "user3",
+          "name": "Mike Lee"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Midtown",
+        "phone": "987654321"
+      },
+      "payment": {
+        "paymentId": "pay3",
+        "amount": 100.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts3",
+        "start": "2025-05-11T11:00:00Z",
+        "end": "2025-05-11T12:30:00Z",
+        "status": true,
+        "tipo": "Extended"
+      },
+      "worker": {
+        "name": "Kevin"
+      }
+    },
+    {
+      "reservationId": "4",
+      "tipo": "Hot styling",
+      "client": {
+        "clientId": "client4",
+        "birthDate": "1995-11-30T00:00:00Z",
+        "user": {
+          "userId": "user4",
+          "name": "Anna Kim"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Midtown",
+        "phone": "987654321"
+      },
+      "payment": {
+        "paymentId": "pay4",
+        "amount": 30.0,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts4",
+        "start": "2025-05-12T13:00:00Z",
+        "end": "2025-05-12T13:30:00Z",
+        "status": true,
+        "tipo": "Express"
+      },
+      "worker": {
+        "name":"Gael"
+      }
+    },
+    {
+      "reservationId": "5",
+      "tipo": "Manicure",
+      "client": {
+        "clientId": "client5",
+        "birthDate": "1995-11-30T00:00:00Z",
+        "user": {
+          "userId": "user5",
+          "name": "Marcelo Richarlison"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "911111111"
+      },
+      "payment": {
+        "paymentId": "pay4",
+        "amount": 30.0,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts4",
+        "start": "2025-05-09T08:00:00Z",
+        "end": "2025-05-09T08:30:00Z",
+        "status": true,
+        "tipo": "Express"
+      },
+      "worker": {
+        "name":"Alejandro"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Sofia Ramirez",
+      "rating": 5,
+      "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
+      "read": false
+    },
+    {
+      "id": 2,
+      "author": "Camila Riquez",
+      "rating": 4,
+      "text": "Tried my first cut. It wasn't exactly what I envisioned. The staff was nice, though, and I might give it another try.",
+      "read": true
+    },
+    {
+      "id": 3,
+      "author": "Lucas Herrera",
+      "rating": 5,
+      "text": "The cut was exactly what I wanted, but I had to wait a little longer than expected. Still, it was worth it!",
+      "read": false
+    },
+    {
+      "id": 4,
+      "author": "Mateo García",
+      "rating": 5,
+      "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
+      "read": true
+    }
+  ],
+  "salonProfiles": [
+    {
+      "id": 1,
+      "userId": "user3",
+      "salonName": "Vibrance Salon",
+      "rating": 4.7,
+      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
+      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
+      "socials": {
+        "instagram": "https://instagram.com/vibrance_salon",
+        "tiktok": "https://tiktok.com/@vibrance_salon"
+      },
+      "portfolioImages": [
+        "https://picsum.photos/600/400?random=1",
+        "https://picsum.photos/600/400?random=2",
+        "https://picsum.photos/600/400?random=3",
+        "https://picsum.photos/600/400?random=4",
+        "https://picsum.photos/600/400?random=5"
+      ]
+
+    }
+  ]
+
+
+
+}
