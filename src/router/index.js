@@ -12,7 +12,11 @@ const RegisterPageComponent = () => import('../iam/pages/register-page/register-
 const ToolbarComponent = () => import('../public/components/toolbar-provider/toolbar-provider.component.vue')
 const SidebarComponent = () => import('../public/components/sidebar-provider/sidebar-provider.component.vue')
 
+const ToolbarComponentClient = () => import('../public/components/toolbar-client/toolbar-client.component.vue')
+const SidebarComponentClient = () => import('../public/components/sidebar-client/sidebar-client.component.vue')
+
 const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
+const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
 /*
 const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
 
@@ -68,10 +72,12 @@ const routes = [
         path: '/client',
         component: ClientLayoutComponent,
         children: [
-            { path: '', redirect: 'appointment' },
-            { path: 'appointment', component: ClientAppointmentPagesComponent },
+            { path: '', redirect: '/client/homeClient' },
+            { path: 'homeClient', component: SidebarComponentClient},
+            /**
+            { path: 'appointments', component: ClientAppointmentPagesComponent },
             { path: 'favorites', component: ClientFavoriteComponent },
-            { path: 'profile', component: ClientProfileComponent },
+            { path: 'profile', component: ClientProfileComponent },*/
         ]
     },
     /*
