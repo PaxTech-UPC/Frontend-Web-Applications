@@ -1,12 +1,10 @@
 <script setup>
 
-import LoginPageComponent from "./iam/pages/login-pages/login-page.component.vue";
 </script>
 
 <template>
 
   <router-view/>
-  <login-page-component class="login-page"/>
 
 </template>
 
@@ -31,7 +29,5 @@ html, body {
   width: 100%;
   height: 100%;
 }
-
-
 
 </style>

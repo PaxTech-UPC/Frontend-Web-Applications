@@ -9,35 +9,35 @@ export default {
     <pv-card class="register-card">
       <template #content>
         <div class="full-width">
-          <label for="email">Email Address</label>
+          <label for="email" class="title">Email Address</label>
           <input
               id="email"
               type="email"
               v-model="email"
               placeholder="example@business.com"
-              class="p-inputtext p-component"
+              class="p-inputtext"
           />
         </div>
 
         <div class="full-width">
-          <label for="password">Password</label>
+          <label for="password" class="title">Password</label>
           <input
               id="password"
               type="password"
               v-model="password"
               placeholder="Your password"
-              class="p-inputtext p-component"
+              class="p-inputtext"
           />
         </div>
 
         <div class="full-width">
-          <label for="businessName">Business Name</label>
+          <label for="businessName" class="title">Business Name</label>
           <input
               id="businessName"
               type="text"
               v-model="businessName"
               placeholder="My Business"
-              class="p-inputtext p-component"
+              class="p-inputtext"
           />
         </div>
       </template>
@@ -60,11 +60,18 @@ export default {
   margin-top: 20px;
 }
 
+.title{
+  color: #211f1f;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
 .register-card {
   width: 100%;
   max-width: 400px;
   padding: 16px;
-  background-color: rgb(255, 158, 158);
+  background-color: rgb(255, 255, 255, 0.8);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
 }
@@ -83,4 +90,10 @@ export default {
   color: #ffffff;
   border: none;
 }
+
+.p-inputtext{
+  padding: 10px;
+  border-radius: 10px;
+}
+
 </style>

@@ -1,10 +1,25 @@
 <script>
-
-import LoginFormComponent from "../../components/login-form/login-form.component.vue"
+import RegisterFormClientComponent from "../../components/register-form-client/register-form-client.component.vue";
+import RegisterFormProvider from "../../components/register-form-provider/register-form-provider.component.vue";
 
 export default {
-  name: "login-page-component",
-  components: {LoginFormComponent}
+  name: "register-page-component",
+  components: {RegisterFormProvider, RegisterFormClientComponent},
+  data() {
+    return {
+      isProvider: false,
+      showPlanSelector: false,
+    };
+  },
+  methods: {
+    toggleForm(value) {
+      this.isProvider = value;
+      this.showPlanSelector = false;
+    },
+    completeRegistration() {
+      this.showPlanSelector = true;
+    },
+  },
 }
 </script>
 
@@ -16,9 +31,9 @@ export default {
     <!-- Capa oscura -->
     <div class="background-overlay"></div>
 
-    <!-- Contenido de la página -->
+    <!-- Contenido -->
     <div class="login-content">
-      <!-- Barra de navegación superior -->
+      <!-- Barra de navegación -->
       <div class="toolbar">
         <div class="toolbar-left">
           <img
@@ -27,39 +42,60 @@ export default {
               class="logo"
           />
         </div>
-        <span class="spacer"></span>
+        <div class="spacer"></div>
         <div class="toolbar-right">
           <router-link to="/iam/login">
-            <button class="toolbar-button">Sign In</button>
+            <button>Sign In</button>
           </router-link>
           <router-link to="/iam/register">
-            <button class="toolbar-button">Register</button>
+            <button>Register</button>
           </router-link>
         </div>
       </div>
 
-      <!-- Logo + Texto + Formulario -->
+      <!-- Formulario -->
       <div class="center-content">
         <img
             src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png"
             alt="uTime Logo"
             class="main-logo"
         />
-        <h1 class="welcome-text">Back to beauty business?</h1>
-        <login-form-component/>
+
+        <div class="register-container">
+          <div class="toggle-buttons">
+            <button
+                class="button-toggle"
+                :class="{ active: !isProvider }"
+                @click="toggleForm(false)"
+            >
+              Client
+            </button>
+            <button
+                class="button-toggle"
+                :class="{ active: isProvider }"
+                @click="toggleForm(true)"
+            >
+              Provider
+            </button>
+          </div>
+
+          <register-form-client-component v-if="!isProvider" />
+          <register-form-provider
+              v-if="isProvider"
+              @complete-registration="completeRegistration"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
 .login-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
-
 }
 
 .background-image {
@@ -68,12 +104,10 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://i.pinimg.com/originals/a0/db/f0/a0dbf0432d5eb7d05a3cd572b4eb84b7.jpg');
+  background-image: url("https://i.pinimg.com/originals/a0/db/f0/a0dbf0432d5eb7d05a3cd572b4eb84b7.jpg");
   background-size: cover;
   background-position: center;
   z-index: 1;
-  height: 100%;
-  width: 100%;
 }
 
 .background-overlay {
@@ -101,7 +135,7 @@ export default {
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.6);
-  height: 60px;
+  height: 55px;
 }
 
 .toolbar-left {
@@ -113,12 +147,11 @@ export default {
   height: 40px;
 }
 
-.toolbar-right {
-  display: flex;
-  align-items: center;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.toolbar-button {
+.toolbar-right button {
   background-color: #211f1f;
   color: #ffffff;
   margin-left: 20px;
@@ -128,13 +161,8 @@ export default {
   font-weight: 500;
 }
 
-.toolbar-button:hover {
+.toolbar-right button:hover {
   background-color: #3b3939;
-  color: white;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }
 
 .center-content {
@@ -146,17 +174,30 @@ export default {
   color: white;
   padding: 2rem;
   text-align: center;
-  height: 100%;
-  width: 100%;
-}
-
-.welcome-text {
-  font-size: 28px;
-  margin-bottom: 10px;
 }
 
 .main-logo {
-  width: 300px;
-  margin-bottom: 10px;
+  width: 200px;
+}
+
+
+.toggle-buttons {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.button-toggle {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background-color: #ffffff;
+  color: #000;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-toggle.active {
+  background-color: #333;
+  color: #fff;
 }
 </style>

@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 // IAM (auth)
 const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
-/*
-const RegisterPageComponent = () => import('../iam/pages/register-pages/register-page.component.vue')
+const RegisterPageComponent = () => import('../iam/pages/register-page/register-page.component.vue')
 
+/*
 
 // Layouts
 const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
@@ -36,7 +36,7 @@ const routes = [
         path: '/iam',
         children: [
             { path: 'login', component: LoginPageComponent },
-            //{ path: 'register', component: RegisterPageComponent },
+            { path: 'register', component: RegisterPageComponent },
 
         ]
     }
