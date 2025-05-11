@@ -1,0 +1,81 @@
+
+import { createRouter, createWebHistory } from 'vue-router'
+
+// IAM (auth)
+const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
+/*
+const RegisterPageComponent = () => import('../iam/pages/register-pages/register-page.component.vue')
+
+
+// Layouts
+const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
+const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
+
+// Provider
+const ProfessionalDashboardComponent = () => import('../dashboard/pages/professional-dashboard/professional-dashboard.component.vue')
+const ProfilePageComponent = () => import('../profile/pages/profile-page/profile-page.component.vue')
+const SchedulePageComponent = () => import('../schedule/pages/schedule-page/schedule-page.component.vue')
+
+// Client
+const ClientAppointmentPagesComponent = () => import('../appointments/pages/client-appointment-pages/client-appointment-pages.component.vue')
+const ClientFavoriteComponent = () => import('../favorites/pages/client-favorite/client-favorite.component.vue')
+const ClientProfileComponent = () => import('../profileclient/pages/client-profile/client-profile.component.vue')
+
+// Not found page (optional)
+const NotFoundComponent = { template: '<h1>404 - Página no encontrada</h1>' }
+*/
+
+
+const routes = [
+    // Redirección por defecto al login
+    { path: '/', redirect: '/iam/login' },
+
+
+    // IAM
+    {
+        path: '/iam',
+        children: [
+            { path: 'login', component: LoginPageComponent },
+            //{ path: 'register', component: RegisterPageComponent },
+
+        ]
+    }
+
+    /*
+
+    // Provider Layout
+    {
+        path: '/provider',
+        component: ProviderLayoutComponent,
+        children: [
+            { path: '', redirect: 'homeProvider' },
+            { path: 'homeProvider', component: ProfessionalDashboardComponent },
+            { path: 'profile', component: ProfilePageComponent },
+            { path: 'schedule', component: SchedulePageComponent },
+        ]
+    },
+
+    // Client Layout
+    {
+        path: '/client',
+        component: ClientLayoutComponent,
+        children: [
+            { path: '', redirect: 'appointment' },
+            { path: 'appointment', component: ClientAppointmentPagesComponent },
+            { path: 'favorites', component: ClientFavoriteComponent },
+            { path: 'profile', component: ClientProfileComponent },
+        ]
+    },
+
+    // Ruta comodín (404)
+    { path: '/:pathMatch(.*)*', component: NotFoundComponent }
+    */
+
+]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: routes,
+})
+
+export default router

@@ -8,6 +8,8 @@ import i18n from "./i18n.js";
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 
+import router from './router'
+
 const app = createApp(App)
 app
     .use(PrimeVue, {
@@ -26,4 +28,5 @@ app
     .component('pv-tooltip', Tooltip)
     .component('pv-image', Image)
     .use(i18n)
+    .use(router)
     .mount('#app')
