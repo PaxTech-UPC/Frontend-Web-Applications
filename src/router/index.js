@@ -63,7 +63,6 @@ const routes = [
             */
         ]
     },
-    /*
     // Client Layout
     {
         path: '/client',
@@ -75,10 +74,10 @@ const routes = [
             { path: 'profile', component: ClientProfileComponent },
         ]
     },
-
-    // Ruta comodín (404)
-    { path: '/:pathMatch(.*)*', component: NotFoundComponent }
-    */
+    /*
+       // Ruta comodín (404)
+       { path: '/:pathMatch(.*)*', component: NotFoundComponent }
+       */
 
 ]
 
