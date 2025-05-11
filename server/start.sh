@@ -1,4 +1,4 @@
-# Descargar la dependencia apra utilizar el fake api
+# Descargar la dependencia para utilizar el fake api
 sudo npm i -g json-server@0.17.4
 
 # Comando para levantar el Fake Api
