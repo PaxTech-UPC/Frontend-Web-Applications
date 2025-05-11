@@ -3,7 +3,7 @@ import Button from "primevue/button";
 import LanguageSwitcherComponent from "../language-switcher/language-switcher.component.vue";
 
 export default {
-  name: "toolbar-client",
+  name: "toolbar-client-component",
   components: {LanguageSwitcherComponent, Button}
 }
 </script>
