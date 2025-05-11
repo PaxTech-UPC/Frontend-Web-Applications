@@ -18,9 +18,8 @@ export default {
     </router-link>
 
     <router-link to="/client/profile" class="nav-link" active-class="active">
-      <i class="pi pi-user">
+      <i class="pi pi-user"></i>
         {{ $t('dashboard.profile')}}
-      </i>
     </router-link>
   </nav>
 </template>

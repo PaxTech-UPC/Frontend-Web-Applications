@@ -18,6 +18,17 @@ export default {
       </router-link>
     </div>
 
+    <div class="left-section">
+      <Button icon="pi pi-search" class="icon-button search" aria-label="Buscar"  />
+      <input
+          v-model="onmessage"
+          placeholder="Buscar..."
+          autocomplete="off"
+          aria-label="Buscar"
+          class="search-input"
+      />
+    </div>
+
     <!-- Sección Central -->
     <div class="center-section">
       <img
@@ -28,7 +39,7 @@ export default {
     </div>
 
 
-    <div class="right-section">
+    <div class="n-section">
       <router-link to="/client/notifications">
         <Button icon="pi pi-bell" class="icon-button" aria-label="Notifications" />
       </router-link>
@@ -38,7 +49,7 @@ export default {
     <div class="right-section">
       <!-- Componente de cambio de idioma -->
       <language-switcher-component/>
-      <router-link to="/provider/profile">
+      <router-link to="/client/profile">
         <Button icon="pi pi-user" class="icon-button" aria-label="Profile" />
       </router-link>
     </div>
@@ -61,6 +72,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.n-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start;
 }
 
 .center-section {
@@ -88,5 +106,31 @@ export default {
 
 .logout {
   color: #e53935 !important;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+  background-color: white;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 2px #7abaff;
 }
 </style>

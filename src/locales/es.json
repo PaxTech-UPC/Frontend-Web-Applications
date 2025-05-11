@@ -17,7 +17,10 @@
     "bridalHairStylist": "Estilista de novias",
     "hairExtensionSpecialist": "Especialista en extensiones",
     "haircutSpecialist": "Especialista en cortes",
-    "stylist": "Estilista"
+    "stylist": "Estilista",
+    "appointments": "Reservas",
+    "favorites": "Mis Favoritos",
+    "profile": "Perfil"
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
