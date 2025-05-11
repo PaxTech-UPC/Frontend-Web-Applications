@@ -1,6 +1,9 @@
 <script>
+import Button from "primevue/button";
+
 export default {
-  name: "register-form-provider"
+  name: "register-form-provider",
+  components: {Button}
 }
 </script>
 
@@ -42,12 +45,21 @@ export default {
         </div>
       </template>
 
+
+      <div class="left-section">
+        <router-link to="/iam/login">
+          <Button icon="pi pi-sign-out" class="icon-button logout" aria-label="Logout" />
+        </router-link>
+      </div>
+
       <template #footer>
-        <pv-button
-            label="Register as a Provider"
-            class="register-button"
-            @click="registerProvider"
-        />
+        <router-link to="/provider/homeProvider" class="nav-link" active-class="active">
+          <pv-button
+              label="Register as a Provider"
+              class="register-button"
+              @click="registerProvider"
+          />
+        </router-link>
       </template>
     </pv-card>
   </form>
