@@ -1,11 +1,13 @@
 <script>
 
 import Button from 'primevue/button';
+import LanguageSwitcherComponent from "../language-switcher/language-switcher.component.vue";
 //import LanguageSwitcher from '@/components/language-switcher/LanguageSwitcher.vue';
 
 export default {
   name: "toolbar-provider-component",
   components:{
+    LanguageSwitcherComponent,
     Button,
     //LanguageSwitcher
   }
@@ -33,7 +35,7 @@ export default {
     <!-- Sección Derecha -->
     <div class="right-section">
       <!-- Componente de cambio de idioma -->
-      <!--<LanguageSwitcher />-->
+      <language-switcher-component/>
       <router-link to="/provider/profile">
         <Button icon="pi pi-user" class="icon-button" aria-label="Profile" />
       </router-link>
