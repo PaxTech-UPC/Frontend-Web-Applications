@@ -16,7 +16,7 @@ export default {
   <header class="toolbar">
     <!-- Sección Izquierda -->
     <div class="left-section">
-      <router-link to="/iam/logout">
+      <router-link to="/iam/login">
         <Button icon="pi pi-sign-out" class="icon-button logout" aria-label="Logout" />
       </router-link>
     </div>
