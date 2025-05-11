@@ -1,15 +1,18 @@
 <script>
 import ToolbarClientComponent from "../toolbar-client/toolbar-client.component.vue";
+import SidebarClientComponent from "../sidebar-client/sidebar-client.component.vue";
+
 
 export default {
   name: "client-layout-component",
-  components: {ToolbarClientComponent, ToolbarClient}
+  components: {SidebarClientComponent, ToolbarClientComponent}
 }
 </script>
 
 <template>
 
-  <toolbar-client-component></toolbar-client-component>
+  <toolbar-client-component/>
+  <sidebar-client-component/>
 
 </template>
 

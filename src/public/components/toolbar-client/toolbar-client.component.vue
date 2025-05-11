@@ -30,7 +30,7 @@ export default {
 
     <div class="right-section">
       <router-link to="/client/notifications">
-        <Button icon="pi-bell" class="icon-button" aria-label="Notifications" />
+        <Button icon="pi pi-bell" class="icon-button" aria-label="Notifications" />
       </router-link>
     </div>
 
