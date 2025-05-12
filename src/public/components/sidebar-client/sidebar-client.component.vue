@@ -7,7 +7,7 @@ export default {
 
 <template>
   <nav class="sidebar">
-    <router-link to="/client/appointment" class="nav-link" active-class="active">
+    <router-link to="/client/appointments" class="nav-link" active-class="active">
       <i class="pi pi-calendar"></i>
       {{ $t('dashboard.appointments') }}
     </router-link>

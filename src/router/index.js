@@ -1,5 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
+const AppointmentsComponent = () => import("../AppointmentsClient/Appointments.component.vue")
 
 // IAM (auth)
 
@@ -74,8 +75,8 @@ const routes = [
         children: [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
+            { path: 'appointments', component: AppointmentsComponent },
             /**
-            { path: 'appointments', component: ClientAppointmentPagesComponent },
             { path: 'favorites', component: ClientFavoriteComponent },
             { path: 'profile', component: ClientProfileComponent },*/
         ]

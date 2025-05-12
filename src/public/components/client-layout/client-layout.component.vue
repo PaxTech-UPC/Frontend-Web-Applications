@@ -13,6 +13,9 @@ export default {
 
   <toolbar-client-component/>
   <sidebar-client-component/>
+  <main>
+    <router-view/>
+  </main>
 
 </template>
 
