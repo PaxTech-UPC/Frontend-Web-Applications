@@ -1,12 +1,19 @@
 import axios from 'axios';
-import { assembleAppointments } from './Appointment.assembler.js';
+import {BaseApiService} from "../../shared/services/base.service.js";
 
-export async function fetchReservations() {
-    try {
-        const response = await axios.get('http://localhost:3000/reservationDetails');
-        return assembleAppointments(response.data);
-    } catch (error) {
-        console.error('Error al obtener reservas:', error);
-        return [];
+const resApi = import.meta.env.VITE_API_BASE_URL;
+const reservationEndpoint = import.meta.env.VITE_RESERVATIONS_ENDPOINT_PATH;
+
+const serviceApi = 'http://localhost:3000/reservationDetails'
+
+const http = axios.create({
+    baseURL: serviceApi,
+});
+
+export class AppointmentApiService extends BaseApiService {
+
+
+    static getAll(){
+        return http.get('');
     }
 }

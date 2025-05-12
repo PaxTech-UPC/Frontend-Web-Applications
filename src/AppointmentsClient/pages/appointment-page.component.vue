@@ -1,24 +1,26 @@
 <script>
 import AppointmentComponent from "../components/reservation/appointment.component.vue";
-import { fetchReservations } from "../services/Appointment-api.service.js";
+import { AppointmentApiService } from "../services/Appointment-api.service.js";
+import { AppointmentAssembler } from "../services/Appointment.assembler.js";
 
 export default {
   name: "appointment-page-component",
   components: {
-    AppointmentComponent
+    AppointmentComponent,
   },
   data() {
     return {
-      appointments: []
+      appointments: [],
     };
   },
-  async mounted() {
+  async created() {
     try {
-      this.appointments = await fetchReservations();
+      const response = await AppointmentApiService.getAll();
+      this.appointments = AppointmentAssembler.toEntitiesFromResponse(response);
     } catch (error) {
-      console.error("Error al cargar citas:", error);
+      console.error("Error fetching appointments:", error);
     }
-  }
+  },
 };
 </script>
 

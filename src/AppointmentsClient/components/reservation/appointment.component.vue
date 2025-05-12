@@ -21,8 +21,8 @@ export default {
     <p><strong>Horario:</strong> {{ formatTime(appointment.timeSlotStart) }} - {{ formatTime(appointment.timeSlotEnd) }}</p>
     <p>
       <strong>Estado de pago:</strong>
-      <span :style="{ color: appointment.paymentStatus === 'paid' ? 'green' : 'red' }">
-        {{ appointment.paymentStatus === 'paid' ? 'Pagado' : 'Pendiente' }}
+      <span :style="{ color: appointment.payment === 'paid' ? 'green' : 'red' }">
+        {{ appointment.payment === 'paid' ? 'Pagado' : 'Pendiente' }}
       </span>
     </p>
   </div>
