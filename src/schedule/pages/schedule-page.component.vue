@@ -1,15 +1,16 @@
 <script>
 import CalendarComponent from "../components/calendar/calendar.component.vue";
+import ReservationDetailsComponent from "../components/testing/testing.component.vue";
 
 export default {
   name: "schedule-page-component",
-  components: {CalendarComponent}
+  components: {ReservationDetailsComponent, CalendarComponent}
 }
 </script>
 
 <template>
 
-  <calendar-component></calendar-component>
+  <reservation-details-component/>
 
 </template>
 

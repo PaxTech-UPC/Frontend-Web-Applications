@@ -1,5 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
+import testingComponent from "../schedule/components/testing/testing.component.vue";
 
 // IAM (auth)
 
@@ -54,11 +55,11 @@ const routes = [
 
     {
         path: '/provider',
-        component: ProviderLayoutComponent,
+        component: testingComponent,
         children: [
             { path: '', redirect: '/provider/homeProvider' },
 
-            { path: 'homeProvider', component: SidebarComponent },
+            { path: 'homeProvider', component: testingComponent },
             { path: 'schedule', component: SchedulePageComponent },
 
            // { path: 'profile', component: SidebarComponent },
