@@ -1,7 +1,5 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
-const AppointmentsComponent = () => import("../AppointmentsClient/Appointments.component.vue")
-
 // IAM (auth)
 
 const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
@@ -16,13 +14,10 @@ const ToolbarComponentClient = () => import('../public/components/toolbar-client
 const SidebarComponentClient = () => import('../public/components/sidebar-client/sidebar-client.component.vue')
 
 const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
-<<<<<<< HEAD
+
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
-
-
-=======
 const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
->>>>>>> feature/Appointments
+
 /*
 const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
 
@@ -82,8 +77,8 @@ const routes = [
         children: [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
-            { path: 'appointments', component: AppointmentsComponent },
             /**
+            { path: 'appointments', component: AppointmentsComponent },
             { path: 'favorites', component: ClientFavoriteComponent },
             { path: 'profile', component: ClientProfileComponent },*/
         ]
