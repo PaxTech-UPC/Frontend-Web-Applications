@@ -7,7 +7,7 @@ import testingComponent from "../schedule/components/testing/testing.component.v
 const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
 const RegisterPageComponent = () => import('../iam/pages/register-page/register-page.component.vue')
 
-
+const AppointmentPageComponent = () => import('../AppointmentsClient/pages/appointment-page.component.vue')
 // Layouts
 
 const SidebarComponent = () => import('../public/components/sidebar-provider/sidebar-provider.component.vue')
@@ -79,8 +79,8 @@ const routes = [
         children: [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
+            { path: 'appointments', component: AppointmentPageComponent },
             /**
-            { path: 'appointments', component: AppointmentsComponent },
             { path: 'favorites', component: ClientFavoriteComponent },
             { path: 'profile', component: ClientProfileComponent },*/
         ]
