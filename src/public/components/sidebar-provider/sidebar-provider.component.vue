@@ -28,7 +28,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: fixed;
 }
 
 .sidebar .nav-link {

@@ -7,12 +7,12 @@ const http = axios.create({
 });
 
 export class BaseApiService {
-    constructor(endpoint) {
-        this.endpoint = endpoint;
+    constructor(reservationEndpoint) {
+        this.reservationEndpoint = reservationEndpoint;
     }
 
-    getAll() {
-        return http.get(this.endpoint);
+    getAll(params = {}) {
+        return http.get(this.reservationEndpoint, { params });
     }
 
 }

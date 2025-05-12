@@ -1,6 +1,5 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
-import testingComponent from "../schedule/components/testing/testing.component.vue";
+
 
 // IAM (auth)
 
@@ -10,32 +9,16 @@ const RegisterPageComponent = () => import('../iam/pages/register-page/register-
 
 // Layouts
 
-const SidebarComponent = () => import('../public/components/sidebar-provider/sidebar-provider.component.vue')
-
-const ToolbarComponentClient = () => import('../public/components/toolbar-client/toolbar-client.component.vue')
 const SidebarComponentClient = () => import('../public/components/sidebar-client/sidebar-client.component.vue')
 
 const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
 
-const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
-const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
-
-/*
 const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
 
 // Provider
-const ProfessionalDashboardComponent = () => import('../dashboard/pages/professional-dashboard/professional-dashboard.component.vue')
-const ProfilePageComponent = () => import('../profile/pages/profile-page/profile-page.component.vue')
-const SchedulePageComponent = () => import('../schedule/pages/schedule-page/schedule-page.component.vue')
 
-// Client
-const ClientAppointmentPagesComponent = () => import('../appointments/pages/client-appointment-pages/client-appointment-pages.component.vue')
-const ClientFavoriteComponent = () => import('../favorites/pages/client-favorite/client-favorite.component.vue')
-const ClientProfileComponent = () => import('../profileclient/pages/client-profile/client-profile.component.vue')
+const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
-// Not found page (optional)
-const NotFoundComponent = { template: '<h1>404 - Página no encontrada</h1>' }
-*/
 
 
 const routes = [
@@ -59,17 +42,10 @@ const routes = [
 
     {
         path: '/provider',
-        component: testingComponent,
+        component: ProviderLayoutComponent,
         children: [
-            { path: '', redirect: '/provider/homeProvider' },
-
-            { path: 'homeProvider', component: testingComponent },
-            { path: 'schedule', component: SchedulePageComponent },
-
-           // { path: 'profile', component: SidebarComponent },
-            /*
-
-            */
+            { path: '', redirect: '/provider/schedule' },
+            { path: 'schedule', component: SchedulePageComponent }
         ]
     },
     // Client Layout
