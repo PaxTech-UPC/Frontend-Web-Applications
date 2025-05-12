@@ -7,6 +7,7 @@ import Aura from '@primevue/themes/aura'
 import i18n from "./i18n.js";
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
+import {Calendar} from "primevue";
 
 import router from './router'
 
@@ -18,6 +19,7 @@ app
             preset: Aura
         }})
     .component('pv-button', Button)
+    .component('pv-calendar', Calendar)
     .component('pv-card',Card)
     .component('pv-select-button', SelectButton)
     .component('pv-drawer', Drawer)
