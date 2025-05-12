@@ -16,7 +16,10 @@
     "bridalHairStylist": "Bridal hair stylist",
     "hairExtensionSpecialist": "Hair extension specialist",
     "haircutSpecialist": "Haircut specialist",
-    "stylist": "Stylist"
+    "stylist": "Stylist",
+    "appointments": "Appointments",
+    "favorites": "My Favorites",
+    "profile": "Profile"
   },
   "profile": {
     "yourProfile": "Your Profile:",
