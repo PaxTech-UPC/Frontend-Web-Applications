@@ -1,6 +1,8 @@
+import { Reservation } from '../model/reservation.entity.js';
+
 export function assembleReservations(rawReservations) {
-    return rawReservations.map(res => ({
-        id: res.reservationId,
+    return rawReservations.map(res => new Reservation({
+        id: res.reservation.id,
         tipo: res.tipo,
         clientName: res.client.user.name,
         workerName: res.worker.name,

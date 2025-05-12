@@ -9,10 +9,12 @@ const RegisterPageComponent = () => import('../iam/pages/register-page/register-
 
 // Layouts
 
-const ToolbarComponent = () => import('../public/components/toolbar-provider/toolbar-provider.component.vue')
 const SidebarComponent = () => import('../public/components/sidebar-provider/sidebar-provider.component.vue')
 
 const ProviderLayoutComponent = () => import('../public/components/provider-layout/provider-layout.component.vue')
+const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
+
+
 /*
 const ClientLayoutComponent = () => import('../public/components/client-layout/client-layout.component.vue')
 
@@ -49,6 +51,7 @@ const routes = [
 
 
     // Provider Layout
+
     {
         path: '/provider',
         component: ProviderLayoutComponent,
@@ -56,9 +59,10 @@ const routes = [
             { path: '', redirect: '/provider/homeProvider' },
 
             { path: 'homeProvider', component: SidebarComponent },
+            { path: 'schedule', component: SchedulePageComponent },
+
            // { path: 'profile', component: SidebarComponent },
             /*
-            { path: 'schedule', component: SchedulePageComponent },
 
             */
         ]
