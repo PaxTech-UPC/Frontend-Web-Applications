@@ -1,6 +1,6 @@
 import {Favorites} from "../model/Favorites.entity.js";
 
-export class ReservationAssembler {
+export class FavoriteAssembler {
     static toEntityFromResource(resource) {
         return new Favorites(resource);
     }

@@ -19,7 +19,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
-
+const FavoritesPageComponent = () =>import('../FavoritesClient/pages/favorites-pages.component.vue')
 
 const routes = [
     // Redirección por defecto al login
@@ -56,8 +56,8 @@ const routes = [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
             { path: 'appointments', component: AppointmentPageComponent },
+            { path: 'favorites', component: FavoritesPageComponent },
             /**
-            { path: 'favorites', component: ClientFavoriteComponent },
             { path: 'profile', component: ClientProfileComponent },*/
         ]
     },
