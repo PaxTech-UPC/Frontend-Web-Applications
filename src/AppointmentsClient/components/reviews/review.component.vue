@@ -38,9 +38,12 @@ export default {
 <style scoped>
 .review-block {
   border: 1px solid #ccc;
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 16px;
+  margin: 1rem auto;
+  max-width: 600px;
   border-radius: 8px;
   background-color: #f0f4ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+
 </style>

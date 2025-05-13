@@ -25,15 +25,22 @@ export default {
         {{ appointment.payment === 'paid' ? 'Pagado' : 'Pendiente' }}
       </span>
     </p>
+    <div class="appointment-actions">
+      <button class="action-button"><i class="pi pi-pencil"></i></button>
+      <button class="action-button"><i class="pi pi-calendar"></i></button>
+      <button class="action-button"><i class="pi pi-times"></i></button>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .appointment-block {
   border: 1px solid #ddd;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+  padding: 16px;
+  margin: 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
   background-color: #f9f9ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 </style>
