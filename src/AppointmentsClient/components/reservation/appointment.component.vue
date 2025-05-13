@@ -1,18 +1,3 @@
-<script>
-export default {
-  name: "appointment-component",
-  props: {
-    appointment: Object
-  },
-  methods: {
-    formatTime(date) {
-      const d = new Date(date);
-      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-  }
-}
-</script>
-
 <template>
   <div class="appointment-block">
     <h4>{{ appointment.tipo }}</h4>
@@ -32,6 +17,21 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "AppointmentComponent",
+  props: {
+    appointment: Object
+  },
+  methods: {
+    formatTime(date) {
+      const d = new Date(date);
+      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+  }
+}
+</script>
 
 <style scoped>
 .appointment-block {

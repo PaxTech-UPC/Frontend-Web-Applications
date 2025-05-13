@@ -1,6 +1,21 @@
+<template>
+  <div class="review-block">
+    <h4>Reseña #{{ review.id }}</h4>
+    <p><strong>Autor:</strong> {{ review.author }}</p>
+    <p><strong>Calificación:</strong> {{ formattedRating }}</p>
+    <p><strong>Comentario:</strong> {{ review.text }}</p>
+    <p>
+      <strong>Estado:</strong>
+      <span :style="{ color: getReadColor() }">
+        {{ getReadStatus() }}
+      </span>
+    </p>
+  </div>
+</template>
+
 <script>
 export default {
-  name: "review-component",
+  name: "ReviewComponent",
   props: {
     review: Object
   },
@@ -20,21 +35,6 @@ export default {
 };
 </script>
 
-<template>
-  <div class="review-block">
-    <h4>Reseña #{{ review.id }}</h4>
-    <p><strong>Autor:</strong> {{ review.author }}</p>
-    <p><strong>Calificación:</strong> {{ formattedRating }}</p>
-    <p><strong>Comentario:</strong> {{ review.text }}</p>
-    <p>
-      <strong>Estado:</strong>
-      <span :style="{ color: getReadColor() }">
-        {{ getReadStatus() }}
-      </span>
-    </p>
-  </div>
-</template>
-
 <style scoped>
 .review-block {
   border: 1px solid #ccc;
@@ -45,5 +45,4 @@ export default {
   background-color: #f0f4ff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-
 </style>
