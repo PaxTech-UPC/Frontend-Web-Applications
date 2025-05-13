@@ -1,12 +1,15 @@
 import axios from 'axios';
-import { assembleAppointments } from './Appointment.assembler.js';
+import { BaseApiService } from '../../shared/services/base.service.js'; // Ajusta la ruta si está en otro lado
 
-export async function fetchReservations() {
-    try {
-        const response = await axios.get('http://localhost:3000/reservationDetails');
-        return assembleAppointments(response.data);
-    } catch (error) {
-        console.error('Error al obtener reservas:', error);
-        return [];
+// Puedes cambiar esto por variables de entorno si las tienes configuradas
+const serviceApi = 'http://localhost:3000/reservationDetails';
+
+const http = axios.create({
+    baseURL: serviceApi
+});
+
+export class AppointmentApiService extends BaseApiService {
+    static getAll() {
+        return http.get(''); // GET a /reservationDetails
     }
 }

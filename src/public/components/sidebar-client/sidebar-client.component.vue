@@ -28,7 +28,6 @@ export default {
 
 .sidebar {
   width: 250px;
-  height: 100vh;
   background-color: #f0dff0; /* Soft purple */
   padding: 2rem 1rem;
   display: flex;

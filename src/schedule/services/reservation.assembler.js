@@ -9,4 +9,8 @@ export class ReservationAssembler {
         console.log(response.data.map(resource => this.toEntityFromResource(resource)));
         return response.data.map(resource => this.toEntityFromResource(resource));
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feature/Appointments

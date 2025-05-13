@@ -72,6 +72,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
+
 }
 
 .n-section {
@@ -89,6 +90,7 @@ export default {
 .logo-img {
   height: 40px;
   object-fit: contain;
+
 }
 
 .icon-button {
@@ -128,6 +130,7 @@ export default {
   background-color: white;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease-in-out;
+
 }
 
 .search-input:focus {

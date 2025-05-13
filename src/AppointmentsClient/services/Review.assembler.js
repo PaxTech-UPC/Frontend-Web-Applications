@@ -1,8 +1,8 @@
-import { Appointment } from "../model/Appointment.entity.js";
+import {Review} from "../model/review.entity.js";
 
 export class AppointmentAssembler {
     static toEntityFromResource(resource) {
-        return new Appointment(resource);
+        return new Review(resource);
     }
 
     static toEntitiesFromResponse(response) {

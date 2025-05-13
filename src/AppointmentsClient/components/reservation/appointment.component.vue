@@ -1,6 +1,26 @@
+<template>
+  <div class="appointment-block">
+    <h4>{{ appointment.tipo }}</h4>
+    <p><strong>Cliente:</strong> {{ appointment.clientName }}</p>
+    <p><strong>Salón:</strong> {{ appointment.salonName }}</p>
+    <p><strong>Horario:</strong> {{ formatTime(appointment.timeSlotStart) }} - {{ formatTime(appointment.timeSlotEnd) }}</p>
+    <p>
+      <strong>Estado de pago:</strong>
+      <span :style="{ color: appointment.payment === 'paid' ? 'green' : 'red' }">
+        {{ appointment.payment === 'paid' ? 'Pagado' : 'Pendiente' }}
+      </span>
+    </p>
+    <div class="appointment-actions">
+      <button class="action-button"><i class="pi pi-pencil"></i></button>
+      <button class="action-button"><i class="pi pi-calendar"></i></button>
+      <button class="action-button"><i class="pi pi-times"></i></button>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
-  name: "appointment-component",
+  name: "AppointmentComponent",
   props: {
     appointment: Object
   },
@@ -13,27 +33,14 @@ export default {
 }
 </script>
 
-<template>
-  <div class="appointment-block">
-    <h4>{{ appointment.tipo }}</h4>
-    <p><strong>Cliente:</strong> {{ appointment.clientName }}</p>
-    <p><strong>Salón:</strong> {{ appointment.salonName }}</p>
-    <p><strong>Horario:</strong> {{ formatTime(appointment.timeSlotStart) }} - {{ formatTime(appointment.timeSlotEnd) }}</p>
-    <p>
-      <strong>Estado de pago:</strong>
-      <span :style="{ color: appointment.paymentStatus === 'paid' ? 'green' : 'red' }">
-        {{ appointment.paymentStatus === 'paid' ? 'Pagado' : 'Pendiente' }}
-      </span>
-    </p>
-  </div>
-</template>
-
 <style scoped>
 .appointment-block {
   border: 1px solid #ddd;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+  padding: 16px;
+  margin: 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
   background-color: #f9f9ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 </style>
