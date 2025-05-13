@@ -1,8 +1,8 @@
-import { Reservation } from "../model/reservation.entity.js";
+import {Favorites} from "../model/Favorites.entity.js";
 
 export class ReservationAssembler {
     static toEntityFromResource(resource) {
-        return new Reservation(resource);
+        return new Favorites(resource);
     }
 
     static toEntitiesFromResponse(response) {
