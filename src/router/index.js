@@ -29,6 +29,8 @@ const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
 const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
 
 
+const ReviewsTabComponent = () => import('../reviews/pages/reviews-tab.component.vue')
+
 const routes = [
     // Redirección por defecto al login
     { path: '/', redirect: '/iam/login' },
@@ -57,6 +59,7 @@ const routes = [
             { path: 'subscription', component: SubscriptionTabComponent },
             { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent }
+            { path: 'reviews', component: ReviewsTabComponent },
         ]
     },
     // Client Layout

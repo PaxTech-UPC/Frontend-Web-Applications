@@ -78,6 +78,7 @@ function changePlan(plan) {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .plan-card {
