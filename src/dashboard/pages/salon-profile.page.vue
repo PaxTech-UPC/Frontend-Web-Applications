@@ -12,10 +12,12 @@ import serviceListComponent from "../components/service/service-list.component.v
 import { reviewApiServices } from "../services/review/review-api.services.js";
 import { Review } from "../model/review/review.entity.js";
 import reviewListComponent from "../components/review/review-list.component.vue";
+import ClientLayout from "../../public/components/client-layout/client-layout.component.vue";
 
 export default {
   name: "salon-profile.page",
   components: {
+    ClientLayout,
     SalonProfile: salonProfileComponent,
     serviceList: serviceListComponent,
     reviewList: reviewListComponent,
@@ -66,7 +68,7 @@ export default {
     const isLoading = ref(true);
 
     const goBack = () => {
-      router.push('/dashboard'); // lleva al dashboard
+      router.push('/client/dashboard'); // lleva al dashboard
     };
 
     const salonService = new SalonProfileApiServices();
@@ -93,42 +95,86 @@ export default {
 </script>
 
 <template>
-  <div v-if="isLoading">Cargando...</div>
+  <client-layout />
+  <div v-if="isLoading" class="loading">Cargando...</div>
 
-  <div v-else>
-
+  <div v-else class="container">
     <div class="profile-and-services">
       <div class="left">
-        <salon-profile :salonProfile="salonList" />
-        <div>
-          <h3>Review & Raiting</h3>
+        <div class="section">
+          <salon-profile :salonProfile="salonList" class="salon-profile-img"/>
+        </div>
+
+        <div class="section">
+          <h3 class="section-title">Review & Rating</h3>
           <review-list :reviews="reviews" />
         </div>
       </div>
 
       <div class="right">
-        <service-list :services="services" />
-        <button @click="goBack" style="margin-bottom: 16px;">← Volver</button>
+        <div class="section">
+          <h3 class="section-title">Servicios</h3>
+          <service-list :services="services" />
+        </div>
+        <button @click="goBack" class="go-back">← Volver</button>
       </div>
-
     </div>
   </div>
-
 </template>
 
 <style scoped>
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  padding: 40px;
+}
+
 .profile-and-services {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   align-items: flex-start;
+  flex-wrap: wrap; /* Se apilan si no hay espacio */
 }
 
-.left {
-  flex: 1;
-}
-
+.left,
 .right {
   flex: 1;
+  min-width: 300px;
+}
+
+.section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.go-back {
+  background-color: #ccc;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.go-back:hover {
+  background-color: #aaa;
 }
 
 </style>

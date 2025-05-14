@@ -4,10 +4,12 @@ import { Worker } from "../model/worker.entity.js";
 import { WorkerApiServices } from "../services/worker-api.services.js";
 import PaymentGateway from "../components/payment/payment-gateway.component.vue";
 import Calendar from "../components/calendar/calendar.component.vue";
+import ClientLayoutComponent from "../../public/components/client-layout/client-layout.component.vue";
 
 export default {
   name: "appoiments.pages",
   components: {
+    ClientLayoutComponent,
     Calendar,
     PaymentGateway,
     WorkerList
@@ -54,6 +56,7 @@ export default {
 
 <template>
   <main>
+    <client-layout-component/>
     <div class="columnas">
 
       <section>
