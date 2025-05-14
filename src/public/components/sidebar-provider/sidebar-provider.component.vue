@@ -16,22 +16,22 @@ export default {
       {{ $t('dashboard.appointments') }}
     </router-link>
 
-    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+    <router-link to="/provider/reviews" class="nav-link" active-class="active">
       <i class="pi pi-comments"></i>
       {{ $t('dashboard.reviews') }}
     </router-link>
 
-    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+    <router-link to="/provider/services" class="nav-link" active-class="active">
       <i class="pi pi-briefcase"></i>
       {{ $t('dashboard.services') }}
     </router-link>
 
-    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+    <router-link to="/provider/subscruptions" class="nav-link" active-class="active">
       <i class="pi pi-cog"></i>
       {{ $t('dashboard.subscription') }}
     </router-link>
 
-    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+    <router-link to="/provider/settings" class="nav-link" active-class="active">
       <i class="pi pi-calendar"></i>
       {{ $t('dashboard.settings') }}
     </router-link>

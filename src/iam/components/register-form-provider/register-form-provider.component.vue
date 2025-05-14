@@ -53,7 +53,7 @@ export default {
       </div>
 
       <template #footer>
-        <router-link to="/provider/homeProvider" class="nav-link" active-class="active">
+        <router-link to="/provider/homeProvider " class="nav-link" active-class="active">
           <pv-button
               label="Register as a Provider"
               class="register-button"
