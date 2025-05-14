@@ -72,25 +72,29 @@ const routes = [
        { path: '/:pathMatch(.*)*', component: NotFoundComponent }
        */
 
-    // Dashboard
+    // Ruta para el dashboard
     {
-        path: '/dashboard',
-        name: 'dashboard-main',
-        component: DashboardPage,
-    },
-    {
-        path: '/dashboard/salonProfile/:salonId',
-        name: 'salon-profile',
-        component: SalonProfilePage,
-        props: true
+        path: '/client/dashboard',
+        component: DashboardPage,  // Página principal del dashboard
+
     },
 
-    // Appointments
+    // Ruta para el perfil del salón
     {
-        path: '/appointments', // Sin parámetros
+        path: '/client/salonProfile/:salonId',
+        name: 'salon-profile',
+        component: SalonProfilePage,
+        props: true,
+    },
+
+    // Ruta para las citas dentro del perfil del salón
+    {
+        path: '/client/salonProfile/:salonId/appointments',
         name: 'appointments',
         component: AppointmentPage,
-    },
+        props: true,
+    }
+
 
 ]
 

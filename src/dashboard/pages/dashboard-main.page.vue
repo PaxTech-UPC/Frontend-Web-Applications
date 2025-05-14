@@ -2,11 +2,12 @@
 import {Salon} from "../model/salon/salon.entity.js";
 import {SalonApiServices} from "../services/salon/salon-api.services.js";
 import SalonList from "../components/salon/salon-list.component.vue";
-
+import ClientLayoutComponent from "../../public/components/client-layout/client-layout.component.vue";
 export default {
   name: "dashboard-main.page",
   components: {
-    SalonList
+    SalonList,
+    ClientLayout: ClientLayoutComponent,
   },
   data() {
     return {
@@ -40,7 +41,7 @@ export default {
 </script>
 
 <template>
-
+  <client-layout/>
   <pv-card class="custom-card">
     <template #content>
       <div class="appointment-content">
