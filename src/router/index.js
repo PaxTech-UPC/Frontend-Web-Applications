@@ -20,6 +20,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
+const SubscriptionTabComponent = () => import('../subscription/pages/subscription-tab.component.vue')
 // Dashboard
 const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
 const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
@@ -52,6 +53,8 @@ const routes = [
         component: ProviderLayoutComponent,
         children: [
             { path: '', redirect: '/provider/schedule' },
+            { path: 'schedule', component: SchedulePageComponent },
+            { path: 'subscription', component: SubscriptionTabComponent },
             { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent }
         ]

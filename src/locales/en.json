@@ -45,6 +45,20 @@
   },
   "favorites": {
     "bookNow": "Book now"
+  },
+  "services": {
+    "service": "Service",
+    "duration": "Duration",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "settings": "settings"
+  },
+  "subscription": {
+    "currentPlan": "Your current plan is: ",
+    "upgrade": "Wanna upgrade? Check out these plans",
+    "actions": "Actions",
+    "settings": "settings"
   }
 
 }
