@@ -58,7 +58,7 @@ const routes = [
             { path: 'schedule', component: SchedulePageComponent },
             { path: 'subscription', component: SubscriptionTabComponent },
             { path: 'homeProvider', component: ProviderDashboardComponent },
-            { path: 'schedule', component: SchedulePageComponent }
+            { path: 'schedule', component: SchedulePageComponent },
             { path: 'reviews', component: ReviewsTabComponent },
         ]
     },
