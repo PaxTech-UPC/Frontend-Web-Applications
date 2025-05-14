@@ -25,7 +25,7 @@ export default {
 </script>
 <template>
   <div class="favorite-card">
-    <img :src="fotoUrl" alt="Salon Image" />
+    <img :src="fotoUrl" alt="Salon Image" class="img-fluid" />
     <h3 class="favorite-name">{{ nombre }}</h3>
     <p class="favorite-phone">{{ phone }}</p>
     <div class="favorite-stars">
@@ -43,22 +43,52 @@ export default {
   0 / 5
 </span>
     </div>
+    <button class="book-btn">{{ $t('favorites.bookNow') }}</button>
   </div>
 </template>
 
 <style scoped>
 .favorite-card {
   display: grid;
-  flex-direction: row;
-  border: 1px solid #ccc;
-  flex: 1;
-  padding: 3rem;
-  overflow-x: auto;
-  grid-template-columns: repeat(3, 1fr);
-}
-.favorite-stars{
-  display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-left: 20px;
+  transform: translateX(70px);
 }
+
+.favorite-card img {
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.favorite-name {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  font-weight: bold;
+}
+
+.favorite-phone {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.favorite-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
 </style>

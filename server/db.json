@@ -90,6 +90,27 @@
       "location": "Uptown",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "phone": "555123456"
+    },
+    {
+      "name": "Peinados Locos",
+      "salonId": "salon4",
+      "location": "Downtown",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "phone": "3324879"
+    },
+    {
+      "name": "Jessicas Salon",
+      "salonId": "salon5",
+      "location": "Uptown",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "phone": "4987235"
+    },
+    {
+      "name": "Lolas belleza",
+      "salonId": "salon6",
+      "location": "Midtown",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "phone": "12934867"
     }
   ],
   "workers": [
@@ -201,8 +222,8 @@
       },
       "timeSlot": {
         "timeSlotId": "1",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
+        "start": "2025-05-14T09:00:00Z",
+        "end": "2025-05-15T09:45:00Z",
         "status": true,
         "tipo": "Standard"
       },

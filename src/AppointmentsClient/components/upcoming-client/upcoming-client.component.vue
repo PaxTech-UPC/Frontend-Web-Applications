@@ -25,7 +25,7 @@ export default {
 
     onMounted(async () => {
       try {
-        const response = await AppointmentApiService.getAll();
+        const response = await AppointmentApiService.getAppointments();
         const appointments = response.data;
         console.log('Citas obtenidas:', appointments);
         const now = new Date();

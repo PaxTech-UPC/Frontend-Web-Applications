@@ -31,11 +31,7 @@ export default {
             :phone="favorite.phone"
             :especializacion="favorite.location"
             :foto-url="favorite.imageURL"
-        >
-          <template #action>
-            <button>{{ $t('favorites.bookNow') }}</button>
-          </template>
-        </FavoriteCard>
+        />
       </div>
     </div>
   </section>
@@ -54,5 +50,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
 }
 </style>
