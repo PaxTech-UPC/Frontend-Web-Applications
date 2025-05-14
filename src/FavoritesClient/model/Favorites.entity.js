@@ -1,9 +1,14 @@
 export class Favorites {
-    constructor({id=0,nombre="",especializacion="", fotoUrl=""})
+    constructor({salonid="",
+                    location="",
+                    imageURL="",
+                    phone="",
+                    name=""})
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.especializacion = especializacion;
-        this.fotoUrl = fotoUrl;
+        this.salonid = salonid;
+        this.location = location;
+        this.imageURL = imageURL;
+        this.phone = phone;
+        this.name=name;
     }
 }

@@ -1,25 +1,21 @@
 import axios from 'axios';
 import { BaseApiService } from "../../shared/services/base.service.js";
 
-const resApi = import.meta.env.VITE_API_BASE_URL;
-const reservationEndpoint = import.meta.env.VITE_RESERVATIONS_ENDPOINT_PATH;
+const favApi = import.meta.env.VITE_API_BASE_URL;
+const favoritesEndpoint = import.meta.env.VITE_FAVORITES_ENDPOINT_PATH;
 
-// HardCode
-const serviceApi = 'http://localhost:3000/workers'
-
+const serviceApi = 'http://localhost:3000/salons'
 const http = axios.create({
     baseURL: serviceApi,
 });
 
 export class FavoritesApiService extends BaseApiService {
 
-    constructor(reservationEndpoint) {
-        super(reservationEndpoint);
+    constructor(favoritesEndpoint) {
+        super(favoritesEndpoint);
     }
 
-
-    //HardCode
-    static getAll(){
+    static getSalons(){
         return http.get('');
     }
 }

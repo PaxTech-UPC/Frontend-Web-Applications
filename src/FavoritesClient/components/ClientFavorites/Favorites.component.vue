@@ -1,29 +1,58 @@
 <script>
-import {number} from "@intlify/core-base";
-import {Favorites} from "../../model/Favorites.entity.js";
+import { FavoritesApiService } from "../../services/Favorite-api.service.js";
+import { FavoriteAssembler } from "../../services/Favorites.assembler.js";
+import FavoriteCard from "./FavoriteCard.vue";
 
 export default {
-  name: "FavoritesComponent",
-  props: {
-    id: number,
-    nombre: String,
-    especializacion: String,
-    fotoUrl: String,
-    worker:{type:Favorites},
-  }
+  name: "favorites-component",
+  components: { FavoriteCard },
+  data() {
+    return {
+      favoriteList: [],
+    };
+  },
+  async mounted() {
+    const response = await FavoritesApiService.getSalons();
+    this.favoriteList = FavoriteAssembler.toEntitiesFromResponse(response);
+  },
 };
 </script>
 
 <template>
-  <div class="staff-content">
-    <img class="staff-image" :src="fotoUrl" alt="Staff photo" />
-    <div class="staff-info">
-      <div class="staff-name">{{ nombre }}</div>
-      <div class="staff-role">{{ especializacion }}</div>
+  <section class="appointments-section">
+    <h2 class="title">My favorites</h2>
+    <div class="appointments-left">
+      <div class="group">
+        <FavoriteCard
+            v-for="favorite in favoriteList"
+            :key="favorite.id"
+            :id="favorite.id"
+            :nombre="favorite.name"
+            :phone="favorite.phone"
+            :especializacion="favorite.location"
+            :foto-url="favorite.imageURL"
+        >
+          <template #action>
+            <button>{{ $t('favorites.bookNow') }}</button>
+          </template>
+        </FavoriteCard>
+      </div>
     </div>
-    <div class="staff-action">
-      <button>{{ $t('favorites.bookNow') }}</button>
-    </div>
-  </div>
+  </section>
 </template>
 
+<style scoped>
+.appointments-section {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+</style>

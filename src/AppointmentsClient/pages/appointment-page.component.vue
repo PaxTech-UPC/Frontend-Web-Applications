@@ -1,31 +1,3 @@
-<template>
-  <div>
-    <h1 class="page-title">Appointment</h1>
-    <div class="main-layout">
-      <div class="content-column-apo appointments-section">
-        <h2 class="section-title">Tomorrow</h2>
-        <UpcomingAppointmentsClient/>
-        <AppointmentComponent
-            v-for="appointment in appointments"
-            :key="appointment.reservationId"
-            :appointment="appointment"
-        />
-      </div>
-
-      <hr class="hr-style"/>
-
-      <div class="content-column reviews-section">
-        <h2 class="section-title">Last visited:</h2>
-        <ReviewComponent
-            v-for="review in reviews"
-            :key="review.id"
-            :review="review"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import AppointmentComponent from "../components/reservation/appointment.component.vue";
 import ReviewComponent from "../components/reviews/review.component.vue";
@@ -62,8 +34,36 @@ export default {
 };
 </script>
 
+<template>
+  <div>
+    <h1 class="page-title">Appointment</h1>
+    <div class="main-layout">
+      <div class="content-column-apo appointments-section">
+        <h2 class="section-title">Tomorrow</h2>
+        <UpcomingAppointmentsClient/>
+        <AppointmentComponent
+            v-for="appointment in appointments"
+            :key="appointment.reservationId"
+            :appointment="appointment"
+        />
+      </div>
+
+      <hr class="hr-style"/>
+
+      <div class="content-column reviews-section">
+        <h2 class="section-title">Last visited:</h2>
+        <ReviewComponent
+            v-for="review in reviews"
+            :key="review.id"
+            :review="review"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-/* Puedes conservar los estilos generales aquí */
+
 .page-title {
   font-size: 32px;
   text-align: center;
