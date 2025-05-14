@@ -3,6 +3,7 @@ import es from './locales/es.json';
 import en from './locales/en.json';
 
 const i18n = createI18n({
+    legacy: false,
     locale: 'en',
     fallbackLocale: 'en',
     globalInjection: true,
