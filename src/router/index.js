@@ -21,6 +21,8 @@ const SchedulePageComponent = () => import('../schedule/pages/schedule-page.comp
 
 const SubscriptionTabComponent = () => import('../subscription/pages/subscription-tab.component.vue')
 
+const ReviewsTabComponent = () => import('../reviews/pages/reviews-tab.component.vue')
+
 const routes = [
     // Redirección por defecto al login
     { path: '/', redirect: '/iam/login' },
@@ -47,6 +49,7 @@ const routes = [
             { path: '', redirect: '/provider/schedule' },
             { path: 'schedule', component: SchedulePageComponent },
             { path: 'subscription', component: SubscriptionTabComponent },
+            { path: 'reviews', component: ReviewsTabComponent },
         ]
     },
     // Client Layout
