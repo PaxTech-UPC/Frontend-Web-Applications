@@ -19,7 +19,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
-
+const SubscriptionTabComponent = () => import('../subscription/pages/subscription-tab.component.vue')
 
 const routes = [
     // Redirección por defecto al login
@@ -45,7 +45,8 @@ const routes = [
         component: ProviderLayoutComponent,
         children: [
             { path: '', redirect: '/provider/schedule' },
-            { path: 'schedule', component: SchedulePageComponent }
+            { path: 'schedule', component: SchedulePageComponent },
+            { path: 'subscription', component: SubscriptionTabComponent },
         ]
     },
     // Client Layout

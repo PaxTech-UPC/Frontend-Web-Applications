@@ -10,6 +10,8 @@
     "ourStaff": "Our Staff",
     "overallScore": "Overall score:",
     "reviews": "reviews",
+    "services": "Services",
+    "subscription": "Subscription",
     "manicure": "Manicure",
     "keratinTreatment": "Keratin Treatment",
     "colorCut": "Color & cut",
@@ -40,6 +42,21 @@
   },
   "favorites": {
     "bookNow": "Book now"
+  },
+  "services": {
+    "service": "Service",
+    "duration": "Duration",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "settings": "settings"
+  },
+  "subscription": {
+    "currentPlan": "Your current plan is: ",
+    "upgrade": "Wanna upgrade? Check out these plans",
+    "actions": "Actions",
+    "settings": "settings"
   }
+
 
 }
