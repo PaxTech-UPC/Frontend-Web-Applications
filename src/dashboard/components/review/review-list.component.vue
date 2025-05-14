@@ -18,6 +18,7 @@ export default {
 
 <template>
   <div class="reviews-row">
+
     <review-item
         v-for="review in reviews"
         :key="review.id"
@@ -27,10 +28,14 @@ export default {
 </template>
 
 <style scoped>
+
 .reviews-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 16PX;
   justify-content: flex-start;
+  margin-left: 50px;
 }
+
+
 </style>

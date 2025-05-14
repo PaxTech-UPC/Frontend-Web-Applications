@@ -2,6 +2,13 @@
   "dashboard": {
     "home": "Inicio",
     "schedule": "Agenda",
+
+    "appointments": "Citas",
+    "reviews": "Reseñas",
+    "services": "Servicios",
+    "subscription": "Suscripción",
+    "settings": "Configuración",
+
     "hey": "Hola ",
     "letsWork": "¡Manos a la obra!",
     "upcoming": "Próximas citas",
@@ -9,7 +16,6 @@
     "viewSchedule": "Ver agenda",
     "ourStaff": "Nuestro Personal",
     "overallScore": "Calificación general:",
-    "reviews": "Reseñas",
     "manicure": "Manicura",
     "keratinTreatment": "Tratamiento de keratina",
     "colorCut": "Color y corte",
@@ -17,7 +23,6 @@
     "hairExtensionSpecialist": "Especialista en extensiones",
     "haircutSpecialist": "Especialista en cortes",
     "stylist": "Estilista",
-    "appointments": "Reservas",
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
     "popular": "Mas popular"

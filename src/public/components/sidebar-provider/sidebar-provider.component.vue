@@ -13,8 +13,29 @@ export default {
 
     <router-link to="/provider/schedule" class="nav-link" active-class="active">
       <i class="pi pi-calendar"></i>
-      {{ $t('dashboard.schedule') }}
+      {{ $t('dashboard.appointments') }}
     </router-link>
+
+    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+      <i class="pi pi-comments"></i>
+      {{ $t('dashboard.reviews') }}
+    </router-link>
+
+    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+      <i class="pi pi-briefcase"></i>
+      {{ $t('dashboard.services') }}
+    </router-link>
+
+    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+      <i class="pi pi-cog"></i>
+      {{ $t('dashboard.subscription') }}
+    </router-link>
+
+    <router-link to="/provider/schedule" class="nav-link" active-class="active">
+      <i class="pi pi-calendar"></i>
+      {{ $t('dashboard.settings') }}
+    </router-link>
+
   </nav>
 </template>
 

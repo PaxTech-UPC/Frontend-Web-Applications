@@ -2,6 +2,13 @@
   "dashboard": {
     "home": "Home",
     "schedule": "Schedule",
+
+    "appointments": "Appointments",
+    "reviews": "Reviews",
+    "services": "Services",
+    "subscription": "Subscription",
+    "settings": "Settings",
+
     "hey": "Hey ",
     "letsWork": "Lets Get to Work!",
     "upcoming": "Upcoming appointments",
@@ -9,7 +16,6 @@
     "viewSchedule": "View schedule",
     "ourStaff": "Our Staff",
     "overallScore": "Overall score:",
-    "reviews": "reviews",
     "manicure": "Manicure",
     "keratinTreatment": "Keratin Treatment",
     "colorCut": "Color & cut",
@@ -17,7 +23,6 @@
     "hairExtensionSpecialist": "Hair extension specialist",
     "haircutSpecialist": "Haircut specialist",
     "stylist": "Stylist",
-    "appointments": "Appointments",
     "favorites": "My Favorites",
     "profile": "Profile"
   },

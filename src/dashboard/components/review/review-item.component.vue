@@ -19,7 +19,7 @@ export default {
         <div class="rating-container">
           <pv-rating :modelValue="review.rating" readonly :cancel="false" />
         </div>
-        <p>{{ review.text }}</p>
+        <p class="description">{{ review.text }}</p>
       </div>
     </template>
   </pv-card>
@@ -27,12 +27,23 @@ export default {
 </template>
 
 <style scoped>
+
 .review-card {
-  width: 250px;
+  width: 400px;
+  height: 220px;
+  background-color: #F5F5F5 !important;
+  color: black !important;
 }
 .rating-container {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0;
+  margin: 20px;
 }
+
+.description {
+  margin: 20px;
+}
+
+
+
 </style>

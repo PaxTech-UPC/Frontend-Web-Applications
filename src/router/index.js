@@ -17,6 +17,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 // Provider
 
+const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
 // Dashboard
@@ -51,6 +52,7 @@ const routes = [
         component: ProviderLayoutComponent,
         children: [
             { path: '', redirect: '/provider/schedule' },
+            { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent }
         ]
     },
