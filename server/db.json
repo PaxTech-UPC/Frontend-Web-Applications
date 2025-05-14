@@ -71,14 +71,10 @@
   ],
   "salons": [
     {
-<<<<<<< HEAD
       "salonId": "salon1",
       "salonName": "Corte & Estilo",
-=======
       "name": "Montalvo",
-      "salonId": "1",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
->>>>>>> feature/Favorites
       "location": "Downtown",
       "phone": "123456789",
       "coverImage": "https://media.istockphoto.com/id/2035352921/es/vector/una-linda-ilustraci%C3%B3n-de-un-tiovivo-un-carrusel-con-tres-caballos-blancos.jpg?s=612x612&w=0&k=20&c=X_2S7IG03TqVtsWpkv7VhP0uAPtQuA5ADkN4-uKH34o=",
@@ -87,7 +83,6 @@
     {
       "name": "magic2",
       "salonId": "salon2",
-<<<<<<< HEAD
       "salonName": "La Casa del Cabello",
       "location": "Midtown",
       "phone": "987654321",
@@ -148,11 +143,8 @@
       "location": "Lima Centro",
       "phone": "987654321",
       "coverImage": "https://media.istockphoto.com/id/2035352921/es/vector/una-linda-ilustraci%C3%B3n-de-un-tiovivo-un-carrusel-con-tres-caballos-blancos.jpg?s=612x612&w=0&k=20&c=X_2S7IG03TqVtsWpkv7VhP0uAPtQuA5ADkN4-uKH34o=",
-      "rating": 2.7
-=======
-      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
-      "location": "Midtown",
-      "phone": "987654321"
+      "rating": 2.7,
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg"
     },
     {
       "name": "tu super salon",
@@ -181,7 +173,6 @@
       "location": "Midtown",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "phone": "12934867"
->>>>>>> feature/Favorites
     }
   ],
   "workers": [

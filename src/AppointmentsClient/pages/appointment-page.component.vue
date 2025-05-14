@@ -5,10 +5,12 @@ import UpcomingAppointmentsClient from "../components/upcoming-client/upcoming-c
 import { AppointmentApiService } from "../services/Appointment-api.service.js";
 import { ReviewApiService } from "../services/Review-api.service.js";
 import { AppointmentAssembler } from "../services/Appointment.assembler.js";
+import UpcomingClientComponent from "../components/upcoming-client/upcoming-client.component.vue";
 
 export default {
   name: "AppointmentPageComponent",
   components: {
+    UpcomingClientComponent,
     UpcomingAppointmentsClient,
     AppointmentComponent,
     ReviewComponent,
@@ -65,21 +67,21 @@ export default {
   <div class="container">
     <!-- Columna izquierda: Appointments -->
     <div class="appointments-section">
-      <h1>Tomorrow</h1>
+      <h3 class="h3-container">Tomorrow</h3>
       <AppointmentComponent
           v-for="appointment in tomorrowAppointments"
           :key="appointment.reservationId"
           :appointment="appointment"
       />
 
-      <h1>Next Week</h1>
+      <h3 class="h3-container">Next Week</h3>
       <AppointmentComponent
           v-for="appointment in nextWeekAppointments"
           :key="appointment.reservationId"
           :appointment="appointment"
       />
 
-      <h1>All Appointments</h1>
+      <h3 class="h3-container">All Appointments</h3>
       <AppointmentComponent
           v-for="appointment in appointments"
           :key="appointment.reservationId"
@@ -92,14 +94,14 @@ export default {
 
     <!-- Columna derecha: Reviews -->
     <div class="reviews-section">
-      <h1>Last Visited</h1>
+      <h3>Last Visited</h3>
       <ReviewComponent
           v-if="lastVisited"
           :key="lastVisited.id"
           :review="lastVisited"
       />
 
-      <h1>All Reviews</h1>
+      <h3>All Reviews</h3>
       <ReviewComponent
           v-for="review in reviews"
           :key="review.id"
@@ -115,6 +117,10 @@ export default {
   justify-content: space-between;
   gap: 2rem;
   padding: 1rem;
+}
+
+.h3-container{
+  margin-left: 400px;
 }
 
 .appointments-section,
