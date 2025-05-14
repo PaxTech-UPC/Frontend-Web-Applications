@@ -27,13 +27,15 @@ export default {
   },
   async mounted() {
     const response = await ReservationApiService.getAll();
-    this.reservations = ReservationAssembler.toEntitiesFromResponse(response);
+    let allReservations = ReservationAssembler.toEntitiesFromResponse(response);
 
-    // Guardar directamente en calendars (puedes renombrar si prefieres)
-    this.calendars = this.reservations;
+    // ✅ Filtrar reservas inválidas (sin worker o sin nombre de worker)
+    allReservations = allReservations.filter(r => r.worker && r.worker.name);
 
-    // Obtener nombres únicos de workers
-    const uniqueWorkers = [...new Set(this.reservations.map(r => r.worker.name))];
+    this.reservations = allReservations;
+    this.calendars = allReservations;
+
+    const uniqueWorkers = [...new Set(allReservations.map(r => r.worker.name))];
     this.workers = ['Todos', ...uniqueWorkers];
 
   },
