@@ -21,9 +21,11 @@ export default {
   padding: 1rem;
 }
 
-.subscription-tab h1 {
+h1 {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+  margin-left: 3rem;
+  text-align: left;
 }
+
+
 </style>
