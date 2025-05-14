@@ -1,3 +1,47 @@
+<script>
+import {Appointment} from "../../model/Appointment.entity.js";
+import {AppointmentApiService} from "../../services/Appointment-api.service.js";
+import {ReviewApiService} from "../../services/Review-api.service.js";
+import {AppointmentAssembler} from "../../services/Appointment.assembler.js";
+import UpcomingAppointmentsClient from "../upcoming-client/upcoming-client.component.vue";
+import ReviewComponent from "../reviews/review.component.vue";
+
+export default {
+  name: "appointment-component",
+  props: {
+    appointment: Object
+  },
+  methods: {
+    formatTime(date) {
+      const d = new Date(date);
+      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+  },
+  components: {
+    UpcomingAppointmentsClient,
+    ReviewComponent,
+  },
+  data() {
+    return {
+      appointments: [],
+      reviews: []
+    };
+  },
+  async mounted() {
+    try {
+      const [appointmentsResponse, reviewsResponse] = await Promise.all([
+        AppointmentApiService.getAppointments(),
+        ReviewApiService.getAll()
+      ]);
+      this.appointments = AppointmentAssembler.toEntitiesFromResponse(appointmentsResponse);
+      this.reviews = reviewsResponse.data;
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
+    }
+  }
+}
+</script>
+
 <template>
   <div class="appointment-block">
     <h4>{{ appointment.tipo }}</h4>
@@ -17,21 +61,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "AppointmentComponent",
-  props: {
-    appointment: Object
-  },
-  methods: {
-    formatTime(date) {
-      const d = new Date(date);
-      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-  }
-}
-</script>
 
 <style scoped>
 .appointment-block {

@@ -20,6 +20,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
+<<<<<<< HEAD
 // Dashboard
 const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
 const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
@@ -27,6 +28,9 @@ const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
 // Appointment
 const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
 
+=======
+const FavoritesPageComponent = () =>import('../FavoritesClient/pages/favorites-pages.component.vue')
+>>>>>>> feature/Favorites
 
 const routes = [
     // Redirección por defecto al login
@@ -64,8 +68,8 @@ const routes = [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
             { path: 'appointments', component: AppointmentPageComponent },
+            { path: 'favorites', component: FavoritesPageComponent },
             /**
-            { path: 'favorites', component: ClientFavoriteComponent },
             { path: 'profile', component: ClientProfileComponent },*/
         ]
     },
