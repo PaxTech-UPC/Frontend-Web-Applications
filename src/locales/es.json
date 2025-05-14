@@ -1,4 +1,3 @@
-
 {
   "dashboard": {
     "home": "Inicio",
@@ -10,7 +9,7 @@
     "viewSchedule": "Ver agenda",
     "ourStaff": "Nuestro Personal",
     "overallScore": "Calificación general:",
-    "reviews": "reseñas",
+    "reviews": "Reseñas",
     "manicure": "Manicura",
     "keratinTreatment": "Tratamiento de keratina",
     "colorCut": "Color y corte",
@@ -20,7 +19,8 @@
     "stylist": "Estilista",
     "appointments": "Reservas",
     "favorites": "Mis Favoritos",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "popular": "Mas popular"
   },
   "profile": {
     "yourProfile": "Tu Perfil:",

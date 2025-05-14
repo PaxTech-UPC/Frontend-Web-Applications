@@ -1,9 +1,17 @@
-<script setup>
-
+<script>
+  import AppoimentsPages from "./appoiments/pages/appoiments.pages.vue";
+  export default {
+    name: "App",
+    components: {
+      AppoimentsPages: AppoimentsPages,
+    },
+  }
 </script>
 
 <template>
-
+  <!--
+    <appoiments-pages />
+  -->
   <router-view/>
 
 </template>

@@ -19,6 +19,12 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 
+// Dashboard
+const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
+const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
+
+// Appointment
+const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
 
 
 const routes = [
@@ -65,6 +71,26 @@ const routes = [
        // Ruta comodín (404)
        { path: '/:pathMatch(.*)*', component: NotFoundComponent }
        */
+
+    // Dashboard
+    {
+        path: '/dashboard',
+        name: 'dashboard-main',
+        component: DashboardPage,
+    },
+    {
+        path: '/dashboard/salonProfile/:salonId',
+        name: 'salon-profile',
+        component: SalonProfilePage,
+        props: true
+    },
+
+    // Appointments
+    {
+        path: '/appointments', // Sin parámetros
+        name: 'appointments',
+        component: AppointmentPage,
+    },
 
 ]
 
