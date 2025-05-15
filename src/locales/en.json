@@ -45,6 +45,13 @@
   },
   "favorites": {
     "bookNow": "Book now"
+  },
+  "subscription": {
+    "currentPlan": "Your current plan is: ",
+    "upgrade": "Wanna upgrade? Check out these plans",
+    "actions": "Actions",
+    "settings": "settings"
   }
+
 
 }

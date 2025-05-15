@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 // IAM (auth)
 
 const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
@@ -20,7 +19,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 const ReviewsTabComponent = () => import ('../reviews/pages/reviews-tab.component.vue')
-
+const SubscriptionTabComponent = () => import ('../subscription/pages/subscription-tab.component.vue')
 
 // Dashboard
 const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
@@ -59,7 +58,8 @@ const routes = [
             { path: '', redirect: '/provider/schedule' },
             { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent },
-            { path: 'reviews', component: ReviewsTabComponent }
+            { path: 'reviews', component: ReviewsTabComponent },
+            { path: 'subscription', component: SubscriptionTabComponent }
         ]
     },
     // Client Layout

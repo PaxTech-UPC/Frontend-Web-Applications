@@ -46,5 +46,11 @@
   },
   "favorites": {
     "bookNow": "Reservar ahora"
+  },
+  "subscription": {
+    "currentPlan": "Tu plan actual es: ",
+    "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
+    "actions": "Acciones",
+    "settings": "settings"
   }
 }
