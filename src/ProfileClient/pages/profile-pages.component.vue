@@ -1,18 +1,16 @@
 <script>
-import FavoritesComponent from "../components/ClientFavorites/Favorites.component.vue";
+import ProfileClientComponent from "../components/profile-client.component.vue";
 import UpcomingClientComponent from "../../AppointmentsClient/components/upcoming-client/upcoming-client.component.vue";
-export default {
-  name: "FavoritesPageComponent",
-  components: {
-    UpcomingClientComponent,
-    FavoritesComponent,
-  },
 
-};
+export default {
+  name: "profile-pages-component",
+  components: {UpcomingClientComponent, ProfileClientComponent}
+}
 </script>
+
 <template>
   <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
-  <favorites-component></favorites-component>
+<profile-client-component></profile-client-component>
 </template>
 
 <style scoped>

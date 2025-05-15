@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      salons: [] // Aca se guardarán los salones
+      salons: []
     };
   },
   mounted() {
@@ -41,7 +41,6 @@ export default {
 </script>
 
 <template>
-  <client-layout/>
   <pv-card class="custom-card">
     <template #content>
       <div class="appointment-content">
@@ -67,11 +66,6 @@ export default {
     </template>
   </pv-card>
 
-  <div class="dashboard">
-    <h2 class="text-xl font-bold mb-4">Más Popular</h2>
-    <SalonListComponent v-if="salons.length" :salones="salons" />
-    <router-view />
-  </div>
 </template>
 
 <style scoped>
@@ -93,7 +87,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 2px;
 }
 
 .day {

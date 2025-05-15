@@ -67,6 +67,7 @@ export default {
   <div class="container">
     <!-- Columna izquierda: Appointments -->
     <div class="appointments-section">
+      <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
       <h3 class="h3-container">Tomorrow</h3>
       <AppointmentComponent
           v-for="appointment in tomorrowAppointments"
@@ -121,6 +122,17 @@ export default {
 
 .h3-container{
   margin-left: 400px;
+}
+.upcoming-appo{
+  width: 250px;
+  background-color: #f0dff0; /* Soft purple */
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+  top: 300px;
+  left: 5px;
 }
 
 .appointments-section,
