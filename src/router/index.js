@@ -19,6 +19,7 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
+const ReviewsTabComponent = () => import ('../reviews/pages/reviews-tab.component.vue')
 
 
 // Dashboard
@@ -27,6 +28,8 @@ const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
 
 // Appointment
 const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
+
+
 const FavoritesPageComponent = () =>import('../FavoritesClient/pages/favorites-pages.component.vue')
 
 
@@ -55,7 +58,8 @@ const routes = [
         children: [
             { path: '', redirect: '/provider/schedule' },
             { path: 'homeProvider', component: ProviderDashboardComponent },
-            { path: 'schedule', component: SchedulePageComponent }
+            { path: 'schedule', component: SchedulePageComponent },
+            { path: 'reviews', component: ReviewsTabComponent }
         ]
     },
     // Client Layout
