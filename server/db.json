@@ -392,6 +392,39 @@
       "worker": {
         "name":"Alejandro"
       }
+    },
+    {
+      "reservationId": "10",
+      "tipo": "Pedicure",
+      "client": {
+        "clientId": "client10",
+        "birthDate": "1995-11-30T00:00:00Z",
+        "user": {
+          "userId": "user10",
+          "name": "Juana"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Downtown",
+        "phone": "911111111"
+      },
+      "payment": {
+        "paymentId": "pay4",
+        "amount": 30.0,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts9",
+        "start": "2025-05-14T08:00:00Z",
+        "end": "2025-05-14T08:30:00Z",
+        "status": true,
+        "tipo": "Express"
+      },
+      "worker": {
+        "name":"Maria"
+      }
     }
   ],
   "reviews": [
