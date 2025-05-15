@@ -20,6 +20,7 @@ const ProviderDashboardComponent = () => import('../dashboard/pages/provider-das
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
 const ReviewsTabComponent = () => import ('../reviews/pages/reviews-tab.component.vue')
 const SubscriptionTabComponent = () => import ('../subscription/pages/subscription-tab.component.vue')
+const ServicesTabComponent = () => import ('../services/pages/services-tab.component.vue')
 
 // Dashboard
 const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
@@ -61,7 +62,8 @@ const routes = [
             { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent },
             { path: 'reviews', component: ReviewsTabComponent },
-            { path: 'subscription', component: SubscriptionTabComponent }
+            { path: 'subscription', component: SubscriptionTabComponent },
+            { path: 'services', component: ServicesTabComponent }
         ]
     },
     // Client Layout

@@ -52,5 +52,13 @@
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
     "actions": "Acciones",
     "settings": "settings"
+  },
+  "services": {
+    "service": "Servicio",
+    "duration": "Duración",
+    "price": "Precio",
+    "status": "Estado",
+    "actions": "Acciones",
+    "settings": "settings"
   }
 }

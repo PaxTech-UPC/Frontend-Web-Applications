@@ -51,7 +51,13 @@
     "upgrade": "Wanna upgrade? Check out these plans",
     "actions": "Actions",
     "settings": "settings"
+  },
+  "services": {
+    "service": "Service",
+    "duration": "Duration",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "settings": "settings"
   }
-
-
 }
