@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 // IAM (auth)
 
 const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.component.vue')
@@ -19,6 +18,9 @@ const ClientLayoutComponent = () => import('../public/components/client-layout/c
 
 const ProviderDashboardComponent = () => import('../dashboard/pages/provider-dashboard.vue')
 const SchedulePageComponent = () => import('../schedule/pages/schedule-page.component.vue')
+const ReviewsTabComponent = () => import ('../reviews/pages/reviews-tab.component.vue')
+const SubscriptionTabComponent = () => import ('../subscription/pages/subscription-tab.component.vue')
+const ServicesTabComponent = () => import ('../services/pages/services-tab.component.vue')
 
 // Dashboard
 const SalonProfilePage = () => import('../dashboard/pages/salon-profile.page.vue')
@@ -26,6 +28,11 @@ const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
 
 // Appointment
 const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
+
+
+const FavoritesPageComponent = () =>import('../FavoritesClient/pages/favorites-pages.component.vue')
+
+const ProfilePageComponent = () => import('../ProfileClient/pages/profile-pages.component.vue');
 
 
 const routes = [
@@ -53,7 +60,10 @@ const routes = [
         children: [
             { path: '', redirect: '/provider/schedule' },
             { path: 'homeProvider', component: ProviderDashboardComponent },
-            { path: 'schedule', component: SchedulePageComponent }
+            { path: 'schedule', component: SchedulePageComponent },
+            { path: 'reviews', component: ReviewsTabComponent },
+            { path: 'subscription', component: SubscriptionTabComponent },
+            { path: 'services', component: ServicesTabComponent }
         ]
     },
     // Client Layout
@@ -64,9 +74,8 @@ const routes = [
             { path: '', redirect: '/client/homeClient' },
             { path: 'homeClient', component: SidebarComponentClient},
             { path: 'appointments', component: AppointmentPageComponent },
-            /**
-            { path: 'favorites', component: ClientFavoriteComponent },
-            { path: 'profile', component: ClientProfileComponent },*/
+            { path: 'favorites', component: FavoritesPageComponent },
+            { path: 'profile', component: ProfilePageComponent },
         ]
     },
     /*

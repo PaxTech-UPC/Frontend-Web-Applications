@@ -1,42 +1,16 @@
-<template>
-  <div>
-    <h1 class="page-title">Appointment</h1>
-    <div class="main-layout">
-      <div class="content-column-apo appointments-section">
-        <h2 class="section-title">Tomorrow</h2>
-        <UpcomingAppointmentsClient/>
-        <AppointmentComponent
-            v-for="appointment in appointments"
-            :key="appointment.reservationId"
-            :appointment="appointment"
-        />
-      </div>
-
-      <hr class="hr-style"/>
-
-      <div class="content-column reviews-section">
-        <h2 class="section-title">Last visited:</h2>
-        <ReviewComponent
-            v-for="review in reviews"
-            :key="review.id"
-            :review="review"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import AppointmentComponent from "../components/reservation/appointment.component.vue";
 import ReviewComponent from "../components/reviews/review.component.vue";
-import { AppointmentApiService } from "../services/Appointment-api.service.js";
-import { AppointmentAssembler } from "../services/Appointment.assembler.js";
-import { ReviewApiService } from "../services/Review-api.service.js";
 import UpcomingAppointmentsClient from "../components/upcoming-client/upcoming-client.component.vue";
+import { AppointmentApiService } from "../services/Appointment-api.service.js";
+import { ReviewApiService } from "../services/Review-api.service.js";
+import { AppointmentAssembler } from "../services/Appointment.assembler.js";
+import UpcomingClientComponent from "../components/upcoming-client/upcoming-client.component.vue";
 
 export default {
   name: "AppointmentPageComponent",
   components: {
+    UpcomingClientComponent,
     UpcomingAppointmentsClient,
     AppointmentComponent,
     ReviewComponent,
@@ -44,13 +18,13 @@ export default {
   data() {
     return {
       appointments: [],
-      reviews: []
+      reviews: [],
     };
   },
   async mounted() {
     try {
       const [appointmentsResponse, reviewsResponse] = await Promise.all([
-        AppointmentApiService.getAll(),
+        AppointmentApiService.getAppointments(),
         ReviewApiService.getAll()
       ]);
       this.appointments = AppointmentAssembler.toEntitiesFromResponse(appointmentsResponse);
@@ -58,48 +32,121 @@ export default {
     } catch (error) {
       console.error("Error al cargar datos:", error);
     }
+},
+  computed: {
+    tomorrowAppointments() {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      return this.appointments.filter(app => {
+        const appDate = new Date(app.date);
+        return (
+            appDate.getDate() === tomorrow.getDate() &&
+            appDate.getMonth() === tomorrow.getMonth()
+        );
+      });
+    },
+    nextWeekAppointments() {
+      const today = new Date();
+      const nextWeekStart = new Date(today);
+      nextWeekStart.setDate(today.getDate() + 2);
+      const nextWeekEnd = new Date(today);
+      nextWeekEnd.setDate(today.getDate() + 7);
+
+      return this.appointments.filter(app => {
+        const appDate = new Date(app.date);
+        return appDate >= nextWeekStart && appDate <= nextWeekEnd;
+      });
+    },
+    lastVisited() {
+      return this.reviews[0] || null;
+    }
   }
 };
 </script>
+<template>
+  <div class="container">
+    <!-- Columna izquierda: Appointments -->
+    <div class="appointments-section">
+      <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
+      <h3 class="h3-container">Tomorrow</h3>
+      <AppointmentComponent
+          v-for="appointment in tomorrowAppointments"
+          :key="appointment.reservationId"
+          :appointment="appointment"
+      />
 
-<style scoped>
-/* Puedes conservar los estilos generales aquí */
-.page-title {
-  font-size: 32px;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-left: 220px;
-  padding-top: 20px;
-  color: #333;
-}
+      <h3 class="h3-container">Next Week</h3>
+      <AppointmentComponent
+          v-for="appointment in nextWeekAppointments"
+          :key="appointment.reservationId"
+          :appointment="appointment"
+      />
 
-.main-layout {
+      <h3 class="h3-container">All Appointments</h3>
+      <AppointmentComponent
+          v-for="appointment in appointments"
+          :key="appointment.reservationId"
+          :appointment="appointment"
+      />
+    </div>
+
+    <!-- Línea divisoria vertical -->
+    <hr class="vertical-line" />
+
+    <!-- Columna derecha: Reviews -->
+    <div class="reviews-section">
+      <h3>Last Visited</h3>
+      <ReviewComponent
+          v-if="lastVisited"
+          :key="lastVisited.id"
+          :review="lastVisited"
+      />
+
+      <h3>All Reviews</h3>
+      <ReviewComponent
+          v-for="review in reviews"
+          :key="review.id"
+          :review="review"
+      />
+    </div>
+  </div>
+</template>
+<style>
+.container {
   display: flex;
-  padding: 0 20px;
-  margin-left: 220px;
-  gap: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem;
 }
 
-.hr-style {
+.h3-container{
+  margin-left: 400px;
+}
+.upcoming-appo{
+  width: 250px;
+  background-color: #f0dff0; /* Soft purple */
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+  top: 300px;
+  left: 5px;
 }
 
-.content-column-apo {
-  flex: 1;
-  min-width: 500px;
-  max-width: 600px;
-  margin-left: 100px;
-}
-
+.appointments-section,
 .reviews-section {
-  width: 350px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.section-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 24px;
-  color: #333;
+.vertical-line {
+  width: 2px;
+  background-color: #ccc;
+  height: auto;
+  align-self: stretch;
+  border: none;
 }
+
 </style>

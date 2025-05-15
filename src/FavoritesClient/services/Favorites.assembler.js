@@ -1,18 +1,12 @@
-import { Reservation } from "../model/reservation.entity.js";
+import {Favorites} from "../model/Favorites.entity.js";
 
-export class ReservationAssembler {
+export class FavoriteAssembler {
     static toEntityFromResource(resource) {
-        return new Reservation(resource);
+        return new Favorites(resource);
     }
-
     static toEntitiesFromResponse(response) {
         console.log(response.data.map(resource => this.toEntityFromResource(resource)));
         return response.data.map(resource => this.toEntityFromResource(resource));
     }
-<<<<<<< HEAD
-}
-=======
-
 }
 
->>>>>>> feature/Favorites
