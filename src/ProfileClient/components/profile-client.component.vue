@@ -6,11 +6,11 @@ export default {
       isLoading: false,
       showCurrentPasswordField: false,
       profile: {
-        name: '',
-        email: '',
-        phoneNumber: '',
-        identityDocument: '',
-        notifications: false,
+        name: 'Fred Trollestein',
+        email: 'fredmango.troll@example.com',
+        phoneNumber: '+51 987654321',
+        identityDocument: '12345678',
+        notifications: true,
         location: false,
       },
       passwordForm: {
@@ -112,7 +112,7 @@ export default {
                 <div v-else class="password-placeholder">
                   ***********
                   <button @click="showCurrentPasswordField = true">
-                    <span class="material-icons">edit</span> Change
+                    <span class="material-icons"></span> Change
                   </button>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default {
 
               <div class="save-buttons">
                 <button :disabled="!canChangePassword" @click="changePassword">
-                  <span class="material-icons">save</span> Save changes
+                  <span class="material-icons"></span> Save changes
                 </button>
               </div>
             </div>
@@ -148,11 +148,11 @@ export default {
       <!-- Account actions -->
       <div class="account-actions">
         <button class="logout-button" @click="logout">
-          <span class="material-icons">logout</span> Log out
+          <span class="material-icons"></span> Log out
         </button>
 
-        <button class="delete-button" @click="deleteAccount">
-          <span class="material-icons">delete_forever</span> Delete account
+        <button class="delete-button" @click="deleteAccount" href="/iam/logout">
+          <span class="material-icons"></span> Delete account
         </button>
       </div>
     </div>
@@ -167,38 +167,66 @@ export default {
 <style scoped>
 .profile-container {
   padding: 20px;
+  max-width: 600px; /* Ajusta el ancho máximo */
+  margin: 0 auto;    /* Centra horizontalmente */
+  background-color: #fdfdfd; /* Opcional: color de fondo suave */
+  border-radius: 12px;       /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 .profile-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-size: 1.4em;
+}
+.section-title {
+  font-size: 1.2em;
+}
+button {
+  font-size: 0.9em;
+}
+input {
+  padding: 6px 10px;
 }
 .edit-button {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 16px;
 }
 .profile-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .form-field {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.form-field input {
+  padding: 4px 6px;
+  font-size: 14px;
 }
 .toggle-field {
-  margin-top: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+.toggle-field input {
+  margin-right: 5px;
 }
 .account-actions {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
-  gap: 15px;
+  gap: 10px;
+}
+.account-actions button {
+  font-size: 13px;
+  padding: 6px 10px;
 }
 .loading-spinner {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .spinner {
   animation: spin 1s linear infinite;
+  font-size: 30px;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -206,6 +234,6 @@ export default {
 }
 .error-msg {
   color: red;
-  font-size: 0.8em;
+  font-size: 12px;
 }
 </style>
