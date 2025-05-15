@@ -29,6 +29,8 @@ const DashboardPage = () => import('../dashboard/pages/dashboard-main.page.vue')
 const AppointmentPage = () => import('../appoiments/pages/appoiments.pages.vue');
 const FavoritesPageComponent = () =>import('../FavoritesClient/pages/favorites-pages.component.vue')
 
+const ProfilePageComponent = () => import('../ProfileClient/pages/profile-pages.component.vue');
+
 
 const routes = [
     // Redirección por defecto al login
@@ -67,8 +69,7 @@ const routes = [
             { path: 'homeClient', component: SidebarComponentClient},
             { path: 'appointments', component: AppointmentPageComponent },
             { path: 'favorites', component: FavoritesPageComponent },
-            /**
-            { path: 'profile', component: ClientProfileComponent },*/
+            { path: 'profile', component: ProfilePageComponent },
         ]
     },
     /*
