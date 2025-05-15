@@ -49,19 +49,27 @@ export default {
 
 <style scoped>
 .favorite-card {
-  display: grid;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  margin-left: 20px;
-  transform: translateX(70px);
+  margin-left: 70px;
+  margin-bottom: 1rem;
+  max-width: 300px;
+  width: 100%;
 }
 
+
+@media (max-width: 768px) {
+  .favorite-card {
+    margin-left: 20px;
+    max-width: 100%;
+  }
+}
 .favorite-card img {
   width: 100%;
   max-width: 170px;

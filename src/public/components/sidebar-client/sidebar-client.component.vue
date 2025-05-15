@@ -33,6 +33,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  top:70px;
   position: fixed;
 }
 
