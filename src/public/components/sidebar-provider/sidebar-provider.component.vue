@@ -27,28 +27,13 @@ export default {
     </router-link>
 
     <router-link to="/provider/subscription" class="nav-link" active-class="active">
-      <i class="pi pi-cog"></i>
+      <i class="pi pi-wallet"></i>
       {{ $t('dashboard.subscription') }}
     </router-link>
 
     <router-link to="/provider/settings" class="nav-link" active-class="active">
-      <i class="pi pi-calendar"></i>
+      <i class="pi pi-cog"></i>
       {{ $t('dashboard.settings') }}
-    </router-link>
-
-    <router-link to="/provider/reviews" class="nav-link" active-class="active">
-      <i class="pi pi-star"></i>
-      {{ $t('dashboard.reviews') }}
-    </router-link>
-
-    <router-link to="/provider/services" class="nav-link" active-class="active">
-      <i class="pi pi-sparkles"></i>
-      {{ $t('dashboard.services') }}
-    </router-link>
-
-    <router-link to="/provider/subscription" class="nav-link" active-class="active">
-      <i class="pi pi-wallet"></i>
-      {{ $t('dashboard.subscription') }}
     </router-link>
 
   </nav>
