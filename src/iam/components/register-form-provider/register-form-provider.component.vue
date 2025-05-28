@@ -1,111 +1,76 @@
 <script>
-import Button from "primevue/button";
-
 export default {
-  name: "register-form-provider",
-  components: {Button}
-}
+  name: "register-form-provider-component"
+};
 </script>
 
 <template>
-  <form class="register-form">
-    <pv-card class="register-card">
-      <template #content>
-        <div class="full-width">
-          <label for="email" class="title">Email Address</label>
-          <input
-              id="email"
-              type="email"
-              v-model="email"
-              placeholder="example@business.com"
-              class="p-inputtext"
-          />
-        </div>
+  <form class="register-ui-form">
+    <h2 class="form-title">Create an account</h2>
+    <p class="form-subtitle">
+      Already have an account?
+      <router-link to="/iam/login" class="form-link">Log in</router-link>
+    </p>
 
-        <div class="full-width">
-          <label for="password" class="title">Password</label>
-          <input
-              id="password"
-              type="password"
-              v-model="password"
-              placeholder="Your password"
-              class="p-inputtext"
-          />
-        </div>
+    <input type="text" placeholder="Full Name Company" class="form-input" />
+    <input type="email" placeholder="Email" class="form-input" />
+    <input type="password" placeholder="Password" class="form-input" />
 
-        <div class="full-width">
-          <label for="businessName" class="title">Business Name</label>
-          <input
-              id="businessName"
-              type="text"
-              v-model="businessName"
-              placeholder="My Business"
-              class="p-inputtext"
-          />
-        </div>
-      </template>
-
-
-      <div class="left-section">
-        <router-link to="/iam/login">
-          <Button icon="pi pi-sign-out" class="icon-button logout" aria-label="Logout" />
-        </router-link>
-      </div>
-
-      <template #footer>
-        <router-link to="/provider/homeProvider " class="nav-link" active-class="active">
-          <pv-button
-              label="Register as a Provider"
-              class="register-button"
-              @click="registerProvider"
-          />
-        </router-link>
-      </template>
-    </pv-card>
+    <button class="form-button">Create account</button>
   </form>
 </template>
 
 <style scoped>
-.register-form {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.title{
-  color: #211f1f;
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.register-card {
+.register-ui-form {
   width: 100%;
   max-width: 400px;
-  padding: 16px;
-  background-color: rgb(255, 255, 255, 0.8);
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
+  text-align: center;
 }
 
-.full-width {
-  width: 100%;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
-.register-button {
+.form-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.form-link {
+  font-weight: bold;
+  color: #731c9f;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.form-input {
   width: 100%;
-  text-transform: uppercase;
-  background-color: #211f1f;
-  color: #ffffff;
+  padding: 12px;
   border: none;
+  background-color: #f0f2f5;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-.p-inputtext{
-  padding: 10px;
-  border-radius: 10px;
+.form-input::placeholder {
+  color: #999;
 }
 
+.form-button {
+  width: 100%;
+  background-color: #731c9f;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
 </style>

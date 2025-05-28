@@ -4,25 +4,29 @@
       "accountId": "1",
       "email": "john@example.com",
       "passwordHash": "hash123",
-      "isActive": true
+      "isActive": true,
+      "type": "provider"
     },
     {
       "accountId": "acc2",
       "email": "lisa@example.com",
       "passwordHash": "hash456",
-      "isActive": true
+      "isActive": true,
+      "type": "client"
     },
     {
       "accountId": "acc3",
       "email": "mike@example.com",
       "passwordHash": "hash789",
-      "isActive": false
+      "isActive": false,
+      "type": "provider"
     },
     {
       "accountId": "acc4",
       "email": "anna@example.com",
       "passwordHash": "hash321",
-      "isActive": true
+      "isActive": true,
+      "type": "client"
     }
   ],
   "users": [
