@@ -41,7 +41,6 @@ export default {
 </script>
 
 <template>
-  <client-layout/>
   <pv-card class="custom-card">
     <template #content>
       <div class="appointment-content">

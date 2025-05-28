@@ -1,35 +1,50 @@
 <script>
-import Button from "primevue/button";
 import LanguageSwitcherComponent from "../language-switcher/language-switcher.component.vue";
 
 export default {
   name: "toolbar-client-component",
-  components: {LanguageSwitcherComponent, Button}
-}
+  components: {
+    LanguageSwitcherComponent
+  },
+  data() {
+    return {
+      searchQuery: ''
+    };
+  },
+  methods: {
+    goHome() {
+      this.$router.push("/client/homeClient");
+    },
+    goProfile() {
+      this.$router.push("/client/profile");
+    },
+    logout() {
+      this.$router.push("/iam/logout");
+    }
+  }
+};
 </script>
-
 
 <template>
   <header class="toolbar">
-    <!-- Sección Izquierda -->
+    <!-- Izquierda -->
     <div class="left-section">
-      <router-link to="/iam/login">
-        <Button icon="pi pi-sign-out" class="icon-button logout" aria-label="Logout" />
-      </router-link>
+      <button class="icon-button" @click="goHome" aria-label="Home">
+        <span class="material-icons">home</span>
+      </button>
+
+      <div class="search-bar">
+        <span class="material-icons">search</span>
+        <input
+            type="text"
+            v-model="searchQuery"
+            placeholder="Search salons..."
+            aria-label="Search"
+        />
+      </div>
     </div>
 
-    <div class="left-section">
-      <Button icon="pi pi-search" class="icon-button search" aria-label="Buscar"  />
-      <input
-          v-model="onmessage"
-          placeholder="Buscar..."
-          autocomplete="off"
-          aria-label="Buscar"
-          class="search-input"
-      />
-    </div>
-
-    <!-- Sección Central -->
+    <!-- Centro -->
     <div class="center-section">
       <img
           src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png"
@@ -38,39 +53,37 @@ export default {
       />
     </div>
 
-
-    <div class="n-section">
-      <router-link to="/client/notifications">
-        <Button icon="pi pi-bell" class="icon-button" aria-label="Notifications" />
-      </router-link>
-    </div>
-
-    <!-- Sección Derecha -->
+    <!-- Derecha -->
     <div class="right-section">
-      <!-- Componente de cambio de idioma -->
-      <language-switcher-component/>
-      <router-link to="/client/profile">
-        <Button icon="pi pi-user" class="icon-button" aria-label="Profile" />
-      </router-link>
+      <language-switcher-component />
+      <button class="icon-button" @click="goProfile" aria-label="Profile">
+        <span class="material-icons">person</span>
+      </button>
+      <button class="icon-button logout" @click="logout" aria-label="Logout">
+        <span class="material-icons">logout</span>
+      </button>
     </div>
   </header>
 </template>
 
 <style scoped>
-
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 .toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 12px 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  max-height: 100px;
+  box-sizing: border-box;
 }
 
 .left-section,
@@ -78,15 +91,7 @@ export default {
 .right-section {
   display: flex;
   align-items: center;
-  gap: 15px;
-
-}
-
-.n-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  justify-content: flex-start;
+  gap: 18px;
 }
 
 .center-section {
@@ -95,52 +100,78 @@ export default {
 }
 
 .logo-img {
-  height: 40px;
-  object-fit: contain;
+  height: 42px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
 
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
 .icon-button {
-  border-radius: 50%;
-  padding: 0.5rem;
-  background-color: #f0f0f0;
-  color: #333;
+  background: #f8f9fa;
   border: none;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
+.icon-button .material-icons {
+  font-size: 22px;
+  color: #4a4a4a;
+}
+
 .icon-button:hover {
-  background-color: #e0e0e0;
+  background-color: #e3e6f0;
+  transform: scale(1.05);
 }
 
-.logout {
-  color: #e53935 !important;
+.icon-button.logout:hover {
+  background-color: #ffe0e0;
 }
 
-.left-section {
+.search-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 5px 10px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: #f1f3f4;
+  padding: 0 12px;
+  border-radius: 999px;
+  height: 38px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.search-input {
+.search-bar span {
+  color: #7b7b7b;
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+.search-bar input {
   border: none;
+  background: transparent;
   outline: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 14px;
-  width: 100%;
-  max-width: 200px;
-  background-color: white;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease-in-out;
-
+  font-size: 15px;
+  width: 160px;
+  color: #333;
 }
 
-.search-input:focus {
-  box-shadow: 0 0 0 2px #7abaff;
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
 }
 </style>

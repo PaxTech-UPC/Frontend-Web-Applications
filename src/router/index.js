@@ -72,7 +72,7 @@ const routes = [
         component: ClientLayoutComponent,
         children: [
             { path: '', redirect: '/client/homeClient' },
-            { path: 'homeClient', component: SidebarComponentClient},
+            { path: 'homeClient', component: DashboardPage},
             { path: 'appointments', component: AppointmentPageComponent },
             { path: 'favorites', component: FavoritesPageComponent },
             { path: 'profile', component: ProfilePageComponent },
