@@ -86,6 +86,7 @@ export default {
 
 /* === Sidebar === */
 .sidebar {
+  position: fixed;
   flex: 0 0 260px;
 }
 
@@ -94,6 +95,7 @@ export default {
   flex: 1;
   max-width: 100%;
   overflow-x: hidden;
+  margin-left: 260px; /* 👈 Este es el ajuste necesario */
 }
 
 /* === Card citas === */
