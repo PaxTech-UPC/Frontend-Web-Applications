@@ -33,7 +33,6 @@ export default {
 
 .sidebar {
   position: sticky;
-  top: 80px;
   align-self: flex-start;
   left: 1.5rem;
   width: 260px;

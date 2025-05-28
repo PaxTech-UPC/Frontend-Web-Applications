@@ -10,15 +10,35 @@ export default {
 </script>
 
 <template>
+  <div class="layout-wrapper">
+    <toolbar-client-component class="toolbar-client"/>
 
-  <toolbar-client-component/>
-  <sidebar-client-component/>
-  <main>
-    <router-view/>
-  </main>
-
+    <main class="content-area">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <style scoped>
 
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar-client {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.content-area {
+  margin-top: 120px; /* Ajusta este valor según la altura real del toolbar */
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 </style>
