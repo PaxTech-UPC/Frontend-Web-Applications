@@ -23,7 +23,23 @@
     "stylist": "Estilista",
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
-    "popular": "Mas popular"
+    "popular": "Más popular",
+    "greeting": "¡Hey! ¡A trabajar!",
+    "appointments": {
+      "title": "Citas próximas",
+      "day": "Jueves",
+      "date": "10",
+      "items": [
+        {
+          "label": "Mañana",
+          "description": "Cita para tratamiento de Keratina"
+        },
+        {
+          "label": "La próxima semana",
+          "description": "Cita para teñido de cabello"
+        }
+      ]
+    }
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
@@ -70,7 +86,16 @@
     "currentPlan": "Tu plan actual es:",
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
     "actions": "Acciones",
-    "settings": "configuración"
+    "settings": "Configuración"
+  },
+  "services": {
+    "service": "Servicio",
+    "duration": "Duración",
+    "price": "Precio",
+    "status": "Estado",
+    "actions": "Acciones",
+    "settings": "Ajustes",
+    "new": "Nuevo servicio"
   },
   "toolbarC": {
     "search": "Buscar"
@@ -78,6 +103,7 @@
   "appointments": {
     "reservation": {
       "client": "Cliente",
+      "provider": "Proveedor",
       "salon": "Salón",
       "schedule": "Horario",
       "paymentStatus": "Estado de pago"
@@ -89,7 +115,20 @@
       "unread": "No leída",
       "leaveReviewPrompt": "¿Quieres dejar una reseña?",
       "writeHerePlaceholder": "Escribe aquí",
-      "submitButton": "Enviar"
+      "submitButton": "Enviar",
+      "last": "Último comentario",
+      "all": "Todos los comentarios",
+      "fav": "Mis Favoritos"
+    },
+    "upcoming": {
+      "tomorrow": "Mañana",
+      "next": "Próxima semana",
+      "day": "Jueves",
+      "all": "Todas las citas",
+      "popular": "Más popular"
+    },
+    "home": {
+      "selector": "Seleccionar"
     }
   },
   "days": {
@@ -100,5 +139,85 @@
     "friday": "Viernes",
     "saturday": "Sábado",
     "sunday": "Domingo"
+  },
+  "login": {
+    "accessTitle": "Accede a tu cuenta",
+    "noAccountText": "¿No tienes una cuenta?",
+    "registerNow": "Regístrate ahora",
+    "emailLabel": "Correo electrónico*",
+    "emailPlaceholder": "tu@email.com",
+    "passwordLabel": "Contraseña*",
+    "passwordPlaceholder": "Tu contraseña",
+    "loginButton": "Iniciar sesión",
+    "loginError": "Correo electrónico o contraseña inválidos"
+  },
+  "register": {
+    "title": "Crea una cuenta",
+    "subtitle": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión",
+    "firstNamePlaceholder": "Nombre",
+    "lastNamePlaceholder": "Apellido",
+    "emailPlaceholder": "Correo electrónico",
+    "passwordPlaceholder": "Contraseña",
+    "createButton": "Crear cuenta"
+  },
+  "registerProvider": {
+    "title": "Crea una cuenta",
+    "subtitle": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión",
+    "companyNamePlaceholder": "Nombre completo de la empresa",
+    "emailPlaceholder": "Correo electrónico",
+    "passwordPlaceholder": "Contraseña",
+    "createButton": "Crear cuenta"
+  },
+  "calendar": {
+    "title": "Elige la fecha",
+    "legend": {
+      "notAvailable": "No Disponible",
+      "available": "Disponible",
+      "selected": "Seleccionado"
+    },
+    "resultMessage": "📅 {fecha} a las 🕒 {hora}"
+  },
+  "payment": {
+    "title": "Selecciona el método de pago",
+    "methods": {
+      "card": "Tarjeta de crédito o Débito",
+      "yape": "Yape"
+    },
+    "cardForm": {
+      "title": "Datos para Tarjeta de crédito o Débito",
+      "cardNumber": "Número de tarjeta:",
+      "expiration": "Fecha de expiración:",
+      "cvv": "CVV:"
+    },
+    "yape": {
+      "title": "Pago por Yape",
+      "number": "Número: 987654321",
+      "owner": "Titular: UTIME"
+    }
+  },
+  "reviews": {
+    "title": "Reseñas sin leer",
+    "apo": "Citas",
+    "re": "Reseñas y Calificaciones"
+  },
+  "days": {
+    "l": "Lunes",
+    "m": "Martes",
+    "x": "Miércoles",
+    "j": "Jueves",
+    "v": "Viernes",
+    "s": "Sábado",
+    "d": "Domingo"
+  },
+  "subs": {
+    "ba": "Calendario inteligente básico",
+    "cli": "Página de reserva de clientes",
+    "re": "Reseñas y valoraciones",
+    "dat": "Base de datos de clientes",
+    "cus": "Enlace de reserva personalizado",
+    "ad": "Analítica avanzada",
+    "choose": "Elegir"
   }
 }

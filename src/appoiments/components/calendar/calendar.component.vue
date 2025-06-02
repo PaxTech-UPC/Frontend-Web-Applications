@@ -15,38 +15,51 @@ export default {
   watch: {
     horaSeleccionada(newHora) {
       if (this.fecha && newHora) {
-        const fechaFormateada = this.fecha.toLocaleDateString("es-PE", {
-          weekday: "long", // Día de la semana en formato largo
+        const fechaFormateada = this.fecha.toLocaleDateString(this.$i18n.locale, {
+          weekday: "long",
           year: "numeric",
           month: "long",
           day: "numeric"
         });
-        this.mensaje = `📅 ${fechaFormateada} a las 🕒 ${newHora}`;
+
+        this.mensaje = this.$t('calendar.resultMessage', {
+          fecha: fechaFormateada,
+          hora: newHora
+        });
       }
     }
   }
+
 }
 </script>
 
 <template>
   <section>
-    <h2>Elige la fecha</h2>
+    <h2>{{ $t('calendar.title') }}</h2>
+
     <pv-calendar v-model="fecha" inline dateFormat="dd/mm/yy" />
 
     <div class="leyenda">
-      <span class="pi pi-circle-fill no-disponible">No Disponible</span>
-      <span class="pi pi-circle disponible">Disponible</span>
-      <span class="pi pi-circle-fill seleccionado">Seleccionado</span>
+    <span class="pi pi-circle-fill no-disponible">
+      {{ $t('calendar.legend.notAvailable') }}
+    </span>
+      <span class="pi pi-circle disponible">
+      {{ $t('calendar.legend.available') }}
+    </span>
+      <span class="pi pi-circle-fill seleccionado">
+      {{ $t('calendar.legend.selected') }}
+    </span>
     </div>
 
     <span class="select-horarios">
-      <pv-select-button :options="horarios" v-model="horaSeleccionada" />
-    </span>
+    <pv-select-button :options="horarios" v-model="horaSeleccionada" />
+  </span>
 
     <div v-if="mensaje" class="resultado">
       {{ mensaje }}
     </div>
   </section>
+
 </template>
 
 <style scoped>

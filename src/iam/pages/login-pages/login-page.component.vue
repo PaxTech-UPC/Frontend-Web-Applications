@@ -1,9 +1,11 @@
 <script>
 import LoginFormComponent from "../../components/login-form/login-form.component.vue";
+import LanguageSwitcherComponent from "../../../public/components/language-switcher/language-switcher.component.vue";
 
 export default {
   name: "login-page-component",
   components: {
+    LanguageSwitcherComponent,
     LoginFormComponent
   },
   data() {
@@ -117,7 +119,7 @@ export default {
             class="back-button"
             @click="goBack"
         >
-          ← Back
+          ← {{$t('profile.back')}}
         </button>
       </div>
     </div>
@@ -126,6 +128,9 @@ export default {
     <div class="right-section">
       <div class="login-container">
         <login-form-component />
+      </div>
+      <div class="language-content">
+        <language-switcher-component></language-switcher-component>
       </div>
     </div>
   </div>
@@ -148,7 +153,14 @@ export default {
   padding: 30px;
   box-sizing: border-box;
 }
-
+.language-content{
+  position: absolute;
+  top: 30px;
+  right: 20px; /* Cambia de 0 a 20px o el valor que prefieras */
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 0
+}
 .slideshow-container {
   position: relative;
   height: 100%;

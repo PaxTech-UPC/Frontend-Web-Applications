@@ -13,7 +13,7 @@ export default {
 
     <router-link to="/provider/schedule" class="nav-link" active-class="active">
       <i class="pi pi-calendar"></i>
-      {{ $t('dashboard.appointments') }}
+      {{ $t('reviews.apo') }}
     </router-link>
 
     <router-link to="/provider/reviews" class="nav-link" active-class="active">

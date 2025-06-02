@@ -22,7 +22,23 @@
     "haircutSpecialist": "Haircut specialist",
     "stylist": "Stylist",
     "favorites": "My Favorites",
-    "profile": "Profile"
+    "profile": "Profile",
+    "greeting": "Hey, Let's Get to Work!",
+    "appointments": {
+      "title": "Upcoming appointments",
+      "day": "Thursday",
+      "date": "10",
+      "items": [
+        {
+          "label": "Tomorrow",
+          "description": "Keratin treatment appointment"
+        },
+        {
+          "label": "Next week",
+          "description": "Hair coloring appointment"
+        }
+      ]
+    }
   },
   "profile": {
     "yourProfile": "Your Profile:",
@@ -86,6 +102,7 @@
   "appointments": {
     "reservation": {
       "client": "Client",
+      "provider": "Provider",
       "salon": "Salon",
       "schedule": "Schedule",
       "paymentStatus": "Payment status"
@@ -97,7 +114,20 @@
       "unread": "Unread",
       "leaveReviewPrompt": "Want to leave a review?",
       "writeHerePlaceholder": "Write here",
-      "submitButton": "Submit"
+      "submitButton": "Submit",
+      "last": "Last Review",
+      "all": "All Reviews",
+      "fav": "My Favorites"
+    },
+    "upcoming": {
+      "tomorrow": "Tomorrow",
+      "next": "Next week",
+      "day": "Thursday",
+      "all": "All appointments",
+      "popular": "More popular"
+    },
+    "home": {
+      "selector": "Select"
     }
   },
   "services": {
@@ -106,6 +136,87 @@
     "price": "Price",
     "status": "Status",
     "actions": "Actions",
-    "settings": "settings"
+    "settings": "settings",
+    "new": "New Service"
+  },
+  "login": {
+    "accessTitle": "Sign in to your account",
+    "noAccountText": "Don't have an account?",
+    "registerNow": "Register now",
+    "emailLabel": "Email*",
+    "emailPlaceholder": "tu@email.com",
+    "passwordLabel": "Password*",
+    "passwordPlaceholder": "Your password",
+    "loginButton": "Sign in",
+    "loginError": "Invalid email or password"
+  },
+  "register": {
+    "title": "Create an account",
+    "subtitle": "Already have an account?",
+    "loginLink": "Login",
+    "firstNamePlaceholder": "FirstName",
+    "lastNamePlaceholder": "LastName",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "createButton": "Create account"
+  },
+  "registerProvider": {
+    "title": "Create an account",
+    "subtitle": "Already have an account?",
+    "loginLink": "Login",
+    "companyNamePlaceholder": "Full company name",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "createButton": "Create account"
+  },
+  "calendar": {
+    "title": "Choose the date",
+    "legend": {
+      "notAvailable": "Not Available",
+      "available": "Available",
+      "selected": "Selected"
+    },
+    "resultMessage": "📅 {fecha} at 🕒 {hora}"
+  },
+  "payment": {
+    "title": "Select the payment method",
+    "methods": {
+      "card": "Credit or Debit Card",
+      "yape": "Yape"
+    },
+    "cardForm": {
+      "title": "Credit or Debit Card Details",
+      "cardNumber": "Card number:",
+      "expiration": "Expiration date:",
+      "cvv": "CVV:"
+    },
+    "yape": {
+      "title": "Payment via Yape",
+      "number": "Number: 987654321",
+      "owner": "Holder: UTIME"
+    }
+  },
+  "reviews": {
+    "title": "Unread reviews",
+    "apo": "Appointments",
+    "re": "Review & Rating"
+  },
+  "days": {
+    "m": "Monday",
+    "t": "Tuesday",
+    "w": "Wednesday",
+    "th": "Thursday",
+    "f": "Friday",
+    "sa": "Saturday",
+    "su": "Sunday"
+  },
+  "subs": {
+    "ba": "Basic smart calendar",
+    "cli": "Client booking page",
+    "re": "Reviews & ratings",
+    "dat": "Client database",
+    "cus": "Custom booking link",
+    "ad": "Advanced analytics",
+    "choose": "Choose"
   }
 }

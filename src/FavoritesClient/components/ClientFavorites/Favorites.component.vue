@@ -20,7 +20,7 @@ export default {
 
 <template>
   <section class="appointments-section">
-    <h2 class="title">My favorites</h2>
+    <h2 class="title">{{ $t('appointments.review.fav') }}</h2>
     <div class="appointments-left">
       <div class="group">
         <FavoriteCard

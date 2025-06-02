@@ -38,30 +38,12 @@ export default {
         <input
             type="text"
             v-model="searchQuery"
-            placeholder="Search salons..."
+            :placeholder="$t('toolbarC.search')"
             aria-label="Search"
         />
       </div>
     </div>
 
-
-    <div class="left-section">
-      <!-- Botón Buscar -->
-      <Button
-          icon="pi pi-search"
-          class="icon-button search"
-          :aria-label="$t('toolbarC.search')"
-      />
-
-      <!-- Input de búsqueda -->
-      <input
-          v-model="onmessage"
-          :placeholder="$t('toolbarC.search')"
-          autocomplete="off"
-          :aria-label="$t('toolbarC.search')"
-          class="search-input"
-      />
-    </div>
 
     <!-- Sección Central -->
 

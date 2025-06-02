@@ -44,35 +44,30 @@ export default {
           class="logo"
       />
 
-      <h1 class="title">Access Your Account</h1>
+      <h1 class="title">{{ $t('login.accessTitle') }}</h1>
       <p class="subtitle">
-        Don't have an account?
-        <router-link to="/iam/register" class="login-link">Register now</router-link>
+        {{ $t('login.noAccountText') }}
+        <router-link to="/iam/register" class="login-link">{{ $t('login.registerNow') }}</router-link>
       </p>
 
-      <div class="full-width">
-        <label class="form-label">Email*</label>
-        <input
-            type="email"
-            class="form-input"
-            placeholder="your@email.com"
-            v-model="email"
-        />
-      </div>
+      <label class="form-label">{{ $t('login.emailLabel') }}</label>
+      <input
+          type="email"
+          class="form-input"
+          :placeholder="$t('login.emailPlaceholder')"
+          v-model="email"
+      />
 
-      <div class="full-width">
-        <label class="form-label">Password*</label>
-        <input
-            type="password"
-            class="form-input"
-            placeholder="Your password"
-            v-model="password"
-        />
-      </div>
+      <label class="form-label">{{ $t('login.passwordLabel') }}</label>
+      <input
+          type="password"
+          class="form-input"
+          :placeholder="$t('login.passwordPlaceholder')"
+          v-model="password"
+      />
 
-      <p v-if="loginError" class="error-msg">Invalid email or password</p>
-
-      <button type="submit" class="form-button">Log In</button>
+      <p v-if="loginError" class="error-msg">{{ $t('login.loginError') }}</p>
+      <button type="submit" class="form-button">{{ $t('login.loginButton') }}</button>
     </div>
   </form>
 </template>

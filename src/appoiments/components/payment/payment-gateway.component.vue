@@ -15,14 +15,14 @@ export default {
 
 <template>
   <section>
-    <h2>Selecciona el método de pago</h2>
-    <pv-select-button v-model="metodoPago" :options="metodos" class="select-button"/>
+    <h2>{{ $t("payment.title") }}</h2>
+    <pv-select-button v-model="metodoPago" :options="metodos" class="select-button" />
 
-    <form v-if="metodoPago === 'Tarjeta de credito o Debito'" class="form-container">
-      <h3>Datos para Tarjeta de crédito o Débito</h3>
+    <form v-if="metodoPago === $t('payment.methods.card')" class="form-container">
+      <h3>{{ $t("payment.cardForm.title") }}</h3>
 
       <div class="form-group">
-        <label for="numeroTarjeta">Número de tarjeta:</label>
+        <label for="numeroTarjeta">{{ $t("payment.cardForm.cardNumber") }}</label>
         <pv-input-mask
             id="numeroTarjeta"
             v-model="numeroTarjeta"
@@ -32,7 +32,7 @@ export default {
       </div>
 
       <div class="form-group">
-        <label for="expiracion">Fecha de expiración:</label>
+        <label for="expiracion">{{ $t("payment.cardForm.expiration") }}</label>
         <pv-input-mask
             id="expiracion"
             v-model="expiracion"
@@ -42,7 +42,7 @@ export default {
       </div>
 
       <div class="form-group">
-        <label for="cvv">CVV:</label>
+        <label for="cvv">{{ $t("payment.cardForm.cvv") }}</label>
         <pv-input-text
             id="cvv"
             v-model="cvv"
@@ -53,13 +53,14 @@ export default {
       </div>
     </form>
 
-    <div v-if="metodoPago === 'Yape'" class="contenido">
-      <h3>Pago por Yape</h3>
-      <p><strong>Número: 987654321</strong></p>
-      <p><strong>Titular: UTIME</strong></p>
+    <div v-if="metodoPago === $t('payment.methods.yape')" class="contenido">
+      <h3>{{ $t("payment.yape.title") }}</h3>
+      <p><strong>{{ $t("payment.yape.number") }}</strong></p>
+      <p><strong>{{ $t("payment.yape.owner") }}</strong></p>
       <img src="../../../assets/img/qr-yape.png" alt="QR de Yape" width="200" />
     </div>
   </section>
+
 </template>
 
 <style scoped>

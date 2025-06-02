@@ -48,42 +48,42 @@ export default {
         <h2 class="title">Essential</h2>
         <h3 class="subtitle">Free</h3>
         <ul>
-          <li><i class="pi pi-check"></i> Basic smart calendar</li>
-          <li><i class="pi pi-check"></i> Client booking page</li>
-          <li><i class="pi pi-check"></i> Reviews & ratings</li>
-          <li><i class="pi pi-times"></i> Client database</li>
-          <li><i class="pi pi-times"></i> Custom booking link</li>
-          <li><i class="pi pi-times"></i> Advanced analytics</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.ba') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.cli') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.re') }}</li>
+          <li><i class="pi pi-times"></i> {{ $t('subs.dat') }}</li>
+          <li><i class="pi pi-times"></i> {{ $t('subs.cus') }}</li>
+          <li><i class="pi pi-times"></i> {{ $t('subs.ad') }}</li>
         </ul>
-        <Button label="Choose" class="choose-btn">Choose</Button>
+        <Button label="Choose" class="choose-btn">{{ $t('subs.choose') }}</Button>
       </div>
 
       <div class="plan-card prostyle" @click="changePlan('ProStyle')">
         <h2 class="title">ProStyle</h2>
         <h3 class="subtitle">s/69.90 x month</h3>
         <ul>
-          <li><i class="pi pi-check"></i> Basic smart calendar</li>
-          <li><i class="pi pi-check"></i> Client booking page</li>
-          <li><i class="pi pi-check"></i> Reviews & ratings</li>
-          <li><i class="pi pi-check"></i> Client database</li>
-          <li><i class="pi pi-times"></i> Custom booking link</li>
-          <li><i class="pi pi-times"></i> Advanced analytics</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.ba') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.cli') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.re') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.dat') }}</li>
+          <li><i class="pi pi-times"></i> {{ $t('subs.cus') }}</li>
+          <li><i class="pi pi-times"></i> {{ $t('subs.ad') }}</li>
         </ul>
-        <Button label="Choose" class="choose-btn">Choose</Button>
+        <Button label="Choose" class="choose-btn">{{ $t('subs.choose') }}</Button>
       </div>
 
       <div class="plan-card deluxe-studio" @click="changePlan('Deluxe Studio')">
         <h2 class="title">Deluxe Studio</h2>
         <h3 class="subtitle">s/129.90 x month</h3>
         <ul>
-          <li><i class="pi pi-check"></i> Basic smart calendar</li>
-          <li><i class="pi pi-check"></i> Client booking page</li>
-          <li><i class="pi pi-check"></i> Reviews & ratings</li>
-          <li><i class="pi pi-check"></i> Client database</li>
-          <li><i class="pi pi-check"></i> Custom booking link</li>
-          <li><i class="pi pi-check"></i> Advanced analytics</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.ba') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.cli') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.re') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.dat') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.cus') }}</li>
+          <li><i class="pi pi-check"></i> {{ $t('subs.ad') }}</li>
         </ul>
-        <Button label="Choose" class="choose-btn">Choose</Button>
+        <Button label="Choose" class="choose-btn">{{ $t('subs.choose') }}</Button>
       </div>
     </div>
   </div>

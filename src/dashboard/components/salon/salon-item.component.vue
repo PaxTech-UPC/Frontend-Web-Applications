@@ -36,7 +36,7 @@ export default {
   <button
       class="mt-2 bg-blue-500 text-white px-3 py-1 rounded"
       @click="seleccionarSalon">
-    Seleccionar
+    {{ $t('appointments.home.selector') }}
   </button>
 </div>
 </template>

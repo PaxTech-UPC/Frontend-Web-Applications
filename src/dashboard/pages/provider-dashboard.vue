@@ -40,53 +40,44 @@ export default {
 </script>
 
 <template>
+  <h1>{{ $t("dashboard.greeting") }}</h1>
 
-<h1>Hey, Let's Get to Work!</h1>
+  <div class="services">
+    <div class="left">
+      <h2 class="title-review">{{ $t("dashboard.appointments.title") }}</h2>
 
+      <pv-card class="custom-card">
+        <template #content>
+          <div class="appointment-content">
+            <div class="date-section">
+              <div class="day">{{ $t("dashboard.appointments.day") }}</div>
+              <div class="date-number">{{ $t("dashboard.appointments.date") }}</div>
+            </div>
 
-    <div class="services">
+            <div class="divider"></div>
 
-      <!-- Columna izquierda (puede estar vacía o tener algo luego) -->
-      <div class="left">
-
-        <h2 class="title-review">Upcoming appointments</h2>
-
-        <pv-card class="custom-card">
-          <template #content>
-            <div class="appointment-content">
-
-              <div class="date-section">
-                <div class="day">Thursday</div>
-                <div class="date-number">10</div>
+            <div class="appointments-section">
+              <div class="appointment-item grey">
+                <div class="appointment-label">{{ $t("dashboard.appointments.items[0].label") }}</div>
+                <div class="appointment-description">{{ $t("dashboard.appointments.items[0].description") }}</div>
               </div>
-
-              <div class="divider"></div>
-
-              <div class="appointments-section">
-                <div class="appointment-item grey">
-                  <div class="appointment-label">Tomorrow</div>
-                  <div class="appointment-description">Ketarin treatment appointment</div>
-                </div>
-                <div class="appointment-item pink">
-                  <div class="appointment-label">Next week</div>
-                  <div class="appointment-description">Hair coloring appointment</div>
-                </div>
+              <div class="appointment-item pink">
+                <div class="appointment-label">{{ $t("dashboard.appointments.items[1].label") }}</div>
+                <div class="appointment-description">{{ $t("dashboard.appointments.items[1].description") }}</div>
               </div>
             </div>
-          </template>
-        </pv-card>
-
-      </div>
-
-      <div class="right">
-        <div>
-          <h2 class="title-review">Unread reviews</h2>
-          <review-list class="review-list" :reviews="reviews" />
-        </div>
-      </div>
-
+          </div>
+        </template>
+      </pv-card>
     </div>
 
+    <div class="right">
+      <div>
+        <h2 class="title-review">{{ $t("reviews.title") }}</h2>
+        <review-list class="review-list" :reviews="reviews" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
