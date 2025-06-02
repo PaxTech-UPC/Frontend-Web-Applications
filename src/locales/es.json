@@ -39,6 +39,7 @@
           "description": "Cita para teñido de cabello"
         }
       ]
+    }
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
@@ -86,6 +87,15 @@
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
     "actions": "Acciones",
     "settings": "Configuración"
+  },
+  "services": {
+    "service": "Servicio",
+    "duration": "Duración",
+    "price": "Precio",
+    "status": "Estado",
+    "actions": "Acciones",
+    "settings": "Ajustes",
+    "new": "Nuevo servicio"
   },
   "toolbarC": {
     "search": "Buscar"
@@ -172,7 +182,7 @@
   "payment": {
     "title": "Selecciona el método de pago",
     "methods": {
-      "card": "Tarjeta de credito o Debito",
+      "card": "Tarjeta de crédito o Débito",
       "yape": "Yape"
     },
     "cardForm": {
@@ -187,7 +197,18 @@
       "owner": "Titular: UTIME"
     }
   },
-    "reviews": {
-      "title": "Reseñas sin leer"
-    }
+  "reviews": {
+    "title": "Reseñas sin leer",
+    "apo": "Citas",
+    "re": "Reseñas y Calificaciones"
+  },
+  "days": {
+    "l": "Lunes",
+    "m": "Martes",
+    "x": "Miércoles",
+    "j": "Jueves",
+    "v": "Viernes",
+    "s": "Sábado",
+    "d": "Domingo"
+  }
 }

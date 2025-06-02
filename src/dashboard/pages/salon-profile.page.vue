@@ -106,7 +106,7 @@ export default {
         </div>
 
         <div class="section">
-          <h3 class="section-title">Review & Rating</h3>
+          <h3 class="section-title">{{$t('reviews.re')}}</h3>
           <review-list :reviews="reviews" />
         </div>
       </div>

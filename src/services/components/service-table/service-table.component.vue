@@ -34,7 +34,7 @@
     </DataTable>
 
     <div class="new-service">
-      <Button label=" New Service" icon="pi pi-plus" class="p-button-raised" @click="createService" />
+      <Button :label="$t('services.new')" icon="pi pi-plus" class="p-button-raised" @click="createService" />
     </div>
   </div>
 </template>

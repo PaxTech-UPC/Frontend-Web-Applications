@@ -38,6 +38,7 @@
           "description": "Hair coloring appointment"
         }
       ]
+    }
   },
   "profile": {
     "yourProfile": "Your Profile:",
@@ -135,7 +136,8 @@
     "price": "Price",
     "status": "Status",
     "actions": "Actions",
-    "settings": "settings"
+    "settings": "settings",
+    "new": "New Service"
   },
   "login": {
     "accessTitle": "Sign in to your account",
@@ -194,7 +196,18 @@
       "owner": "Holder: UTIME"
     }
   },
-    "reviews": {
-      "title": "Unread reviews"
-    }
+  "reviews": {
+    "title": "Unread reviews",
+    "apo": "Appointments",
+    "re": "Review & Rating"
+  },
+  "days": {
+    "m": "Monday",
+    "t": "Tuesday",
+    "w": "Wednesday",
+    "th": "Thursday",
+    "f": "Friday",
+    "sa": "Saturday",
+    "su": "Sunday"
+  }
 }
