@@ -97,7 +97,19 @@
       "unread": "Unread",
       "leaveReviewPrompt": "Want to leave a review?",
       "writeHerePlaceholder": "Write here",
-      "submitButton": "Submit"
+      "submitButton": "Submit",
+      "last": "Last Review",
+      "all": "All Reviews"
+    },
+    "upcoming": {
+      "tomorrow": "Tomorrow",
+      "next": "Next week",
+      "day": "Thursday",
+      "all": "All appointments",
+      "popular": "More popular"
+    },
+    "home": {
+      "selector": "Select"
     }
   },
   "services": {

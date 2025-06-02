@@ -113,10 +113,10 @@ export default {
 
       <div class="right">
         <div class="section">
-          <h3 class="section-title">Servicios</h3>
+          <h3 class="section-title">{{ $t('dashboard.services') }}</h3>
           <service-list :services="services" />
         </div>
-        <button @click="goBack" class="go-back">← Volver</button>
+        <button @click="goBack" class="go-back">← {{ $t('profile.back') }}</button>
       </div>
     </div>
   </div>

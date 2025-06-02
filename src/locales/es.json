@@ -23,7 +23,7 @@
     "stylist": "Estilista",
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
-    "popular": "Mas popular"
+    "popular": "Más popular"
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
@@ -70,7 +70,7 @@
     "currentPlan": "Tu plan actual es:",
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
     "actions": "Acciones",
-    "settings": "configuración"
+    "settings": "Configuración"
   },
   "toolbarC": {
     "search": "Buscar"
@@ -89,7 +89,19 @@
       "unread": "No leída",
       "leaveReviewPrompt": "¿Quieres dejar una reseña?",
       "writeHerePlaceholder": "Escribe aquí",
-      "submitButton": "Enviar"
+      "submitButton": "Enviar",
+      "last": "Último comentario",
+      "all": "Todos los comentarios"
+    },
+    "upcoming": {
+      "tomorrow": "Mañana",
+      "next": "Próxima semana",
+      "day": "Jueves",
+      "all": "Todas las citas",
+      "popular": "Más popular"
+    },
+    "home": {
+      "selector": "Seleccionar"
     }
   },
   "days": {

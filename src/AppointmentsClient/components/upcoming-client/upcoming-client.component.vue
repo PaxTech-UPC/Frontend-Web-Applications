@@ -46,7 +46,7 @@ export default {
       <div class="appointment-content">
 
         <div class="date-section">
-          <div class="day">Thursday</div>
+          <div class="day">{{ $t('appointments.upcoming.day') }}</div>
           <div class="date-number">10</div>
         </div>
 
@@ -54,11 +54,11 @@ export default {
 
         <div class="appointments-section">
           <div class="appointment-item grey">
-            <div class="appointment-label">Tomorrow</div>
+            <div class="appointment-label">{{ $t('appointments.upcoming.tomorrow') }}</div>
             <div class="appointment-description">Ketarin treatment appointment</div>
           </div>
           <div class="appointment-item pink">
-            <div class="appointment-label">Next week</div>
+            <div class="appointment-label">{{ $t('appointments.upcoming.next') }}</div>
             <div class="appointment-description">Hair coloring appointment</div>
           </div>
         </div>

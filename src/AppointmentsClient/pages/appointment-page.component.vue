@@ -82,21 +82,21 @@ export default {
       <!-- Columna izquierda: Appointments -->
       <div class="appointments-section">
         <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
-        <h3 class="h3-container">Tomorrow</h3>
+        <h3 class="h3-container">{{ $t('appointments.upcoming.tomorrow') }}</h3>
         <AppointmentComponent
             v-for="appointment in tomorrowAppointments"
             :key="appointment.reservationId"
             :appointment="appointment"
         />
 
-        <h3 class="h3-container">Next Week</h3>
+        <h3 class="h3-container">{{ $t('appointments.upcoming.next') }}</h3>
         <AppointmentComponent
             v-for="appointment in nextWeekAppointments"
             :key="appointment.reservationId"
             :appointment="appointment"
         />
 
-        <h3 class="h3-container">All Appointments</h3>
+        <h3 class="h3-container">{{ $t('appointments.upcoming.all') }}</h3>
         <AppointmentComponent
             v-for="appointment in appointments"
             :key="appointment.reservationId"
@@ -109,14 +109,14 @@ export default {
 
       <!-- Columna derecha: Reviews -->
       <div class="reviews-section">
-        <h3>Last Visited</h3>
+        <h3>{{ $t('appointments.review.last') }}</h3>
         <ReviewComponent
             v-if="lastVisited"
             :key="lastVisited.id"
             :review="lastVisited"
         />
 
-        <h3>All Reviews</h3>
+        <h3>{{ $t('appointments.review.all') }}</h3>
         <ReviewComponent
             v-for="review in reviews"
             :key="review.id"

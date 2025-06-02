@@ -43,7 +43,7 @@ export default {
         />
       </div>
     </div>
-    
+
 
     <!-- Sección Central -->
 

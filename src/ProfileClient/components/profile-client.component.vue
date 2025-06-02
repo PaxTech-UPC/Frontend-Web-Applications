@@ -61,7 +61,7 @@ export default {
       <div class="profile-sections">
         <!-- Personal Information -->
         <div class="profile-section">
-          <h2 class="section-title">{{ $t('profile.personalInfo') }}n</h2>
+          <h2 class="section-title">{{ $t('profile.personalInfo') }}</h2>
           <form @submit.prevent>
             <div class="form-field">
               <label>{{ $t('profile.name') }}</label>
