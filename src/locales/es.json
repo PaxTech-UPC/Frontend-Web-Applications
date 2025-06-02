@@ -23,7 +23,22 @@
     "stylist": "Estilista",
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
-    "popular": "Más popular"
+    "popular": "Más popular",
+    "greeting": "¡Hey! ¡A trabajar!",
+    "appointments": {
+      "title": "Citas próximas",
+      "day": "Jueves",
+      "date": "10",
+      "items": [
+        {
+          "label": "Mañana",
+          "description": "Cita para tratamiento de Keratina"
+        },
+        {
+          "label": "La próxima semana",
+          "description": "Cita para teñido de cabello"
+        }
+      ]
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
@@ -78,6 +93,7 @@
   "appointments": {
     "reservation": {
       "client": "Cliente",
+      "provider": "Proveedor",
       "salon": "Salón",
       "schedule": "Horario",
       "paymentStatus": "Estado de pago"
@@ -91,7 +107,8 @@
       "writeHerePlaceholder": "Escribe aquí",
       "submitButton": "Enviar",
       "last": "Último comentario",
-      "all": "Todos los comentarios"
+      "all": "Todos los comentarios",
+      "fav": "Mis Favoritos"
     },
     "upcoming": {
       "tomorrow": "Mañana",
@@ -112,5 +129,65 @@
     "friday": "Viernes",
     "saturday": "Sábado",
     "sunday": "Domingo"
-  }
+  },
+  "login": {
+    "accessTitle": "Accede a tu cuenta",
+    "noAccountText": "¿No tienes una cuenta?",
+    "registerNow": "Regístrate ahora",
+    "emailLabel": "Correo electrónico*",
+    "emailPlaceholder": "tu@email.com",
+    "passwordLabel": "Contraseña*",
+    "passwordPlaceholder": "Tu contraseña",
+    "loginButton": "Iniciar sesión",
+    "loginError": "Correo electrónico o contraseña inválidos"
+  },
+  "register": {
+    "title": "Crea una cuenta",
+    "subtitle": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión",
+    "firstNamePlaceholder": "Nombre",
+    "lastNamePlaceholder": "Apellido",
+    "emailPlaceholder": "Correo electrónico",
+    "passwordPlaceholder": "Contraseña",
+    "createButton": "Crear cuenta"
+  },
+  "registerProvider": {
+    "title": "Crea una cuenta",
+    "subtitle": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión",
+    "companyNamePlaceholder": "Nombre completo de la empresa",
+    "emailPlaceholder": "Correo electrónico",
+    "passwordPlaceholder": "Contraseña",
+    "createButton": "Crear cuenta"
+  },
+  "calendar": {
+    "title": "Elige la fecha",
+    "legend": {
+      "notAvailable": "No Disponible",
+      "available": "Disponible",
+      "selected": "Seleccionado"
+    },
+    "resultMessage": "📅 {fecha} a las 🕒 {hora}"
+  },
+  "payment": {
+    "title": "Selecciona el método de pago",
+    "methods": {
+      "card": "Tarjeta de credito o Debito",
+      "yape": "Yape"
+    },
+    "cardForm": {
+      "title": "Datos para Tarjeta de crédito o Débito",
+      "cardNumber": "Número de tarjeta:",
+      "expiration": "Fecha de expiración:",
+      "cvv": "CVV:"
+    },
+    "yape": {
+      "title": "Pago por Yape",
+      "number": "Número: 987654321",
+      "owner": "Titular: UTIME"
+    }
+  },
+    "reviews": {
+      "title": "Reseñas sin leer"
+    }
 }

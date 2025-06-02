@@ -6,17 +6,29 @@ export default {
 
 <template>
   <form class="register-ui-form">
-    <h2 class="form-title">Create an account</h2>
+    <h2 class="form-title">{{ $t('registerProvider.title') }}</h2>
     <p class="form-subtitle">
-      Already have an account?
-      <router-link to="/iam/login" class="form-link">Log in</router-link>
+      {{ $t('registerProvider.subtitle') }}
+      <router-link to="/iam/login" class="form-link">{{ $t('registerProvider.loginLink') }}</router-link>
     </p>
 
-    <input type="text" placeholder="Full Name Company" class="form-input" />
-    <input type="email" placeholder="Email" class="form-input" />
-    <input type="password" placeholder="Password" class="form-input" />
+    <input
+        type="text"
+        :placeholder="$t('registerProvider.companyNamePlaceholder')"
+        class="form-input"
+    />
+    <input
+        type="email"
+        :placeholder="$t('registerProvider.emailPlaceholder')"
+        class="form-input"
+    />
+    <input
+        type="password"
+        :placeholder="$t('registerProvider.passwordPlaceholder')"
+        class="form-input"
+    />
 
-    <button class="form-button">Create account</button>
+    <button class="form-button">{{ $t('registerProvider.createButton') }}</button>
   </form>
 </template>
 

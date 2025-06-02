@@ -1,10 +1,12 @@
 <script>
 import RegisterFormClientComponent from "../../components/register-form-client/register-form-client.component.vue";
 import RegisterFormProvider from "../../components/register-form-provider/register-form-provider.component.vue";
+import LanguageSwitcherComponent from "../../../public/components/language-switcher/language-switcher.component.vue";
 
 export default {
   name: "register-page-component",
   components: {
+    LanguageSwitcherComponent,
     RegisterFormClientComponent,
     RegisterFormProvider
   },
@@ -117,7 +119,7 @@ export default {
           ></span>
         </div>
 
-        <button class="back-button" @click="goBack">← Back</button>
+        <button class="back-button" @click="goBack">← {{$t('profile.back')}}</button>
       </div>
     </div>
 
@@ -136,20 +138,23 @@ export default {
               :class="{ active: !isProvider }"
               @click="toggleForm(false)"
           >
-            Client
+            {{$t('appointments.reservation.client')}}
           </button>
           <button
               class="button-toggle"
               :class="{ active: isProvider }"
               @click="toggleForm(true)"
           >
-            Provider
+            {{$t('appointments.reservation.provider')}}
           </button>
         </div>
 
         <register-form-client-component v-if="!isProvider" />
         <register-form-provider v-if="isProvider" />
       </div>
+    </div>
+    <div class="language-content">
+      <language-switcher-component></language-switcher-component>
     </div>
   </div>
 </template>
@@ -164,7 +169,14 @@ export default {
   font-family: 'Segoe UI', sans-serif;
   position: relative;
 }
-
+.language-content{
+  position: absolute;
+  top: 30px;
+  right: 20px; /* Cambia de 0 a 20px o el valor que prefieras */
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 0
+}
 .left-section {
   flex: 1;
   height: 100%;
