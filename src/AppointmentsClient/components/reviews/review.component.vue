@@ -45,7 +45,7 @@ export default {
 
         <div class="stylist-info">
           <div class="stylist-name">{{ review.author }}</div>
-          <div class="stylist-title">Reseña #{{ review.id }}</div>
+          <div class="stylist-title">{{ $t('appointments.review.title') }} #{{ review.id }}</div>
           <div class="rating">
             <span class="star active-star">★</span>
             <span class="rating-value">{{ review.rating }}</span>
@@ -71,14 +71,14 @@ export default {
       </div>
 
       <div class="review-status">
-        <strong>Estado:</strong>
+        <strong>{{ $t('appointments.review.status') }}:</strong>
         <span :style="{ color: getReadColor() }">
           {{ getReadStatus() }}
         </span>
       </div>
 
       <div class="review-prompt">
-        <p>¿Quieres dejar una reseña?</p>
+        <p>{{ $t('appointments.review.leaveReviewPrompt') }}</p>
       </div>
 
       <div class="star-rating">
@@ -95,12 +95,12 @@ export default {
       <div class="review-input">
         <textarea
             v-model="reviewText"
-            placeholder="Escribe aquí"
+            :placeholder="$t('appointments.review.writeHerePlaceholder')"
             class="review-textarea"
         ></textarea>
       </div>
 
-      <button @click="submitReview" class="submit-button">Submit</button>
+      <button @click="submitReview" class="submit-button">{{ $t('appointments.review.submitButton') }}</button>
     </div>
   </div>
 </template>

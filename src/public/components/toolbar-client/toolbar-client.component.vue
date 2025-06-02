@@ -19,12 +19,19 @@ export default {
     </div>
 
     <div class="left-section">
-      <Button icon="pi pi-search" class="icon-button search" aria-label="Buscar"  />
+      <!-- Botón Buscar -->
+      <Button
+          icon="pi pi-search"
+          class="icon-button search"
+          :aria-label="$t('toolbarC.search')"
+      />
+
+      <!-- Input de búsqueda -->
       <input
           v-model="onmessage"
-          placeholder="Buscar..."
+          :placeholder="$t('toolbarC.search')"
           autocomplete="off"
-          aria-label="Buscar"
+          :aria-label="$t('toolbarC.search')"
           class="search-input"
       />
     </div>

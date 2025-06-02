@@ -2,13 +2,11 @@
   "dashboard": {
     "home": "Inicio",
     "schedule": "Agenda",
-
     "appointments": "Citas",
     "reviews": "Reseñas",
     "services": "Servicios",
     "subscription": "Suscripción",
     "settings": "Configuración",
-
     "hey": "Hola ",
     "letsWork": "¡Manos a la obra!",
     "upcoming": "Próximas citas",
@@ -42,15 +40,56 @@
     "coverImageAlt": "Imagen de portada",
     "addPhotoDescription": "Añade una nueva foto a tu portafolio",
     "imageSelectedLog": "Imagen seleccionada:",
-    "imageAddedLog": "Imagen añadida al portafolio"
+    "imageAddedLog": "Imagen añadida al portafolio",
+    "title": "Tu perfil 💺",
+    "back": "Atrás",
+    "edit": "Editar",
+    "personalInfo": "Información personal",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "phoneNumber": "Número de teléfono",
+    "identityDocument": "Documento de identidad",
+    "notifications": "Notificaciones",
+    "location": "Ubicación",
+    "changePassword": "Cambiar contraseña",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar nueva contraseña",
+    "change": "Cambiar",
+    "saveChanges": "Guardar cambios",
+    "passwordMinLength": "La contraseña debe tener al menos 8 caracteres",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "logOut": "Cerrar sesión",
+    "deleteAccount": "Eliminar cuenta",
+    "loading": "Cargando..."
   },
   "favorites": {
     "bookNow": "Reservar ahora"
   },
   "subscription": {
-    "currentPlan": "Tu plan actual es: ",
+    "currentPlan": "Tu plan actual es:",
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
     "actions": "Acciones",
-    "settings": "settings"
+    "settings": "configuración"
+  },
+  "toolbarC": {
+    "search": "Buscar"
+  },
+  "appointments": {
+    "reservation": {
+      "client": "Cliente",
+      "salon": "Salón",
+      "schedule": "Horario",
+      "paymentStatus": "Estado de pago"
+    },
+    "review": {
+      "title": "Reseña",
+      "status": "Estado:",
+      "read": "Leída",
+      "unread": "No leída",
+      "leaveReviewPrompt": "¿Quieres dejar una reseña?",
+      "writeHerePlaceholder": "Escribe aquí",
+      "submitButton": "Enviar"
+    }
   }
 }

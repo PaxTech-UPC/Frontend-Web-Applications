@@ -46,14 +46,14 @@ export default {
   <div class="profile-container">
     <div class="back-button">
       <button @click="$router.push('/client/homeClient')">
-        <span class="material-icons">arrow_back</span> Back
+        <span class="material-icons">arrow_back</span> {{ $t('profile.back') }}
       </button>
     </div>
 
     <h1 class="profile-title">
-      Your profile 💺
+      {{ $t('profile.title') }}
       <button class="edit-button">
-        <span class="material-icons">edit</span>
+        <span class="material-icons">{{ $t('profile.edit') }}</span>
       </button>
     </h1>
 
@@ -61,39 +61,39 @@ export default {
       <div class="profile-sections">
         <!-- Personal Information -->
         <div class="profile-section">
-          <h2 class="section-title">Personal information</h2>
+          <h2 class="section-title">{{ $t('profile.personalInfo') }}n</h2>
           <form @submit.prevent>
             <div class="form-field">
-              <label>Name</label>
+              <label>{{ $t('profile.name') }}</label>
               <input type="text" v-model="profile.name" />
             </div>
 
             <div class="form-field">
-              <label>Email</label>
+              <label>{{ $t('profile.email') }}</label>
               <input type="email" v-model="profile.email" />
             </div>
 
             <div class="form-field">
-              <label>Phone Number</label>
+              <label>{{ $t('profile.phoneNumber') }}</label>
               <input type="tel" v-model="profile.phoneNumber" />
             </div>
 
             <div class="form-field">
-              <label>Identity Document</label>
+              <label>{{ $t('profile.identityDocument') }}</label>
               <input type="text" v-model="profile.identityDocument" />
             </div>
 
             <div class="toggle-field">
               <label>
                 <input type="checkbox" v-model="profile.notifications" />
-                <span class="material-icons">notifications</span> Notifications
+                <span class="material-icons">{{ $t('profile.notifications') }}</span>
               </label>
             </div>
 
             <div class="toggle-field">
               <label>
                 <input type="checkbox" v-model="profile.location" />
-                <span class="material-icons">location_on</span> Location
+                <span class="material-icons">{{ $t('profile.location') }}</span>
               </label>
             </div>
           </form>
@@ -101,10 +101,10 @@ export default {
 
         <!-- Change Password -->
         <div class="profile-section">
-          <h2 class="section-title">Change password</h2>
+          <h2 class="section-title">{{ $t('profile.changePassword') }}</h2>
           <form @submit.prevent>
             <div class="form-field">
-              <label>Current password</label>
+              <label>{{ $t('profile.currentPassword') }}</label>
               <div class="password-field">
                 <div v-if="showCurrentPasswordField">
                   <input type="password" v-model="passwordForm.currentPassword" />
@@ -112,7 +112,7 @@ export default {
                 <div v-else class="password-placeholder">
                   ***********
                   <button @click="showCurrentPasswordField = true">
-                    <span class="material-icons"></span> Change
+                    <span class="material-icons"></span>{{ $t('profile.change') }}
                   </button>
                 </div>
               </div>
@@ -120,24 +120,24 @@ export default {
 
             <div v-if="showCurrentPasswordField">
               <div class="form-field">
-                <label>New password</label>
+                <label>{{ $t('profile.newPassword') }}</label>
                 <input type="password" v-model="passwordForm.newPassword" />
                 <span v-if="passwordForm.newPassword.length < 8" class="error-msg">
-                  Password must be at least 8 characters
+                 {{ $t('profile.passwordMinLength') }}
                 </span>
               </div>
 
               <div class="form-field">
-                <label>Confirm new password</label>
+                <label>{{ $t('profile.confirmPassword') }}</label>
                 <input type="password" v-model="passwordForm.confirmPassword" />
                 <span v-if="passwordForm.confirmPassword !== passwordForm.newPassword" class="error-msg">
-                  Passwords do not match
+                  {{ $t('profile.passwordMismatch') }}
                 </span>
               </div>
 
               <div class="save-buttons">
                 <button :disabled="!canChangePassword" @click="changePassword">
-                  <span class="material-icons"></span> Save changes
+                  <span class="material-icons"></span>{{ $t('profile.saveChanges') }}
                 </button>
               </div>
             </div>
@@ -148,18 +148,18 @@ export default {
       <!-- Account actions -->
       <div class="account-actions">
         <button class="logout-button" @click="logout">
-          <span class="material-icons"></span> Log out
+          <span class="material-icons"></span> {{ $t('profile.logOut') }}
         </button>
 
         <button class="delete-button" @click="deleteAccount" href="/iam/logout">
-          <span class="material-icons"></span> Delete account
+          <span class="material-icons"></span> {{ $t('profile.deleteAccount') }}
         </button>
       </div>
     </div>
 
     <!-- Loading Spinner -->
     <div class="loading-spinner" v-if="isLoading">
-      <span class="material-icons spinner">autorenew</span>
+      <span class="material-icons spinner">{{ $t('profile.loading') }}</span>
     </div>
   </div>
 </template>

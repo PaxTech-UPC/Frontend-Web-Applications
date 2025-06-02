@@ -80,11 +80,11 @@ export default {
     <!-- Detailed View (like in Image 1) -->
     <div v-if="view === 'detailed'" class="appointment-block">
       <h4>{{ appointment.tipo }}</h4>
-      <p><strong>Cliente:</strong> {{ appointment.clientName }}</p>
-      <p><strong>Salón:</strong> {{ appointment.salonName }}</p>
-      <p><strong>Horario:</strong> {{ formatTime(appointment.timeSlotStart) }} - {{ formatTime(appointment.timeSlotEnd) }}</p>
+      <p><strong>{{ $t('appointments.reservation.client') }}:</strong> {{ appointment.clientName }}</p>
+      <p><strong>{{ $t('appointments.reservation.salon') }}:</strong> {{ appointment.salonName }}</p>
+      <p><strong>{{ $t('appointments.reservation.schedule') }}:</strong> {{ formatTime(appointment.timeSlotStart) }} - {{ formatTime(appointment.timeSlotEnd) }}</p>
       <p>
-        <strong>Estado de pago:</strong>
+        <strong>{{ $t('appointments.reservation.paymentStatus') }}:</strong>
         <span :style="{ color: paymentStatusColor }">
           {{ paymentStatusText }}
         </span>
