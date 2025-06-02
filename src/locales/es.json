@@ -66,7 +66,6 @@
   "favorites": {
     "bookNow": "Reservar ahora"
   },
-<<<<<<< HEAD
   "subscription": {
     "currentPlan": "Tu plan actual es:",
     "upgrade": "¿Quieres mejorar tu experiencia? Mira estos planes",
@@ -92,7 +91,7 @@
       "writeHerePlaceholder": "Escribe aquí",
       "submitButton": "Enviar"
     }
-=======
+  },
   "days": {
     "monday": "Lunes",
     "tuesday": "Martes",
@@ -101,6 +100,5 @@
     "friday": "Viernes",
     "saturday": "Sábado",
     "sunday": "Domingo"
->>>>>>> 4458cd90eb36c259ba44cd854f734a6bf4f31493
   }
 }

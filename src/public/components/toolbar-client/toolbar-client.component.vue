@@ -44,7 +44,7 @@ export default {
       </div>
     </div>
 
-<<<<<<< HEAD
+
     <div class="left-section">
       <!-- Botón Buscar -->
       <Button
@@ -64,9 +64,9 @@ export default {
     </div>
 
     <!-- Sección Central -->
-=======
+
     <!-- Centro -->
->>>>>>> 4458cd90eb36c259ba44cd854f734a6bf4f31493
+
     <div class="center-section">
       <img
           src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png"
