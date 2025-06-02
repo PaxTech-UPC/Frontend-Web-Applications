@@ -7,7 +7,9 @@ import Aura from '@primevue/themes/aura'
 import i18n from "./i18n.js";
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import router from './router'
+import router from './router';
+import Particles from "@tsparticles/vue3";
+import { loadSlim } from "@tsparticles/slim"; // o usa loadFull si necesitas más
 
 const app = createApp(App)
 app
@@ -16,6 +18,11 @@ app
         theme: {
             preset: Aura
         }})
+    .use(Particles, {
+        init: async (engine) => {
+            await loadSlim(engine);
+        }
+    })
     .component('pv-button', Button)
     .component('pv-card',Card)
     .component('pv-select-button', SelectButton)

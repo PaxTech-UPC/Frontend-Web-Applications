@@ -65,12 +65,22 @@
   "favorites": {
     "bookNow": "Book now"
   },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
   "subscription": {
     "currentPlan": "Your current plan is: ",
     "upgrade": "Wanna upgrade? Check out these plans",
     "actions": "Actions",
     "settings": "settings"
   },
+<<<<<<< HEAD
   "toolbarC": {
     "search": "Search"
   },
@@ -90,5 +100,14 @@
       "writeHerePlaceholder": "Write here",
       "submitButton": "Submit"
     }
+=======
+  "services": {
+    "service": "Service",
+    "duration": "Duration",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions",
+    "settings": "settings"
+>>>>>>> 4458cd90eb36c259ba44cd854f734a6bf4f31493
   }
 }

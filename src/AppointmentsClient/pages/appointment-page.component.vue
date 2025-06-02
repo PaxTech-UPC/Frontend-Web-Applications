@@ -6,6 +6,8 @@ import { AppointmentApiService } from "../services/Appointment-api.service.js";
 import { ReviewApiService } from "../services/Review-api.service.js";
 import { AppointmentAssembler } from "../services/Appointment.assembler.js";
 import UpcomingClientComponent from "../components/upcoming-client/upcoming-client.component.vue";
+import SidebarClientComponent from "../../public/components/sidebar-client/sidebar-client.component.vue";
+
 
 export default {
   name: "AppointmentPageComponent",
@@ -14,6 +16,8 @@ export default {
     UpcomingAppointmentsClient,
     AppointmentComponent,
     ReviewComponent,
+    SidebarClientComponent,
+
   },
   data() {
     return {
@@ -63,76 +67,105 @@ export default {
   }
 };
 </script>
+
+
+
 <template>
   <div class="container">
-    <!-- Columna izquierda: Appointments -->
-    <div class="appointments-section">
-      <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
-      <h3 class="h3-container">Tomorrow</h3>
-      <AppointmentComponent
-          v-for="appointment in tomorrowAppointments"
-          :key="appointment.reservationId"
-          :appointment="appointment"
-      />
+    <!-- Sidebar fijo -->
+    <aside class="sidebar">
+      <sidebar-client-component />
+    </aside>
 
-      <h3 class="h3-container">Next Week</h3>
-      <AppointmentComponent
-          v-for="appointment in nextWeekAppointments"
-          :key="appointment.reservationId"
-          :appointment="appointment"
-      />
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <!-- Columna izquierda: Appointments -->
+      <div class="appointments-section">
+        <upcoming-client-component class="upcoming-appo"></upcoming-client-component>
+        <h3 class="h3-container">Tomorrow</h3>
+        <AppointmentComponent
+            v-for="appointment in tomorrowAppointments"
+            :key="appointment.reservationId"
+            :appointment="appointment"
+        />
 
-      <h3 class="h3-container">All Appointments</h3>
-      <AppointmentComponent
-          v-for="appointment in appointments"
-          :key="appointment.reservationId"
-          :appointment="appointment"
-      />
-    </div>
+        <h3 class="h3-container">Next Week</h3>
+        <AppointmentComponent
+            v-for="appointment in nextWeekAppointments"
+            :key="appointment.reservationId"
+            :appointment="appointment"
+        />
 
-    <!-- Línea divisoria vertical -->
-    <hr class="vertical-line" />
+        <h3 class="h3-container">All Appointments</h3>
+        <AppointmentComponent
+            v-for="appointment in appointments"
+            :key="appointment.reservationId"
+            :appointment="appointment"
+        />
+      </div>
 
-    <!-- Columna derecha: Reviews -->
-    <div class="reviews-section">
-      <h3>Last Visited</h3>
-      <ReviewComponent
-          v-if="lastVisited"
-          :key="lastVisited.id"
-          :review="lastVisited"
-      />
+      <!-- Línea divisoria vertical -->
+      <hr class="vertical-line" />
 
-      <h3>All Reviews</h3>
-      <ReviewComponent
-          v-for="review in reviews"
-          :key="review.id"
-          :review="review"
-      />
+      <!-- Columna derecha: Reviews -->
+      <div class="reviews-section">
+        <h3>Last Visited</h3>
+        <ReviewComponent
+            v-if="lastVisited"
+            :key="lastVisited.id"
+            :review="lastVisited"
+        />
+
+        <h3>All Reviews</h3>
+        <ReviewComponent
+            v-for="review in reviews"
+            :key="review.id"
+            :review="review"
+        />
+      </div>
     </div>
   </div>
 </template>
+
+
+
+
+
 <style>
+
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.h3-container{
-  margin-left: 400px;
+.sidebar {
+  position: fixed;
+  flex: 0 0 260px;
+  left: 1.5rem;
 }
-.upcoming-appo{
+
+.main-content {
+  margin-left: 260px;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.h3-container {
+  margin-left: 0;
+}
+
+.upcoming-appo {
   width: 250px;
-  background-color: #f0dff0; /* Soft purple */
+  background-color: #f0dff0;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: fixed;
-  top: 300px;
-  left: 5px;
+  margin-bottom: 2rem;
 }
 
 .appointments-section,
@@ -148,5 +181,7 @@ export default {
   align-self: stretch;
   border: none;
 }
+
+
 
 </style>
