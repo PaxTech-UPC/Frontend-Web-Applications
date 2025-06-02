@@ -210,5 +210,14 @@
     "v": "Viernes",
     "s": "Sábado",
     "d": "Domingo"
+  },
+  "subs": {
+    "ba": "Calendario inteligente básico",
+    "cli": "Página de reserva de clientes",
+    "re": "Reseñas y valoraciones",
+    "dat": "Base de datos de clientes",
+    "cus": "Enlace de reserva personalizado",
+    "ad": "Analítica avanzada",
+    "choose": "Elegir"
   }
 }

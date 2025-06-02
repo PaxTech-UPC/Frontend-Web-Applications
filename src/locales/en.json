@@ -209,5 +209,14 @@
     "f": "Friday",
     "sa": "Saturday",
     "su": "Sunday"
+  },
+  "subs": {
+    "ba": "Basic smart calendar",
+    "cli": "Client booking page",
+    "re": "Reviews & ratings",
+    "dat": "Client database",
+    "cus": "Custom booking link",
+    "ad": "Advanced analytics",
+    "choose": "Choose"
   }
 }
