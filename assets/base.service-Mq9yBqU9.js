@@ -1,0 +1,1 @@
+import{a as e}from"./index-xsH4HHeE.js";const s=void 0,r=e.create({baseURL:s});class o{constructor(t){this.reservationEndpoint=t}getAll(t={}){return r.get(this.reservationEndpoint,{params:t})}}export{o as B};
