@@ -110,7 +110,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('/Frontend-Web-Applications/'),
     routes: routes,
 })
 

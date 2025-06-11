@@ -1,1 +1,0 @@
-import{a as t}from"./index-xsH4HHeE.js";const e=t.create({baseURL:"http://localhost:3000/salonProfiles"});class l{getUrlToSalonProfile(){return e.get()}async getSalonProfileById(o){try{return(await e.get(`?salonId=${o}`)).data[0]}catch(r){throw console.error("Error al obtener el perfil del salón:",r),r}}}export{l as S};
