@@ -99,7 +99,7 @@
       "location": "Larcomar",
       "phone": "987654321",
       "coverImage": "https://media.istockphoto.com/id/2035352921/es/vector/una-linda-ilustraci%C3%B3n-de-un-tiovivo-un-carrusel-con-tres-caballos-blancos.jpg?s=612x612&w=0&k=20&c=X_2S7IG03TqVtsWpkv7VhP0uAPtQuA5ADkN4-uKH34o=",
-      "rating": 4.0
+      "rating": 4
     },
     {
       "salonId": "salon4",
@@ -131,7 +131,7 @@
       "location": "San Isidro",
       "phone": "987654321",
       "coverImage": "https://media.istockphoto.com/id/2035352921/es/vector/una-linda-ilustraci%C3%B3n-de-un-tiovivo-un-carrusel-con-tres-caballos-blancos.jpg?s=612x612&w=0&k=20&c=X_2S7IG03TqVtsWpkv7VhP0uAPtQuA5ADkN4-uKH34o=",
-      "rating": 5.0
+      "rating": 5
     },
     {
       "salonId": "salon8",
@@ -204,8 +204,6 @@
       "especializacion": "Stylist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
     }
-
-
   ],
   "services": [
     {
@@ -235,30 +233,44 @@
       "duration": 30,
       "price": 30,
       "status": "Active"
+    },
+    {
+      "name": "Hair Bleaching",
+      "duration": "120",
+      "price": "500",
+      "status": "Active",
+      "id": "1NnJkxM"
+    },
+    {
+      "name": "Corteeeee",
+      "duration": "50",
+      "price": "50.70",
+      "status": "Active",
+      "id": "scs4rf7"
     }
   ],
   "payments": [
     {
       "paymentId": "pay1",
-      "amount": 40.0,
+      "amount": 40,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay2",
-      "amount": 50.0,
+      "amount": 50,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay3",
-      "amount": 100.0,
+      "amount": 100,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay4",
-      "amount": 30.0,
+      "amount": 30,
       "currency": "USD",
       "status": false
     }
@@ -282,7 +294,7 @@
       },
       "payment": {
         "paymentId": "pay1",
-        "amount": 40.0,
+        "amount": 40,
         "currency": "USD",
         "status": true
       },
@@ -315,7 +327,7 @@
       },
       "payment": {
         "paymentId": "2",
-        "amount": 50.0,
+        "amount": 50,
         "currency": "USD",
         "status": true
       },
@@ -348,7 +360,7 @@
       },
       "payment": {
         "paymentId": "pay3",
-        "amount": 100.0,
+        "amount": 100,
         "currency": "USD",
         "status": true
       },
@@ -381,7 +393,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -393,7 +405,7 @@
         "tipo": "Express"
       },
       "worker": {
-        "name":"Gael"
+        "name": "Gael"
       }
     },
     {
@@ -414,7 +426,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -426,7 +438,7 @@
         "tipo": "Express"
       },
       "worker": {
-        "name":"Alejandro"
+        "name": "Alejandro"
       }
     },
     {
@@ -447,7 +459,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -459,7 +471,7 @@
         "tipo": "Express"
       },
       "worker": {
-        "name":"Maria"
+        "name": "Maria"
       }
     }
   ],
@@ -493,177 +505,5 @@
       "read": true
     }
   ],
-  "salonProfiles": [
-    {
-      "id": 1,
-      "salonId": "salon1",
-      "salonName": "Corte & Estilo",
-      "rating": 4.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 2,
-      "salonId": "salon2",
-      "salonName": "La Casa del Cabello",
-      "rating": 2.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 3,
-      "salonId": "salon3",
-      "salonName": "Estilo Glam",
-      "rating": 4.0,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 4,
-      "salonId": "salon4",
-      "salonName": "Peluquería Chic",
-      "rating": 2.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 5,
-      "salonId": "salon5",
-      "salonName": "Cortes & Color",
-      "rating": 3.4,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 6,
-      "salonId": "salon6",
-      "salonName": "Belleza en Acción",
-      "rating": 1.2,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 7,
-      "salonId": "salon7",
-      "salonName": "El Arte del Cabello",
-      "rating": 5.0,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 8,
-      "salonId": "salon8",
-      "salonName": "Estilo & Brillo",
-      "rating": 2.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    },
-    {
-      "id": 9,
-      "salonId": "salon9",
-      "salonName": "Reflejos y Cortes",
-      "rating": 2.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ]
-    }
-  ]
+  "salonProfiles": []
 }
