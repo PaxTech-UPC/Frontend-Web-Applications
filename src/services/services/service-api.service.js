@@ -16,4 +16,12 @@ export class ServiceApiService extends BaseApiService {
     static create(service) {
         return http.post('/', service);
     }
+
+    static delete(id) {
+        return http.delete(`/${id}`);
+    }
+
+    static update(id, service) {
+        return http.put(`/${id}`, service);
+    }
 }
