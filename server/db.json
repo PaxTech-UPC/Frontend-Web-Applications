@@ -393,7 +393,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -426,7 +426,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -459,7 +459,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
