@@ -235,10 +235,18 @@
       "status": "Active"
     },
     {
-      "id": "l4EAmab"
+      "name": "Hair Bleaching",
+      "duration": "120",
+      "price": "500",
+      "status": "Active",
+      "id": "1NnJkxM"
     },
     {
-      "id": "nrzHgPr"
+      "name": "Corteeeee",
+      "duration": "50",
+      "price": "50.70",
+      "status": "Active",
+      "id": "scs4rf7"
     }
   ],
   "payments": [
@@ -385,7 +393,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30,
+        "amount": 30.0,
         "currency": "USD",
         "status": false
       },
@@ -418,7 +426,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30,
+        "amount": 30.0,
         "currency": "USD",
         "status": false
       },
@@ -451,7 +459,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30,
+        "amount": 30.0,
         "currency": "USD",
         "status": false
       },
