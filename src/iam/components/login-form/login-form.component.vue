@@ -124,19 +124,22 @@ export default {
 }
 
 .form-label {
-  margin-bottom: 6px;
-  font-size: 0.9rem;
+  display: flex;
+  font-size: 1rem;
   color: #444;
+  text-align: left;
+  margin: 10px 6px;
 }
 
 .form-input {
   width: 100%;
   padding: 12px;
-  border: none;
   background-color: #f0f2f5;
   border-radius: 6px;
   font-size: 0.95rem;
   color: #333;
+  border-color: #c9c9c9;
+  border-width: 1px;
 }
 
 .form-input::placeholder {
@@ -163,7 +166,7 @@ export default {
 .error-msg {
   color: red;
   font-weight: 500;
-  margin-top: -0.5rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   text-align: center;
 }

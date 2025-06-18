@@ -62,12 +62,13 @@ export default {
 .form-input {
   width: 100%;
   padding: 12px;
-  border: none;
   background-color: #f0f2f5;
   margin-bottom: 1rem;
   border-radius: 6px;
   font-size: 0.95rem;
   color: #333;
+  border-color: #c9c9c9;
+  border-width: 1px;
 }
 
 .form-input::placeholder {

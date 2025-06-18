@@ -24,22 +24,7 @@
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
     "popular": "Más popular",
-    "greeting": "¡Hey! ¡A trabajar!",
-    "appointments": {
-      "title": "Citas próximas",
-      "day": "Jueves",
-      "date": "10",
-      "items": [
-        {
-          "label": "Mañana",
-          "description": "Cita para tratamiento de Keratina"
-        },
-        {
-          "label": "La próxima semana",
-          "description": "Cita para teñido de cabello"
-        }
-      ]
-    }
+    "greeting": "¡Hey! ¡A trabajar!"
   },
   "profile": {
     "yourProfile": "Tu Perfil:",

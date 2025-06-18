@@ -23,22 +23,7 @@
     "stylist": "Stylist",
     "favorites": "My Favorites",
     "profile": "Profile",
-    "greeting": "Hey, Let's Get to Work!",
-    "appointments": {
-      "title": "Upcoming appointments",
-      "day": "Thursday",
-      "date": "10",
-      "items": [
-        {
-          "label": "Tomorrow",
-          "description": "Keratin treatment appointment"
-        },
-        {
-          "label": "Next week",
-          "description": "Hair coloring appointment"
-        }
-      ]
-    }
+    "greeting": "Hey, Let's Get to Work!"
   },
   "profile": {
     "yourProfile": "Your Profile:",
