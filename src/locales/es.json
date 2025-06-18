@@ -130,8 +130,8 @@
     "noAccountText": "¿No tienes una cuenta?",
     "registerNow": "Regístrate ahora",
     "emailLabel": "Correo electrónico*",
-    "emailPlaceholder": "tu@email.com",
-    "passwordLabel": "Contraseña*",
+    "emailPlaceholder": "Correo",
+    "passwordLabel": "Contraseña",
     "passwordPlaceholder": "Tu contraseña",
     "loginButton": "Iniciar sesión",
     "loginError": "Correo electrónico o contraseña inválidos"
