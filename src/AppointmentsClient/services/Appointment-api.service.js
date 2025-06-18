@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BaseApiService } from '../../shared/services/base.service.js'; // Ajusta la ruta si está en otro lado
 
-const serviceApi = 'http://localhost:3000/reservationDetails';
+const serviceApi = 'https://fakeapi-yoil.onrender.com/api/reservationDetails';
 
 const http = axios.create({
     baseURL: serviceApi
