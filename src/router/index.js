@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 // IAM (auth)
 
@@ -49,6 +49,8 @@ const routes = [
 
         ]
     },
+
+
 
     // Provider Layout
 
@@ -108,8 +110,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHashHistory('/Frontend-Web-Applications/'),
-    routes
+    history: createWebHistory('/'),
+    routes: routes,
 })
 
 export default router
