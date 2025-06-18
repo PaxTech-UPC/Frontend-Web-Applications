@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // IAM (auth)
 
@@ -50,15 +50,13 @@ const routes = [
         ]
     },
 
-
-
     // Provider Layout
 
     {
         path: '/provider',
         component: ProviderLayoutComponent,
         children: [
-            { path: '', redirect: '/provider/schedule' },
+            { path: '/provider/', redirect: '/provider/homeProvider' },
             { path: 'homeProvider', component: ProviderDashboardComponent },
             { path: 'schedule', component: SchedulePageComponent },
             { path: 'reviews', component: ReviewsTabComponent },
@@ -71,7 +69,7 @@ const routes = [
         path: '/client',
         component: ClientLayoutComponent,
         children: [
-            { path: '', redirect: '/client/homeClient' },
+            { path: '/client/', redirect: '/client/homeClient' },
             { path: 'homeClient', component: DashboardPage},
             { path: 'appointments', component: AppointmentPageComponent },
             { path: 'favorites', component: FavoritesPageComponent },
@@ -110,8 +108,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/Frontend-Web-Applications/'),
-    routes: routes,
+    history: createWebHashHistory('/Frontend-Web-Applications/'),
+    routes
 })
 
 export default router

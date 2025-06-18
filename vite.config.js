@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Frontend-Web-Applications/',  // 👈 cambia esto por el nombre del repositorio
+  base: '/Frontend-Web-Applications/',
   plugins: [vue()]
 })
