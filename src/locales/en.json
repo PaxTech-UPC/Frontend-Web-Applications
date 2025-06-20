@@ -203,5 +203,8 @@
     "cus": "Custom booking link",
     "ad": "Advanced analytics",
     "choose": "Choose"
+  },
+  "title": {
+    "upcomming": "Thursday"
   }
 }

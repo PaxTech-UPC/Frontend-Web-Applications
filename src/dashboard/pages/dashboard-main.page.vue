@@ -47,7 +47,7 @@ export default {
         <template #content>
           <div class="appointment-content">
             <div class="date-section">
-              <div class="day">{{ $t('days.thursday') }}</div>
+              <div class="day">{{ $t('title.upcomming') }}</div>
               <div class="date-number">10</div>
             </div>
             <div class="divider"></div>
@@ -95,56 +95,14 @@ export default {
   flex: 1;
   max-width: 100%;
   overflow-x: hidden;
-  margin-left: 260px; /* 👈 Este es el ajuste necesario */
+  margin-left: 260px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 /* === Card citas === */
-.custom-card {
-  background-color: #e6e6e6;
-  border-radius: 16px;
-  padding: 16px;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-}
-
-.appointment-content {
-  display: flex;
-  align-items: center;
-}
-
-.date-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 16px;
-}
-
-.day {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-}
-
-.date-number {
-  font-size: 40px;
-  font-weight: 800;
-  margin-top: 4px;
-}
-
-.divider {
-  width: 2px;
-  height: 80px;
-  background-color: #999;
-  margin: 0 16px;
-}
-
-.appointments-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
 
 .appointment-item {
   border-radius: 8px;
@@ -159,18 +117,6 @@ export default {
   background-color: #d4bdbd;
 }
 
-.appointment-label {
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 4px;
-  color: #333;
-}
-
-.appointment-description {
-  font-size: 14px;
-  font-weight: 600;
-}
-
 /* === Salones === */
 .dashboard {
   max-width: 100%;
@@ -183,6 +129,83 @@ export default {
   margin-bottom: 1rem;
   color: #222;
 }
+
+.custom-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  border-left: 6px solid #731c9f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.date-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #731c9f;
+  font-weight: bold;
+  min-width: 70px;
+}
+
+.date-number {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.day {
+  font-size: 16px;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ddd;
+  height: 60px;
+}
+
+.appointments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.appointment-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.appointment-item.grey {
+  background-color: #f5f5f5;
+}
+
+.appointment-item.pink {
+  background-color: #fce4ec;
+}
+
+.appointment-label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1e1e1e;
+}
+
+.appointment-description {
+  color: #333;
+}
+
 
 /* === Global Overflow Fix === */
 html, body {

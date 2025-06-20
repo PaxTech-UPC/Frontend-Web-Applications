@@ -204,5 +204,8 @@
     "cus": "Enlace de reserva personalizado",
     "ad": "Analítica avanzada",
     "choose": "Elegir"
+  },
+  "title": {
+    "upcomming": "Jueves"
   }
 }
