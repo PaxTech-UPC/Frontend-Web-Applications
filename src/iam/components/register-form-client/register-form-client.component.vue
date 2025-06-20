@@ -36,7 +36,10 @@ export default {
         class="form-input"
     />
 
-    <button class="form-button">{{ $t('register.createButton') }}</button>
+    <router-link to="/client" class="form-button">
+      {{ $t('register.createButton') }}
+    </router-link>
+
   </form>
 </template>
 
@@ -95,6 +98,7 @@ export default {
 }
 
 .form-button {
+  display: inline-block;        /* Asegura que se pueda aplicar ancho y alto */
   width: 100%;
   background-color: #731c9f;
   color: white;
