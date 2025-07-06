@@ -144,7 +144,8 @@
     "lastNamePlaceholder": "Apellido",
     "emailPlaceholder": "Correo electrónico",
     "passwordPlaceholder": "Contraseña",
-    "createButton": "Crear cuenta"
+    "createButton": "Crear cuenta",
+    "loading": "Cargando..."
   },
   "registerProvider": {
     "title": "Crea una cuenta",

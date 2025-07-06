@@ -1,11 +1,55 @@
 <script>
+
+import { signUp } from "../../services/auth.services.js";
+import { createClient } from "../../services/client.service.js";
+
 export default {
-  name: "register-form-client-component"
+  name: "register-form-client-component",
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      isLoading: false
+    };
+  },
+  methods: {
+    async handleRegister() {
+      this.isLoading = true;
+      try {
+        // Paso 1: Registrar usuario y obtener el userId
+        const signUpResponse = await signUp({
+          email: this.email,
+          password: this.password
+        });
+
+        console.log("SIGNUP RESPONSE:", signUpResponse); // 👈 revisa si devuelve { id, email }
+
+        const userId = signUpResponse.id; // 👈 usar el id devuelto
+
+        // Paso 2: Crear perfil de cliente
+        await createClient({
+          firstName: this.firstName,
+          lastName: this.lastName,
+          userId: userId // 👈 enviar el userId al backend
+        });
+
+        alert(this.$t("register.successMessage"));
+        this.$router.push("/iam/login"); // Redirigir al login
+      } catch (error) {
+        console.error(error);
+        alert(this.$t("register.errorMessage") || "Error en el registro");
+      } finally {
+        this.isLoading = false;
+      }
+    }
+  }
 };
 </script>
 
 <template>
-  <form class="register-ui-form">
+  <form class="register-ui-form" @submit.prevent="handleRegister">
     <h2 class="form-title">{{ $t('register.title') }}</h2>
     <p class="form-subtitle">
       {{ $t('register.subtitle') }}
@@ -15,30 +59,38 @@ export default {
     <div class="form-row">
       <input
           type="text"
+          v-model="firstName"
           :placeholder="$t('register.firstNamePlaceholder')"
           class="form-input half"
+          required
       />
       <input
           type="text"
+          v-model="lastName"
           :placeholder="$t('register.lastNamePlaceholder')"
           class="form-input half"
+          required
       />
     </div>
 
     <input
         type="email"
+        v-model="email"
         :placeholder="$t('register.emailPlaceholder')"
         class="form-input"
+        required
     />
     <input
         type="password"
+        v-model="password"
         :placeholder="$t('register.passwordPlaceholder')"
         class="form-input"
+        required
     />
 
-    <router-link to="/client" class="form-button">
-      {{ $t('register.createButton') }}
-    </router-link>
+    <button class="form-button" :disabled="isLoading">
+      {{ isLoading ? $t('register.loading') : $t('register.createButton') }}
+    </button>
 
   </form>
 </template>

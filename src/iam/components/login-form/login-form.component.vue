@@ -1,4 +1,8 @@
 <script>
+import { signIn } from "../../services/auth.services.js";
+import { getAllClients } from "../../services/client.service.js";
+import { getAllProviders } from "../../services/provider.service.js";
+
 export default {
   name: "login-form-component",
   data() {
@@ -6,29 +10,53 @@ export default {
       email: "",
       password: "",
       loginError: false,
-      dummyAccounts: [
-        { email: "client@utime.com", password: "client123", type: "client" },
-        { email: "provider@utime.com", password: "provider123", type: "provider" }
-      ]
+      isLoading: false
     };
   },
   methods: {
-    onSubmit() {
-      const account = this.dummyAccounts.find(
-          (acc) =>
-              acc.email === this.email &&
-              acc.password === this.password
-      );
+    async onSubmit() {
+      this.isLoading = true;
+      this.loginError = false;
 
-      if (account) {
-        this.loginError = false;
-        if (account.type === "client") {
+      try {
+        // Paso 1: Login
+        await signIn({
+          email: this.email,
+          password: this.password
+        });
+
+        // ✅ Recuperar el userId del localStorage
+        const userId = parseInt(localStorage.getItem("user_id"));
+
+        // Paso 2: Buscar en clientes
+        const clients = await getAllClients();
+        const client = clients.find(c => c.userId === userId); // 👈 Compara user_id
+
+        if (client) {
+          localStorage.setItem("user_type", "client");
           this.$router.push("/client/homeClient");
-        } else if (account.type === "provider") {
-          this.$router.push("/provider/homeProvider");
+          return;
         }
-      } else {
+
+        // Paso 3: Buscar en proveedores
+        const providers = await getAllProviders();
+        const provider = providers.find(p => p.userId === userId); // 👈 Compara user_id
+
+        if (provider) {
+          localStorage.setItem("user_type", "provider");
+          this.$router.push("/provider/homeProvider");
+          return;
+        }
+
+        // ❌ Si no es cliente ni proveedor
+        alert("No se encontró un perfil asociado.");
         this.loginError = true;
+
+      } catch (error) {
+        console.error("Error en login:", error);
+        this.loginError = true;
+      } finally {
+        this.isLoading = false;
       }
     }
   }

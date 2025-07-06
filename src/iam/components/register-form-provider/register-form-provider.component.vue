@@ -1,11 +1,51 @@
 <script>
+
+import { signUp } from "../../services/auth.services.js";
+import { createProvider } from "../../services/provider.service.js";
+
 export default {
-  name: "register-form-provider-component"
+  name: "register-form-provider-component",
+  data() {
+    return {
+      companyName: "",
+      email: "",
+      password: "",
+      isLoading: false
+    };
+  },
+  methods: {
+    async handleRegister() {
+      this.isLoading = true;
+      try {
+        // Paso 1: Registrar usuario y obtener el userId
+        const signUpResponse = await signUp({
+          email: this.email,
+          password: this.password
+        });
+
+        const userId = signUpResponse.id;
+
+        // Paso 2: Crear perfil de proveedor
+        await createProvider({
+          companyName: this.companyName,
+          userId: userId // 👈 enviar el userId al backend
+        });
+
+        alert(this.$t("registerProvider.successMessage"));
+        this.$router.push("/iam/login");
+      } catch (error) {
+        console.error(error);
+        alert(this.$t("registerProvider.errorMessage") || "Error en el registro");
+      } finally {
+        this.isLoading = false;
+      }
+    }
+  }
 };
 </script>
 
 <template>
-  <form class="register-ui-form">
+  <form class="register-ui-form" @submit.prevent="handleRegister">
     <h2 class="form-title">{{ $t('registerProvider.title') }}</h2>
     <p class="form-subtitle">
       {{ $t('registerProvider.subtitle') }}
@@ -14,23 +54,29 @@ export default {
 
     <input
         type="text"
+        v-model="companyName"
         :placeholder="$t('registerProvider.companyNamePlaceholder')"
         class="form-input"
+        required
     />
     <input
         type="email"
+        v-model="email"
         :placeholder="$t('registerProvider.emailPlaceholder')"
         class="form-input"
+        required
     />
     <input
         type="password"
+        v-model="password"
         :placeholder="$t('registerProvider.passwordPlaceholder')"
         class="form-input"
+        required
     />
 
-    <router-link to="/provider" class="form-button">
-      {{ $t('register.createButton') }}
-    </router-link>
+    <button class="form-button" :disabled="isLoading">
+      {{ isLoading ? $t('register.loading') : $t('register.createButton') }}
+    </button>
 
   </form>
 </template>

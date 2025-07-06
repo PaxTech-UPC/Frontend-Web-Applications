@@ -143,7 +143,8 @@
     "lastNamePlaceholder": "LastName",
     "emailPlaceholder": "Email",
     "passwordPlaceholder": "Password",
-    "createButton": "Create account"
+    "createButton": "Create account",
+    "loading": "Loading..."
   },
   "registerProvider": {
     "title": "Create an account",
