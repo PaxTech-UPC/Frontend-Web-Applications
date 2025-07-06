@@ -13,7 +13,7 @@ export default {
 
     <router-link to="/client/appointments" class="nav-link" active-class="active">
       <span class="material-icons">calendar_month</span>
-      <span>{{ $t('dashboard.appointments') }}</span>
+      <span>{{ $t('dashboard.appointment') }}</span>
     </router-link>
 
     <router-link to="/client/favorites" class="nav-link" active-class="active">
