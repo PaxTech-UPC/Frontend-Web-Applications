@@ -5,7 +5,7 @@ const resApi = import.meta.env.VITE_API_BASE_URL;
 const reservationEndpoint = import.meta.env.VITE_RESERVATIONS_ENDPOINT_PATH;
 
 // HardCode
-const serviceApi = 'http://localhost:3000/reservationDetails'
+const serviceApi = 'https://fakeapi-yoil.onrender.com/api/reservationDetails'
 
 const http = axios.create({
     baseURL: serviceApi,

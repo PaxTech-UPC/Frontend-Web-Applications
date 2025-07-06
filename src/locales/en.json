@@ -23,22 +23,7 @@
     "stylist": "Stylist",
     "favorites": "My Favorites",
     "profile": "Profile",
-    "greeting": "Hey, Let's Get to Work!",
-    "appointments": {
-      "title": "Upcoming appointments",
-      "day": "Thursday",
-      "date": "10",
-      "items": [
-        {
-          "label": "Tomorrow",
-          "description": "Keratin treatment appointment"
-        },
-        {
-          "label": "Next week",
-          "description": "Hair coloring appointment"
-        }
-      ]
-    }
+    "greeting": "Hey, Let's Get to Work!"
   },
   "profile": {
     "yourProfile": "Your Profile:",
@@ -144,7 +129,7 @@
     "noAccountText": "Don't have an account?",
     "registerNow": "Register now",
     "emailLabel": "Email*",
-    "emailPlaceholder": "tu@email.com",
+    "emailPlaceholder": "Correo",
     "passwordLabel": "Password*",
     "passwordPlaceholder": "Your password",
     "loginButton": "Sign in",
@@ -218,5 +203,8 @@
     "cus": "Custom booking link",
     "ad": "Advanced analytics",
     "choose": "Choose"
+  },
+  "title": {
+    "upcomming": "Thursday"
   }
 }

@@ -1,6 +1,8 @@
 <script>
-import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
+import ConfirmDialog from 'primevue/confirmdialog';
 
 export default {
   name: "subscription-plan-component",
@@ -11,10 +13,10 @@ export default {
   },
   methods: {
     changePlan(plan) {
-      const toast = useToast();
-      const confirm = useConfirm();
+      this.selectedPlan = plan;
 
-      confirm.require({
+
+      this.$confirm.require({
         message: 'Are you sure you want to change your subscription plan? This action will update your benefits and take effect immediately.',
         header: 'Confirmation',
         icon: 'pi pi-exclamation-triangle',
@@ -22,7 +24,7 @@ export default {
         rejectLabel: 'No',
         accept: () => {
           this.selectedPlan = plan;
-          toast.add({
+          this.$toast.add({
             severity: 'success',
             summary: 'Plan Updated',
             detail: `You have selected the ${plan} plan.`,

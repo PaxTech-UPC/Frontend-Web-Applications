@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const https = axios.create({
-    baseURL: "http://localhost:3000/workers"
+    baseURL: "https://fakeapi-yoil.onrender.com/api/workers"
 });
 
 export class WorkerApiServices {

@@ -82,6 +82,7 @@ export default {
 }
 
 .main-button {
+  color: #3b3939;
   display: flex;
   align-items: center;
   background-color: #f0f0f0;
@@ -96,6 +97,7 @@ export default {
 }
 
 .main-button .label {
+  color: #3b3939;
   margin-right: 6px;
   font-weight: bold;
 }
@@ -105,6 +107,7 @@ export default {
 }
 
 .dropdown-menu {
+  color: #3b3939;
   display: flex;
   flex-direction: column;
   margin-top: 5px;
@@ -118,6 +121,7 @@ export default {
 }
 
 .menu-item {
+  color: #3b3939;
   display: flex;
   align-items: center;
   gap: 6px;

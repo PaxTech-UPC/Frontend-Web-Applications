@@ -28,7 +28,10 @@ export default {
         class="form-input"
     />
 
-    <button class="form-button">{{ $t('registerProvider.createButton') }}</button>
+    <router-link to="/provider" class="form-button">
+      {{ $t('register.createButton') }}
+    </router-link>
+
   </form>
 </template>
 
@@ -62,12 +65,13 @@ export default {
 .form-input {
   width: 100%;
   padding: 12px;
-  border: none;
   background-color: #f0f2f5;
   margin-bottom: 1rem;
   border-radius: 6px;
   font-size: 0.95rem;
   color: #333;
+  border-color: #c9c9c9;
+  border-width: 1px;
 }
 
 .form-input::placeholder {
@@ -75,6 +79,7 @@ export default {
 }
 
 .form-button {
+  display: inline-block;        /* Asegura que se pueda aplicar ancho y alto */
   width: 100%;
   background-color: #731c9f;
   color: white;

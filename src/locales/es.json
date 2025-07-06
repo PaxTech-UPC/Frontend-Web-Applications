@@ -24,22 +24,7 @@
     "favorites": "Mis Favoritos",
     "profile": "Perfil",
     "popular": "Más popular",
-    "greeting": "¡Hey! ¡A trabajar!",
-    "appointments": {
-      "title": "Citas próximas",
-      "day": "Jueves",
-      "date": "10",
-      "items": [
-        {
-          "label": "Mañana",
-          "description": "Cita para tratamiento de Keratina"
-        },
-        {
-          "label": "La próxima semana",
-          "description": "Cita para teñido de cabello"
-        }
-      ]
-    }
+    "greeting": "¡Hey! ¡A trabajar!"
   },
   "profile": {
     "yourProfile": "Tu Perfil:",
@@ -145,8 +130,8 @@
     "noAccountText": "¿No tienes una cuenta?",
     "registerNow": "Regístrate ahora",
     "emailLabel": "Correo electrónico*",
-    "emailPlaceholder": "tu@email.com",
-    "passwordLabel": "Contraseña*",
+    "emailPlaceholder": "Correo",
+    "passwordLabel": "Contraseña",
     "passwordPlaceholder": "Tu contraseña",
     "loginButton": "Iniciar sesión",
     "loginError": "Correo electrónico o contraseña inválidos"
@@ -219,5 +204,8 @@
     "cus": "Enlace de reserva personalizado",
     "ad": "Analítica avanzada",
     "choose": "Elegir"
+  },
+  "title": {
+    "upcomming": "Jueves"
   }
 }

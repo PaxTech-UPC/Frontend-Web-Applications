@@ -31,11 +31,6 @@ export default {
       {{ $t('dashboard.subscription') }}
     </router-link>
 
-    <router-link to="/provider/settings" class="nav-link" active-class="active">
-      <i class="pi pi-cog"></i>
-      {{ $t('dashboard.settings') }}
-    </router-link>
-
   </nav>
 </template>
 
