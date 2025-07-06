@@ -9,7 +9,20 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import router from './router';
 import Particles from "@tsparticles/vue3";
-import { loadSlim } from "@tsparticles/slim"; // o usa loadFull si necesitas más
+import { loadSlim } from "@tsparticles/slim";
+import axios from "axios"; // 👈 añadido
+
+// ✅ Interceptor global para JWT
+axios.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem("jwt_token"); // 👈 Key real en tu localStorage
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
 
 const app = createApp(App)
 app

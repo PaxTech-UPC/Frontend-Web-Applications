@@ -12,8 +12,13 @@ export default {
     };
   },
   async mounted() {
-    const response = await FavoritesApiService.getSalons();
-    this.favoriteList = FavoriteAssembler.toEntitiesFromResponse(response);
+    try {
+      const response = await FavoritesApiService.getProviders();
+      this.favoriteList = FavoriteAssembler.toEntitiesFromResponse(response);
+      console.log("Favorites cargados:", this.favoriteList);
+    } catch (error) {
+      console.error("Error al obtener providers favoritos:", error);
+    }
   },
 };
 </script>

@@ -1,24 +1,29 @@
 <script>
+import { ProfileClientService } from "../service/profile-api.service.js";
+
 export default {
   name: "profile-client-component",
   data() {
     return {
-      isLoading: false,
-      showCurrentPasswordField: false,
-      profile: {
-        name: 'Fred Trollestein',
-        email: 'fredmango.troll@example.com',
-        phoneNumber: '+51 987654321',
-        identityDocument: '12345678',
-        notifications: true,
-        location: false,
-      },
+      isLoading: true,
+      profile: null,
       passwordForm: {
         currentPassword: '',
         newPassword: '',
         confirmPassword: ''
       }
     };
+  },
+  async mounted() {
+    try {
+      const profileService = new ProfileClientService();
+      this.profile = await profileService.getProfile();
+      console.log("Perfil cargado:", this.profile);
+    } catch (error) {
+      console.error("Error cargando perfil:", error);
+    } finally {
+      this.isLoading = false;
+    }
   },
   computed: {
     canChangePassword() {
@@ -34,6 +39,8 @@ export default {
     },
     logout() {
       console.log('Logging out...');
+      localStorage.clear();
+      this.$router.push('/iam/login');
     },
     deleteAccount() {
       console.log('Deleting account...');
@@ -44,196 +51,195 @@ export default {
 
 <template>
   <div class="profile-container">
-    <div class="back-button">
-      <button @click="$router.push('/client/homeClient')">
-        <span class="material-icons">arrow_back</span> {{ $t('profile.back') }}
-      </button>
+    <div v-if="isLoading" class="loading">
+      <span class="loader"></span>
+      <p>Cargando perfil...</p>
     </div>
 
-    <h1 class="profile-title">
-      {{ $t('profile.title') }}
-      <button class="edit-button">
-        <span class="material-icons">{{ $t('profile.edit') }}</span>
-      </button>
-    </h1>
-
-    <div class="profile-content" v-if="!isLoading">
-      <div class="profile-sections">
-        <!-- Personal Information -->
-        <div class="profile-section">
-          <h2 class="section-title">{{ $t('profile.personalInfo') }}</h2>
-          <form @submit.prevent>
-            <div class="form-field">
-              <label>{{ $t('profile.name') }}</label>
-              <input type="text" v-model="profile.name" />
-            </div>
-
-            <div class="form-field">
-              <label>{{ $t('profile.email') }}</label>
-              <input type="email" v-model="profile.email" />
-            </div>
-
-            <div class="form-field">
-              <label>{{ $t('profile.phoneNumber') }}</label>
-              <input type="tel" v-model="profile.phoneNumber" />
-            </div>
-
-            <div class="form-field">
-              <label>{{ $t('profile.identityDocument') }}</label>
-              <input type="text" v-model="profile.identityDocument" />
-            </div>
-
-            <div class="toggle-field">
-              <label>
-                <input type="checkbox" v-model="profile.notifications" />
-                <span class="material-icons">{{ $t('profile.notifications') }}</span>
-              </label>
-            </div>
-
-            <div class="toggle-field">
-              <label>
-                <input type="checkbox" v-model="profile.location" />
-                <span class="material-icons">{{ $t('profile.location') }}</span>
-              </label>
-            </div>
-          </form>
-        </div>
-
-        <!-- Change Password -->
-        <div class="profile-section">
-          <h2 class="section-title">{{ $t('profile.changePassword') }}</h2>
-          <form @submit.prevent>
-            <div class="form-field">
-              <label>{{ $t('profile.currentPassword') }}</label>
-              <div class="password-field">
-                <div v-if="showCurrentPasswordField">
-                  <input type="password" v-model="passwordForm.currentPassword" />
-                </div>
-                <div v-else class="password-placeholder">
-                  ***********
-                  <button @click="showCurrentPasswordField = true">
-                    <span class="material-icons"></span>{{ $t('profile.change') }}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div v-if="showCurrentPasswordField">
-              <div class="form-field">
-                <label>{{ $t('profile.newPassword') }}</label>
-                <input type="password" v-model="passwordForm.newPassword" />
-                <span v-if="passwordForm.newPassword.length < 8" class="error-msg">
-                 {{ $t('profile.passwordMinLength') }}
-                </span>
-              </div>
-
-              <div class="form-field">
-                <label>{{ $t('profile.confirmPassword') }}</label>
-                <input type="password" v-model="passwordForm.confirmPassword" />
-                <span v-if="passwordForm.confirmPassword !== passwordForm.newPassword" class="error-msg">
-                  {{ $t('profile.passwordMismatch') }}
-                </span>
-              </div>
-
-              <div class="save-buttons">
-                <button :disabled="!canChangePassword" @click="changePassword">
-                  <span class="material-icons"></span>{{ $t('profile.saveChanges') }}
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <div v-else>
+      <!-- Foto de perfil -->
+      <div class="avatar-container">
+        <img
+            src="https://randomuser.me/api/portraits/lego/1.jpg"
+            alt="Foto de perfil"
+            class="avatar"
+        />
+        <h2 class="name">{{ profile.name }}</h2>
+        <p class="email">{{ profile.email }}</p>
       </div>
 
-      <!-- Account actions -->
-      <div class="account-actions">
-        <button class="logout-button" @click="logout">
-          <span class="material-icons"></span> {{ $t('profile.logOut') }}
-        </button>
+      <div class="profile-info">
+        <!-- Datos personales -->
+        <h3 class="section-title">Información personal</h3>
+        <div class="info-field">
+          <label>📱 Teléfono</label>
+          <input type="text" :value="profile.phoneNumber" readonly />
+        </div>
+        <div class="info-field">
+          <label>🪪 Documento de identidad</label>
+          <input type="text" :value="profile.identityDocument" readonly />
+        </div>
 
-        <button class="delete-button" @click="deleteAccount" href="/iam/logout">
-          <span class="material-icons"></span> {{ $t('profile.deleteAccount') }}
+        <!-- Cambiar contraseña -->
+        <h3 class="section-title">Cambiar contraseña</h3>
+        <div class="info-field">
+          <label>Contraseña actual</label>
+          <input type="password" v-model="passwordForm.currentPassword" placeholder="*********" />
+        </div>
+        <div class="info-field">
+          <label>Nueva contraseña</label>
+          <input type="password" v-model="passwordForm.newPassword" placeholder="*********" />
+        </div>
+        <div class="info-field">
+          <label>Confirmar nueva contraseña</label>
+          <input type="password" v-model="passwordForm.confirmPassword" placeholder="*********" />
+        </div>
+        <button
+            class="save-btn"
+            :disabled="!canChangePassword"
+            @click="changePassword"
+        >
+          Guardar cambios
         </button>
       </div>
-    </div>
 
-    <!-- Loading Spinner -->
-    <div class="loading-spinner" v-if="isLoading">
-      <span class="material-icons spinner">{{ $t('profile.loading') }}</span>
+      <!-- Botones de sesión -->
+      <div class="action-buttons">
+        <button class="logout-btn" @click="logout">Cerrar sesión</button>
+        <button class="delete-btn" @click="deleteAccount">Eliminar cuenta</button>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .profile-container {
-  padding: 20px;
-  max-width: 600px; /* Ajusta el ancho máximo */
-  margin: 0 auto;    /* Centra horizontalmente */
-  background-color: #fdfdfd; /* Opcional: color de fondo suave */
-  border-radius: 12px;       /* Bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
 }
-.profile-title {
-  font-size: 1.4em;
-}
-.section-title {
-  font-size: 1.2em;
-}
-button {
-  font-size: 0.9em;
-}
-input {
-  padding: 6px 10px;
-}
-.edit-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-.profile-section {
-  margin-bottom: 20px;
-}
-.form-field {
-  margin-bottom: 10px;
+
+.avatar-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
-.form-field input {
-  padding: 4px 6px;
-  font-size: 14px;
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #731c9f;
 }
-.toggle-field {
-  margin-top: 8px;
-  font-size: 14px;
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
 }
-.toggle-field input {
-  margin-right: 5px;
+
+.email {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
-.account-actions {
-  margin-top: 20px;
+
+.profile-info {
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+  color: #731c9f;
+  border-bottom: 2px solid #e3d3f7;
+  padding-bottom: 0.2rem;
+}
+
+.info-field {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
-.account-actions button {
-  font-size: 13px;
-  padding: 6px 10px;
+
+.info-field label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #444;
 }
-.loading-spinner {
+
+.info-field input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.save-btn {
+  background-color: #731c9f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.save-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.action-buttons {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: space-between;
+  margin-top: 1.5rem;
 }
-.spinner {
+
+.logout-btn {
+  background-color: #f3c614;
+  color: #333;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #731c9f;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #731c9f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   animation: spin 1s linear infinite;
-  font-size: 30px;
+  margin-bottom: 0.5rem;
 }
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-.error-msg {
-  color: red;
-  font-size: 12px;
 }
 </style>

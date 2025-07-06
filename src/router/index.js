@@ -6,6 +6,7 @@ const LoginPageComponent = () => import('../iam/pages/login-pages/login-page.com
 const RegisterPageComponent = () => import('../iam/pages/register-page/register-page.component.vue')
 
 const AppointmentPageComponent = () => import('../AppointmentsClient/pages/appointment-page.component.vue')
+
 // Layouts
 
 const SidebarComponentClient = () => import('../public/components/sidebar-client/sidebar-client.component.vue')
@@ -95,8 +96,8 @@ const routes = [
         path: '/client/salonProfile/:salonId',
         name: 'salon-profile',
         component: SalonProfilePage,
-        props: true,
     },
+
 
     // Ruta para las citas dentro del perfil del salón
     {

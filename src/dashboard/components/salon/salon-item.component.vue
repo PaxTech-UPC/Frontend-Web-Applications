@@ -12,8 +12,9 @@ export default {
   setup(props) {
     const router = useRouter();
     const seleccionarSalon = () => {
-      console.log(props.salon.salonId);
-      router.push({ name: 'salon-profile', params: { salonId: props.salon.salonId } });
+      console.log(props.salon.id);
+      router.push({ name: 'salon-profile', params: { salonId: props.salon.id } });
+
     };
     console.log("salon recibido:", props.salon);
     return {

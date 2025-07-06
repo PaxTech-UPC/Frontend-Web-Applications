@@ -1,11 +1,22 @@
 import axios from 'axios';
 
 const https = axios.create({
-    baseURL: "https://fakeapi-yoil.onrender.com/api/salons"
+    baseURL: "http://localhost:5245/api/v1/provider"
 });
 
+https.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem("jwt_token");
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
+
 export class SalonApiServices {
-    getUrlToSalon() {
+    getAllProviders() {
         return https.get();
     }
 }

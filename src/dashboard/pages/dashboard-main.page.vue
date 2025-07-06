@@ -17,15 +17,12 @@ export default {
   },
   mounted() {
     const salonService = new SalonApiServices();
-    salonService.getUrlToSalon()
+    salonService.getAllProviders()
         .then(result => {
           this.salons = result.data.map(salon => new Salon(
-              salon.salonId,
-              salon.salonName,
-              salon.location,
-              salon.phone,
-              salon.coverImage,
-              salon.rating
+              salon.id,
+              salon.companyName,
+              salon.userId
           ));
         })
         .catch(error => {
