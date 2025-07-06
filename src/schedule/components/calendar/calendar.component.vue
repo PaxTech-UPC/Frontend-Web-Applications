@@ -29,7 +29,6 @@ export default {
     const response = await ReservationApiService.getAll();
     let allReservations = ReservationAssembler.toEntitiesFromResponse(response);
 
-    // ✅ Filtrar reservas inválidas (sin worker o sin nombre de worker)
     allReservations = allReservations.filter(r => r.worker && r.worker.name);
 
     this.reservations = allReservations;

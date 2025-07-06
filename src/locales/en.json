@@ -2,7 +2,7 @@
   "dashboard": {
     "home": "Home",
     "schedule": "Schedule",
-    "appointments": "Appointments",
+    "appointment": "Appointments",
     "reviews": "Reviews",
     "services": "Services",
     "subscription": "Subscription",

@@ -2,7 +2,7 @@
   "dashboard": {
     "home": "Inicio",
     "schedule": "Agenda",
-    "appointments": "Citas",
+    "appointment": "Citas",
     "reviews": "Reseñas",
     "services": "Servicios",
     "subscription": "Suscripción",
