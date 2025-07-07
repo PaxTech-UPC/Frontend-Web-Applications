@@ -19,7 +19,9 @@ export default {
       this.$router.push("/client/profile");
     },
     logout() {
-      this.$router.push("/iam/logout");
+      localStorage.clear();
+
+      this.$router.push("/iam/login");
     }
   }
 };

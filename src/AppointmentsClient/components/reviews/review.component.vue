@@ -1,269 +1,143 @@
 <script>
 export default {
   name: "review-component",
-  props: {
-    review: Object
-  },
   data() {
     return {
-      newRating: 0,
-      reviewText: ''
-    }
-  },
-  computed: {
-    formattedRating() {
-      return `${this.review.rating}/5`;
-    }
-  },
-  methods: {
-    getReadStatus() {
-      return this.review.read ? 'Leído' : 'No leído';
-    },
-    getReadColor() {
-      return this.review.read ? 'green' : 'gray';
-    },
-    setRating(value) {
-      this.newRating = value;
-    },
-    submitReview() {
-      // Aquí puedes implementar la lógica para enviar la reseña
-      console.log('Enviando reseña:', this.newRating, this.reviewText);
-    }
+      reviews: [
+        {
+          id: 1,
+          providerName: "rensoCompany",
+          rating: 5,
+          text: "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
+          likes: 12,
+          dislikes: 1
+        },
+        {
+          id: 2,
+          providerName: "angieBeauty",
+          rating: 4,
+          text: "Great service and friendly staff. Will come back again!",
+          likes: 8,
+          dislikes: 0
+        },
+        {
+          id: 3,
+          providerName: "glamourStudio",
+          rating: 3,
+          text: "Good overall but the waiting time was too long.",
+          likes: 5,
+          dislikes: 3
+        }
+      ]
+    };
   }
 };
 </script>
 
 <template>
-  <div class="review-container">
-
-    <div class="review-card">
-      <div class="review-content">
-        <!-- Image placeholder -->
-        <div class="image-placeholder">
-          <span class="placeholder-x">×</span>
-        </div>
-
-        <div class="stylist-info">
-          <div class="stylist-name">{{ review.author }}</div>
-          <div class="stylist-title">{{ $t('appointments.review.title') }} #{{ review.id }}</div>
-          <div class="rating">
-            <span class="star active-star">★</span>
-            <span class="rating-value">{{ review.rating }}</span>
+  <div class="reviews-container">
+    <div v-for="review in reviews" :key="review.id" class="review-card">
+      <!-- Header: Salon name and rating -->
+      <div class="review-header">
+        <div class="avatar">{{ review.providerName.charAt(0).toUpperCase() }}</div>
+        <div>
+          <h3 class="provider-name">{{ review.providerName }}</h3>
+          <div class="stars">
+            <span
+                v-for="star in 5"
+                :key="star"
+                :class="{ active: star <= review.rating }"
+                class="star"
+            >★</span>
           </div>
         </div>
       </div>
 
-      <div class="feedback-buttons">
-        <button class="thumb-button">
-          <div class="thumb-circle">
-            <span class="thumb">👍</span>
-          </div>
-        </button>
-        <button class="thumb-button">
-          <div class="thumb-circle">
-            <span class="thumb">👎</span>
-          </div>
-        </button>
-      </div>
+      <!-- Review text -->
+      <p class="review-text">“{{ review.text }}”</p>
 
-      <div class="review-text">
-        {{ review.text }}
+      <!-- Likes and dislikes -->
+      <div class="feedback">
+        <div class="feedback-item">👍 {{ review.likes }}</div>
+        <div class="feedback-item">👎 {{ review.dislikes }}</div>
       </div>
-
-      <div class="review-status">
-        <strong>{{ $t('appointments.review.status') }}:</strong>
-        <span :style="{ color: getReadColor() }">
-          {{ getReadStatus() }}
-        </span>
-      </div>
-
-      <div class="review-prompt">
-        <p>{{ $t('appointments.review.leaveReviewPrompt') }}</p>
-      </div>
-
-      <div class="star-rating">
-        <button
-            v-for="star in 5"
-            :key="star"
-            @click="setRating(star)"
-            class="star-button"
-        >
-          <span class="star" :class="{ 'active-star': newRating >= star }">★</span>
-        </button>
-      </div>
-
-      <div class="review-input">
-        <textarea
-            v-model="reviewText"
-            :placeholder="$t('appointments.review.writeHerePlaceholder')"
-            class="review-textarea"
-        ></textarea>
-      </div>
-
-      <button @click="submitReview" class="submit-button">{{ $t('appointments.review.submitButton') }}</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-.review-container {
+.reviews-container {
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
-.review-header {
-  font-size: 18px;
+.section-title {
+  text-align: center;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .review-card {
-  background-color: #f3f4f6;
-  border-radius: 8px;
-  padding: 16px;
-  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
 }
 
-.review-content {
+.review-card:hover {
+  transform: translateY(-3px);
+}
+
+.review-header {
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 0.6rem;
 }
 
-.image-placeholder {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #d1d5db;
-  background-color: #f9fafb;
-}
-
-.placeholder-x {
-  font-size: 24px;
-  color: #9ca3af;
-}
-
-.stylist-info {
-  margin-left: 16px;
-}
-
-.stylist-name {
-  font-weight: 500;
-}
-
-.stylist-title {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.star {
-  color: #d1d5db;
-  font-size: 16px;
-}
-
-.active-star {
-  color: #fbbf24;
-}
-
-.rating-value {
-  margin-left: 4px;
-  font-size: 14px;
-}
-
-.feedback-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 16px;
-}
-
-.thumb-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.thumb-circle {
-  width: 32px;
-  height: 32px;
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #9333ea;
+  color: white;
   border-radius: 50%;
-  border: 1px solid #d1d5db;
+  font-size: 1.2rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
 }
 
-.thumb {
-  font-size: 14px;
+.provider-name {
+  margin: 0;
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.stars {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.star.active {
+  color: #facc15;
 }
 
 .review-text {
-  margin-bottom: 12px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.review-status {
-  margin-bottom: 12px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.review-prompt {
-  text-align: center;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
-.star-rating {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.star-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin: 0 4px;
-}
-
-.review-input {
-  margin-bottom: 12px;
-}
-
-.review-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background-color: white;
-  min-height: 80px;
-  resize: vertical;
-}
-
-.submit-button {
-  width: 100%;
-  background-color: #d1d5db;
+  font-size: 0.95rem;
   color: #374151;
-  padding: 8px 0;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
+  margin: 0.6rem 0;
 }
 
-.submit-button:hover {
-  background-color: #9ca3af;
+.feedback {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #6b7280;
 }
 </style>

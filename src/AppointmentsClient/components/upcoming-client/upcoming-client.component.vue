@@ -1,6 +1,4 @@
 <script>
-import {SalonProfile} from "../../../dashboard/model/salon/salonProfile.entity.js";
-import {SalonProfileApiServices} from "../../../dashboard/services/salon/salon-profile-api.services.js";
 import SalonListComponent from "../../../dashboard/components/salon/salon-list.component.vue";
 import ClientLayoutComponent from "../../../public/components/client-layout/client-layout.component.vue";
 export default {
@@ -15,56 +13,13 @@ export default {
     };
   },
   mounted() {
-    const salonService = new SalonProfileApiServices();
-    salonService.getUrlToSalonProfile()
-
-        .then(result => {
-          console.log(result.data);
-
-          this.salons = result.data.map(salon => {
-            return new SalonProfile(
-                salon.salonId,
-                salon.salonName,
-                salon.location,
-                salon.phone,
-                salon.coverImage,
-                salon.rating
-            );
-          });
-          console.log(this.salons);
-        })
-        .catch(error => {
-          console.error("Error al obtener los salones:", error);
-        });
+    this.salons = [];
   }
 }
 </script>
 
 <template>
-  <pv-card class="custom-card">
-    <template #content>
-      <div class="appointment-content">
 
-        <div class="date-section">
-          <div class="day">{{ $t('appointments.upcoming.day') }}</div>
-          <div class="date-number">10</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="appointments-section">
-          <div class="appointment-item grey">
-            <div class="appointment-label">{{ $t('appointments.upcoming.tomorrow') }}</div>
-            <div class="appointment-description">Ketarin treatment appointment</div>
-          </div>
-          <div class="appointment-item pink">
-            <div class="appointment-label">{{ $t('appointments.upcoming.next') }}</div>
-            <div class="appointment-description">Hair coloring appointment</div>
-          </div>
-        </div>
-      </div>
-    </template>
-  </pv-card>
 
 </template>
 
@@ -143,5 +98,82 @@ export default {
   font-size: 14px;
   font-weight: 600;
   color: #111;
+}
+
+
+.custom-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  border-left: 6px solid #731c9f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.date-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #731c9f;
+  font-weight: bold;
+  min-width: 70px;
+}
+
+.date-number {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.day {
+  font-size: 16px;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ddd;
+  height: 60px;
+}
+
+.appointments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.appointment-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.appointment-item.grey {
+  background-color: #f5f5f5;
+}
+
+.appointment-item.pink {
+  background-color: #fce4ec;
+}
+
+.appointment-label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1e1e1e;
+}
+
+.appointment-description {
+  color: #333;
 }
 </style>

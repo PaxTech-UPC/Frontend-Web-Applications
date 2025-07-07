@@ -60,7 +60,7 @@ export default {
       <!-- Foto de perfil -->
       <div class="avatar-container">
         <img
-            src="https://randomuser.me/api/portraits/lego/1.jpg"
+            src="https://randomuser.me/api/portraits/lego/2.jpg"
             alt="Foto de perfil"
             class="avatar"
         />
@@ -114,7 +114,7 @@ export default {
 
 <style scoped>
 .profile-container {
-  max-width: 500px;
+  width: 1000px;
   margin: 2rem auto;
   background: #fff;
   border-radius: 12px;

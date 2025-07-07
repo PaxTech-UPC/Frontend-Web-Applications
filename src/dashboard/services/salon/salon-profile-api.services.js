@@ -1,21 +1,30 @@
 import axios from 'axios';
 
-const https = axios.create({
-    baseURL: "http://localhost:3000/salonProfiles"
+const api = axios.create({
+    baseURL: "http://localhost:5245/api/v1",
 });
 
-export class SalonProfileApiServices {
-    getUrlToSalonProfile() {
-        return https.get();
+api.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem("jwt_token");
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
+
+export default class SalonProfileApiService {
+    async getProviderById(providerId) {
+        return api.get(`/provider/${providerId}`);
     }
 
-    async getSalonProfileById(salonId) {
-        try {
-            const response = await https.get(`?salonId=${salonId}`);
-            return response.data[0]; // asumimos que es único
-        } catch (error) {
-            console.error('Error al obtener el perfil del salón:', error);
-            throw error;
-        }
+    async getServices() {
+        return api.get(`/service`);
+    }
+
+    async getReviews() {
+        return api.get(`/review`);
     }
 }

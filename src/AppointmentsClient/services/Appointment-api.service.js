@@ -1,14 +1,44 @@
 import axios from 'axios';
-import { BaseApiService } from '../../shared/services/base.service.js'; // Ajusta la ruta si está en otro lado
 
-const serviceApi = 'https://fakeapi-yoil.onrender.com/api/reservationDetails';
-
-const http = axios.create({
-    baseURL: serviceApi
+const api = axios.create({
+    baseURL: "http://localhost:5245/api/v1",
+    headers: {
+        "Content-Type": "application/json",
+    },
 });
 
-export class AppointmentApiService extends BaseApiService {
-    static getAppointments() {
-        return http.get('');
+// Adjunta token JWT
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("jwt_token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+});
+
+export class AppointmentApiService {
+    static async getAllReservations() {
+        return api.get("/reservation");
+    }
+
+    static async getTimeSlotById(timeSlotId) {
+        return api.get(`/time-slot/${timeSlotId}`);
+    }
+
+    static async getProviderById(providerId) {
+        return api.get(`/provider/${providerId}`);
+    }
+
+    static async getPaymentById(paymentId) {
+        return api.get(`/payment/${paymentId}`);
+    }
+
+    static async getWorkerById(workerId) {
+        return api.get(`/worker/${workerId}`);
+    }
+
+    static async getAllClients() {
+        return api.get("/client");
+    }
+
 }

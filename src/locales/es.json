@@ -208,5 +208,9 @@
   },
   "title": {
     "upcomming": "Jueves"
+  },
+  "dtitles": {
+    "review": "Tus Reseñas",
+    "appointment":"Tus Citas"
   }
 }

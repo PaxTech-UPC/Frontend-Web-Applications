@@ -207,5 +207,9 @@
   },
   "title": {
     "upcomming": "Thursday"
+  },
+  "dtitles": {
+    "review": "Your Reviews",
+    "appointment":"Your Appointments"
   }
 }

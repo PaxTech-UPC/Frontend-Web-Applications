@@ -105,6 +105,13 @@ const routes = [
         name: 'appointments',
         component: AppointmentPage,
         props: true,
+    },
+
+
+    {
+        path: '/salon/:salonId/service/:serviceId/reservation',
+        name: 'choose-worker',
+        component: () => import('../dashboard/pages/reservationpage.vue')
     }
 
 
