@@ -1,8 +1,11 @@
 <template>
   <div class="card">
     <Button :label="$t('services.new')" icon="pi pi-plus" class="p-button-raised" @click="visible = true" />
+
     <Dialog v-model:visible="visible" modal header="New Service" :style="{ width: '25rem' }">
-      <span class="text-surface-500 dark:text-surface-400 block mb-6">Add the following information</span>
+      <span class="text-surface-500 dark:text-surface-400 block mb-6">
+        {{ $t('services.addInfo') || 'Add the following information' }}
+      </span>
 
       <div class="flex items-center gap-4 mb-4">
         <label for="service-name" class="font-semibold w-24">{{ $t('services.service') }}</label>
@@ -19,70 +22,80 @@
         <InputText id="price" v-model="price" class="flex-auto" autocomplete="off" />
       </div>
 
-      <div class="flex items-center gab-4 mb-6">
+      <div class="flex items-center gap-4 mb-6">
         <label for="status" class="font-semibold w-24">{{ $t('services.status') }}</label>
-        <SelectButton class="flex-auto" v-model="value" :options="options"/>
+        <SelectButton id="status" class="flex-auto" v-model="status" :options="options" />
       </div>
 
       <div class="flex justify-content-center gap-2">
-        <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
-        <Button type="button" label="Save" @click="createService"></Button>
+        <Button type="button" label="Cancel" severity="secondary" @click="closeDialog" />
+        <Button type="button" label="Save" @click="createService" />
       </div>
-
     </Dialog>
   </div>
 </template>
 
 <script>
-import Button from "primevue/button";
+import Button from 'primevue/button';
 import SelectButton from 'primevue/selectbutton';
-import {Dialog, InputText} from "primevue";
-import { ServiceApiService } from '../../services/service-api.service.js';
+import { Dialog, InputText } from 'primevue';
+import { ServiceApiService } from '../../services/service.service.js';
 
 export default {
-  name: "ServiceDialog",
-  components: {Button, SelectButton, Dialog, InputText},
+  name: 'ServiceDialog',
+  components: { Button, SelectButton, Dialog, InputText },
   data() {
     return {
       visible: false,
-      value: '',
-      options: ['Active', 'Paused'],
       service: '',
       duration: '',
-      price: ''
+      price: '',
+      status: '',
+      options: ['Active', 'Paused'],
     };
   },
   methods: {
     async createService() {
-      if (!this.service || !this.duration || !this.price || !this.value) {
-        alert("Please complete all fields");
+      // Validar campos
+      if (!this.service || !this.duration || !this.price || !this.status) {
+        alert('Please complete all fields');
         return;
       }
+
       const newService = {
         name: this.service,
         duration: this.duration,
         price: this.price,
-        status: this.value
+        status: this.status,
       };
+
       try {
         await ServiceApiService.create(newService);
-        this.$emit('service-created'); // notifica al padre que se creó un servicio
-        this.visible = false;
-        this.service = '';
-        this.duration = '';
-        this.price = '';
-        this.value = '';
+        this.$emit('service-created'); // Notifica al padre para recargar lista si es necesario
+        this.resetForm();
       } catch (error) {
         console.error('❌ Error creating service:', error);
+        alert('Error creating service');
       }
-    }
-  }
+    },
+
+    resetForm() {
+      this.visible = false;
+      this.service = '';
+      this.duration = '';
+      this.price = '';
+      this.status = '';
+    },
+
+    closeDialog() {
+      this.resetForm();
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-.card{
+.card {
   margin-top: 1rem;
   text-align: right;
 }
