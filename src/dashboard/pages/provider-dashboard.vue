@@ -1,186 +1,228 @@
 <script>
+import { ReservationApiService } from "../services/salon/reservation-api.services.js";
+import { SalonApiServices } from "../services/salon/salon-api.services.js";
+import ReviewComponent from "../../AppointmentsClient/components/reviews/review.component.vue";
 
-import { reviewApiServices } from "../services/review/review-api.services.js";
-import { Review } from "../model/review/review.entity.js";
-import reviewListComponent from "../components/review/review-list.component.vue";
-import serviceList from "../components/service/service-list.component.vue";
-import SalonProfile from "../components/salon/salon-profile.component.vue";
+const reservationService = new ReservationApiService();
 
 export default {
-  name: "provider-dashboard",
-  components: {
-    SalonProfile, serviceList,
-    reviewList: reviewListComponent,
-  },
-  data(){
+  components: {ReviewComponent},
+  data() {
     return {
-      services: [],
+      reservations: [],
       reviews: [],
-      }
+    };
   },
-  mounted() {
-    const reviewService = new reviewApiServices();
-    reviewService.getUrlToReview()
-        .then(result => {
-          this.reviews = result.data.map(review => {
-            return new Review(
-                review.id,
-                review.author,
-                review.rating,
-                review.text,
-            );
-          });
-          console.log(result.data);
-        })
-  },
-  setup(){
+  async mounted() {
+    // 🔥 Traer reviews HARDCODEADO (por ahora)
+    this.reviews = [
+      { id: 1, author: "Sofia", rating: 5, text: "Amazing service!" },
+      { id: 2, author: "Carlos", rating: 4, text: "Great, will come again." },
+      { id: 3, author: "Ana", rating: 3, text: "It was okay." }
+    ];
 
-  }
-}
+    try {
+      const userId = parseInt(localStorage.getItem("user_id"));
+      console.log("👤 userId actual:", userId);
+
+      // ✅ 1. Buscar el provider de este usuario
+      const providersResponse = await SalonApiServices.getAllProviders();
+      const provider = providersResponse.data.find((p) => p.userId === userId);
+
+      if (!provider) {
+        console.error("❌ No se encontró provider para este userId");
+        return;
+      }
+
+      console.log("✅ Provider encontrado:", provider);
+
+      // ✅ 2. Traer TODAS las reservas
+      const reservationsResponse = await reservationService.getAllReservations();
+      const providerReservations = reservationsResponse.data
+          .filter((r) => r.providerId === provider.id)
+          .slice(0, 2); // Solo las 2 más recientes
+
+      console.log("📦 Reservas de este provider:", providerReservations);
+
+      // ✅ 3. Enriquecer las reservas con client, worker y timeslot
+      const detailedReservations = await Promise.all(
+          providerReservations.map(async (res) => {
+            const [clientsResponse, workerResponse, timeSlotResponse] = await Promise.all([
+              reservationService.getAllClients(),
+              reservationService.getWorkerById(res.workerId),
+              reservationService.getTimeSlotById(res.timeSlotId),
+            ]);
+
+            const client = clientsResponse.data.find((c) => c.id === res.clientId);
+
+            return {
+              ...res,
+              clientName: client ? `${client.firstName} ${client.lastName}` : "N/A",
+              workerName: `${workerResponse.data.firstName} ${workerResponse.data.lastName}`,
+              // 🎯 Asignar un servicio aleatorio
+              serviceType: this.getRandomService(),
+
+              startTime: timeSlotResponse.data.startTime,
+              endTime: timeSlotResponse.data.endTime,
+            };
+          })
+      );
+
+      console.log("📌 Reservas enriquecidas:", detailedReservations);
+      this.reservations = detailedReservations;
+    } catch (error) {
+      console.error("❌ Error cargando datos:", error);
+    }
+  },
+  methods: {
+    formatDate(dateStr, options = {}) {
+      const date = new Date(dateStr);
+      return isNaN(date)
+          ? "Invalid"
+          : date.toLocaleDateString("en-US", options);
+    },
+    formatTime(dateStr) {
+      const date = new Date(dateStr);
+      return isNaN(date)
+          ? "--:--"
+          : date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    },
+    getRandomService() {
+      const services = ["Manicure", "Haircut", "Massage", "Makeup", "Pedicure"];
+      const randomIndex = Math.floor(Math.random() * services.length);
+      return services[randomIndex];
+    }
+  },
+};
 </script>
 
 <template>
-  <h1>{{ $t("dashboard.greeting") }}</h1>
+  <h1 class="dashboard-title">{{ $t("dashboard.greeting") }}</h1>
 
-  <div class="services">
-    <div class="left">
-      <h2 class="title-review">{{ $t("dashboard.appointments.title") }}</h2>
+  <div class="dashboard">
+    <!-- 📅 Appointments -->
+    <section class="appointments-section">
+      <h2 class="section-title">{{ $t("dtitles.appointment") }}</h2>
 
-      <pv-card class="custom-card">
-        <template #content>
-          <div class="appointment-content">
-            <div class="date-section">
-              <div class="day">{{ $t("dashboard.appointments.day") }}</div>
-              <div class="date-number">{{ $t("dashboard.appointments.date") }}</div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="appointments-section">
-              <div class="appointment-item grey">
-                <div class="appointment-label">{{ $t("dashboard.appointments.items[0].label") }}</div>
-                <div class="appointment-description">{{ $t("dashboard.appointments.items[0].description") }}</div>
-              </div>
-              <div class="appointment-item pink">
-                <div class="appointment-label">{{ $t("dashboard.appointments.items[1].label") }}</div>
-                <div class="appointment-description">{{ $t("dashboard.appointments.items[1].description") }}</div>
-              </div>
-            </div>
+      <div v-if="reservations.length" class="appointments-list">
+        <div
+            v-for="res in reservations"
+            :key="res.id"
+            class="appointment-card"
+        >
+          <div class="date-box">
+            <span class="day">
+              {{ formatDate(res.startTime, { weekday: "short" }) }}
+            </span>
+            <span class="date-number">
+              {{ formatDate(res.startTime, { day: "2-digit", month: "short" }) }}
+            </span>
           </div>
-        </template>
-      </pv-card>
-    </div>
 
-    <div class="right">
-      <div>
-        <h2 class="title-review">{{ $t("reviews.title") }}</h2>
-        <review-list class="review-list" :reviews="reviews" />
+          <div class="details">
+            <h3 class="service">{{ res.serviceType }}</h3>
+            <p><strong>Client:</strong> {{ res.clientName }}</p>
+            <p><strong>Worker:</strong> {{ res.workerName }}</p>
+            <p>
+              <strong>Time:</strong>
+              {{ formatTime(res.startTime) }} - {{ formatTime(res.endTime) }}
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div v-else class="no-appointments">
+        No appointments found.
+      </div>
+    </section>
+
+    <!-- Título para reseñas -->
+    <section class="reviews-section">
+      <h2 class="section-title">{{ $t('dtitles.review') }}</h2>
+      <review-component
+          v-for="review in reviews"
+          :key="review.id"
+          :review="review"
+      />
+    </section>
   </div>
 </template>
 
 <style scoped>
+.dashboard {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
 
-  .services {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #731c9f;
+  text-align: center;
+}
 
-  .left {
-    flex: 1;
-  }
+.appointments-section {
+  flex: 2;
+}
 
-  .right {
-    flex: 1;
-  }
+.reviews-section {
+  flex: 1;
+}
 
-  .title-review {
-    text-align: center;
-    margin-left: 50px;
-  }
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  .custom-card {
-    background-color: #F5F5F5;
-    border-radius: 16px;
-    padding: 16px;
-    max-width: 900px;
-    margin: 0 auto;
-    justify-content: center;
-    margin-left: 50px;
-  }
+.appointment-card {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  .appointment-content {
-    display: flex;
-    align-items: center;
-  }
+.appointment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
 
-  .date-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
-  }
+.date-box {
+  background: #731c9f;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  margin-right: 1rem;
+}
 
-  .day {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-  }
+.day {
+  display: block;
+  font-size: 0.9rem;
+}
 
-  .date-number {
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 1;
-    margin-top: 4px;
-    color: #000;
-  }
+.date-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
-  .divider {
-    width: 2px;
-    height: 80px;
-    background-color: #999;
-    margin: 0 16px;
-    border-radius: 1px;
-  }
+.details {
+  flex: 1;
+}
 
-  .appointments-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1;
-  }
+.service {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
 
-  .appointment-item {
-    border-radius: 8px;
-    padding: 12px;
-  }
-
-  .grey {
-    background-color: #c6c6c6;
-  }
-
-  .pink {
-    background-color: #d4bdbd;
-  }
-
-  .appointment-label {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: #333;
-  }
-
-  .appointment-description {
-    font-size: 14px;
-    font-weight: 600;
-    color: #111;
-  }
-
-  .review-list {
-    align-items: center;
-  }
-
+.no-appointments {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
 </style>

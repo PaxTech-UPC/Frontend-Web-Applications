@@ -70,4 +70,8 @@ export class ReservationApiService {
         return api.get(`/provider/${providerId}`);
     }
 
+    static getAllReservations() {
+        return api.get("/reservation");
+    }
+
 }

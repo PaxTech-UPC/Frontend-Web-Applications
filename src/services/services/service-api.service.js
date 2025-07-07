@@ -1,27 +1,59 @@
 import axios from 'axios';
-import { BaseApiService } from '../../shared/services/base.service.js';
+import { getToken } from '../../iam/services/auth.services.js'; // ✅ token para autenticación
 
-const serviceApi = 'https://fakeapi-yoil.onrender.com/api/services';
+const SERVICE_API_URL = 'http://localhost:5245/api/v1/service';
+const PROVIDER_API_URL = 'http://localhost:5245/api/v1/provider';
 
+// Axios para servicios
 const http = axios.create({
-    baseURL: serviceApi,
+    baseURL: SERVICE_API_URL,
+    headers: { 'Content-Type': 'application/json' }
 });
 
-export class ServiceApiService extends BaseApiService {
+// Axios para providers
+const providerHttp = axios.create({
+    baseURL: PROVIDER_API_URL,
+    headers: { 'Content-Type': 'application/json' }
+});
 
-    static getAll() {
-        return http.get('/');
+// ✅ Agrega el token a cada request
+http.interceptors.request.use(config => {
+    const token = getToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+}, error => Promise.reject(error));
 
-    static create(service) {
-        return http.post('/', service);
+providerHttp.interceptors.request.use(config => {
+    const token = getToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+}, error => Promise.reject(error));
 
-    static delete(id) {
-        return http.delete(`/${id}`);
-    }
+// Métodos del servicio
+export const ServiceApiService = {
+    // 🔥 Servicios
+    create(service) {
+        return http.post('', service).then(res => res.data);
+    },
+    getAll() {
+        return http.get('').then(res => res.data);
+    },
+    getById(id) {
+        return http.get(`/${id}`).then(res => res.data);
+    },
+    update(id, service) {
+        return http.put(`/${id}`, service).then(res => res.data);
+    },
+    delete(id) {
+        return http.delete(`/${id}`).then(res => res.data);
+    },
 
-    static update(id, service) {
-        return http.put(`/${id}`, service);
+    // 🔥 Providers
+    getAllProviders() {
+        return providerHttp.get('').then(res => res.data);
     }
-}
+};

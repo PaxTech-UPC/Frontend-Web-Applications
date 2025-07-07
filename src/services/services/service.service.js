@@ -46,4 +46,5 @@ export const ServiceApiService = {
     delete(id) {
         return http.delete(`/${id}`).then((res) => res.data);
     }
+
 };

@@ -3,16 +3,15 @@ export class Reservation {
                     reservationId = "",
                     tipo = "",
                     client = {
-                        user : {
-                            name :""
-                        }
+                        user: { name: "" }
                     },
                     worker = {
-                        name:""
+                        name: "",
+                        providerId: null // ✅ Asegúrate de traer el providerId
                     },
                     timeSlot = {
                         start: "",
-                        end:""
+                        end: ""
                     },
                 }) {
         this.reservationId = reservationId;

@@ -16,7 +16,7 @@ https.interceptors.request.use(
 );
 
 export class SalonApiServices {
-    getAllProviders() {
+    static getAllProviders() {
         return https.get();
     }
 }

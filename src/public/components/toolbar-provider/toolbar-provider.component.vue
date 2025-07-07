@@ -1,26 +1,40 @@
 <script>
-
 import Button from 'primevue/button';
 import LanguageSwitcherComponent from "../language-switcher/language-switcher.component.vue";
-//import LanguageSwitcher from '@/components/language-switcher/LanguageSwitcher.vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: "toolbar-provider-component",
-  components:{
+  components: {
     LanguageSwitcherComponent,
-    Button,
-    //LanguageSwitcher
+    Button
+  },
+  setup() {
+    const router = useRouter();
+
+    // ✅ Método para limpiar localStorage y redirigir
+    const logout = () => {
+      console.log("🚪 Cerrando sesión...");
+      localStorage.clear(); // 🔥 Limpia todo
+      router.push("/iam/login"); // 🔥 Redirige al login
+    };
+
+    return {
+      logout
+    };
   }
 }
 </script>
 
 <template>
   <header class="toolbar">
-    <!-- Sección Izquierda -->
     <div class="left-section">
-      <router-link to="/iam/login">
-        <Button icon="pi pi-sign-out" class="icon-button logout" aria-label="Logout" />
-      </router-link>
+      <Button
+          icon="pi pi-sign-out"
+          class="icon-button logout"
+          aria-label="Logout"
+          @click="logout"
+      />
     </div>
 
     <!-- Sección Central -->
@@ -34,11 +48,7 @@ export default {
 
     <!-- Sección Derecha -->
     <div class="right-section">
-      <!-- Componente de cambio de idioma -->
-      <language-switcher-component/>
-      <router-link to="/provider/profile">
-        <Button icon="pi pi-user" class="icon-button" aria-label="Profile" />
-      </router-link>
+      <language-switcher-component />
     </div>
   </header>
 </template>

@@ -9,7 +9,6 @@ export default {
   }
 };
 </script>
-
 <template>
   <div class="reservation-block">
     <strong>{{ tipo }}</strong><br>

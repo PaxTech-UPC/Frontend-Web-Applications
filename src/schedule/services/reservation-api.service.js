@@ -1,38 +1,36 @@
 import axios from 'axios';
-import { BaseApiService } from "../../shared/services/base.service.js";
 
-const resApi = import.meta.env.VITE_API_BASE_URL;
-const reservationEndpoint = import.meta.env.VITE_RESERVATIONS_ENDPOINT_PATH;
-
-const http = axios.create({
-    baseURL: `${resApi}${reservationEndpoint}`, // ✅ Usa la URL del backend real
-    headers: {
-        'Content-Type': 'application/json',
-    },
+const api = axios.create({
+    baseURL: "http://localhost:5245/api/v1",
+    headers: { "Content-Type": "application/json" },
 });
 
-export class ReservationApiService extends BaseApiService {
-    constructor() {
-        super(reservationEndpoint);
+api.interceptors.request.use(config => {
+    const token = localStorage.getItem("jwt_token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
+export class ReservationApiService {
+    async getAllProviders() {
+        return api.get("/provider");
     }
 
-    // ✅ Obtiene un cliente por su userId
-    async getClientByUserId(userId) {
-        return http.get(`/client/by-user/${userId}`);
+    async getAllReservations() {
+        return api.get("/reservation");
     }
 
-    // ✅ Crea un nuevo time slot
-    async createTimeSlot(timeSlot) {
-        return http.post(`/time-slot`, timeSlot);
+    async getTimeSlotById(timeSlotId) {
+        return api.get(`/time-slot/${timeSlotId}`);
     }
 
-    // ✅ Crea una reserva
-    async createReservation(reservation) {
-        return http.post(`/reservation`, reservation);
+    async getWorkerById(workerId) {
+        return api.get(`/worker/${workerId}`);
     }
 
-    // Hardcode (si todavía necesitas el fake API)
-    static getAll() {
-        return axios.get('https://fakeapi-yoil.onrender.com/api/reservationDetails');
+    async getClientById(clientId) {
+        return api.get(`/client/${clientId}`);
     }
 }

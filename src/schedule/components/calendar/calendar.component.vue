@@ -1,7 +1,9 @@
 <script>
 import ReservationComponent from "../reservation/reservation.component.vue";
-import { ReservationApiService } from '../../services/reservation-api.service.js';
-import { ReservationAssembler } from '../../services/reservation.assembler.js';
+import { ReservationApiService } from "../../services/reservation-api.service.js";
+import { ReservationAssembler } from "../../services/reservation.assembler.js";
+
+const reservationService = new ReservationApiService();
 
 export default {
   name: "calendar-component",
@@ -17,7 +19,6 @@ export default {
       workers: ['Todos'],
       currentWorkerIndex: 0,
       calendars: [],
-      reservations: [],
     };
   },
   computed: {
@@ -26,17 +27,54 @@ export default {
     },
   },
   async mounted() {
-    const response = await ReservationApiService.getAll();
-    let allReservations = ReservationAssembler.toEntitiesFromResponse(response);
+    try {
+      const userId = parseInt(localStorage.getItem("user_id"));
+      console.log("👤 userId actual:", userId);
 
-    allReservations = allReservations.filter(r => r.worker && r.worker.name);
+      // ✅ Buscar provider asociado a userId
+      const providersResponse = await reservationService.getAllProviders();
+      const provider = providersResponse.data.find(p => p.userId === userId);
 
-    this.reservations = allReservations;
-    this.calendars = allReservations;
+      if (!provider) {
+        console.error("❌ No se encontró provider para este userId");
+        return;
+      }
+      console.log("✅ Provider encontrado:", provider);
 
-    const uniqueWorkers = [...new Set(allReservations.map(r => r.worker.name))];
-    this.workers = ['Todos', ...uniqueWorkers];
+      // ✅ Traer todas las reservas
+      const reservationsResponse = await reservationService.getAllReservations();
+      const providerReservations = reservationsResponse.data.filter(
+          r => r.providerId === provider.id
+      );
 
+      // 🔥 Enriquecer reservas con datos de client, worker y timeslot
+      const detailedReservations = await Promise.all(
+          providerReservations.map(async (reservation) => {
+            const [timeSlotRes, workerRes, clientRes] = await Promise.all([
+              reservationService.getTimeSlotById(reservation.timeSlotId),
+              reservationService.getWorkerById(reservation.workerId),
+              reservationService.getClientById(reservation.clientId),
+            ]);
+
+            return {
+              ...reservation,
+              timeSlot: timeSlotRes.data,
+              worker: workerRes.data,
+              client: clientRes.data,
+            };
+          })
+      );
+
+      console.log("📌 Reservas enriquecidas:", detailedReservations);
+
+      // ✅ Lista única de trabajadores
+      const uniqueWorkers = [...new Set(detailedReservations.map(r => r.worker.firstName + " " + r.worker.lastName))];
+      this.workers = ['Todos', ...uniqueWorkers];
+
+      this.calendars = detailedReservations;
+    } catch (error) {
+      console.error("❌ Error al cargar las reservas:", error);
+    }
   },
   methods: {
     swapWorker() {
@@ -44,30 +82,25 @@ export default {
     },
     formatTime(dateStr) {
       const date = new Date(dateStr);
-      const hours = String(date.getUTCHours()).padStart(2, '0');
-      const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
       return `${hours}:${minutes}`;
     },
-
-
     formatDay(dateStr) {
       const date = new Date(dateStr);
-      // Día en inglés, también en UTC
-      return date.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' });
+      return date.toLocaleDateString('en-US', { weekday: 'long' });
     },
-
-
     filteredAppointments(day, hour) {
       return this.calendars.filter(appointment => {
-        const appointmentDay = this.formatDay(appointment.timeSlot.start);
-        const appointmentTime = this.formatTime(appointment.timeSlot.start);
-        const matchesWorker = this.currentWorker === 'Todos' || appointment.worker.name === this.currentWorker;
+        const appointmentDay = this.formatDay(appointment.timeSlot.startTime);
+        const appointmentTime = this.formatTime(appointment.timeSlot.startTime);
+        const matchesWorker = this.currentWorker === 'Todos' ||
+            `${appointment.worker.firstName} ${appointment.worker.lastName}` === this.currentWorker;
         return appointmentDay === day && appointmentTime === hour && matchesWorker;
       });
     }
   }
 };
-
 </script>
 
 <template>
@@ -91,11 +124,11 @@ export default {
             <reservation-component
                 v-for="(appointment, index) in filteredAppointments(day, hour)"
                 :key="index"
-                :tipo="appointment.tipo"
-                :start-time="formatTime(appointment.timeSlot.start)"
-                :end-time="formatTime(appointment.timeSlot.end)"
-                :client-name="appointment.client.user.name"
-             reservation=""/>
+                :tipo="appointment.timeSlot.type"
+                :start-time="formatTime(appointment.timeSlot.startTime)"
+                :end-time="formatTime(appointment.timeSlot.endTime)"
+                :client-name="appointment.client.firstName + ' ' + appointment.client.lastName"
+            />
           </div>
         </div>
       </div>
@@ -104,12 +137,10 @@ export default {
 </template>
 
 <style scoped>
-
 .calendar-container {
   width: 100%;
   font-family: Arial, sans-serif;
 }
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -118,19 +149,16 @@ export default {
   background: #f2f2f2;
   font-weight: bold;
 }
-
 .calendar-grid {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
 .calendar-days {
   display: grid;
   grid-template-columns: 80px repeat(7, 1fr);
   background-color: #eee;
 }
-
 .day-label, .time-label {
   padding: 8px;
   border: 1px solid #ccc;
@@ -138,22 +166,18 @@ export default {
   background: #f9f9f9;
   font-weight: bold;
 }
-
 .calendar-body {
   display: grid;
   grid-template-rows: repeat(auto-fill, 1fr);
 }
-
 .hour-row {
   display: grid;
   grid-template-columns: 80px repeat(7, 1fr);
   border-bottom: 1px solid #ddd;
   height: 60px;
 }
-
 .day-cell {
   border-left: 1px solid #ddd;
   position: relative;
 }
-
 </style>
