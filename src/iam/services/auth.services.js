@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5245/api/v1/authentication";
+const API_URL = "https://utimebackendopen.azurewebsites.net/api/v1/authentication";
 
 export const signUp = (userData) => {
     return axios.post(`${API_URL}/sign-up`, userData)

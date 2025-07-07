@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const https = axios.create({
-    baseURL: "http://localhost:5245/api/v1/provider"
+    baseURL: "https://utimebackendopen.azurewebsites.net/api/v1/provider"
 });
 
 https.interceptors.request.use(
@@ -16,7 +16,7 @@ https.interceptors.request.use(
 );
 
 export class SalonApiServices {
-    static getAllProviders() {
+    getAllProviders() {
         return https.get();
     }
 }

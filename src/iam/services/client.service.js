@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "./auth.services.js";
 
-const API_URL = "http://localhost:5245/api/v1/client";
+const API_URL = "https://utimebackendopen.azurewebsites.net/api/v1/client";
 
 export const createClient = (clientData) => {
     return axios.post(API_URL, clientData); // 👈 sin header Authorization

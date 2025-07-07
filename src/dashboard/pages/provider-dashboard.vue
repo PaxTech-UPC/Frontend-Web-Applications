@@ -26,7 +26,9 @@ export default {
       console.log("👤 userId actual:", userId);
 
       // ✅ 1. Buscar el provider de este usuario
-      const providersResponse = await SalonApiServices.getAllProviders();
+      const salonService = new SalonApiServices();
+      const providersResponse = await salonService.getAllProviders();
+
       const provider = providersResponse.data.find((p) => p.userId === userId);
 
       if (!provider) {

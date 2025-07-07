@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "./auth.services.js";
 
-const API_URL = "http://localhost:5245/api/v1/provider";
+const API_URL = "https://utimebackendopen.azurewebsites.net/api/v1/provider";
 
 export const createProvider = (providerData) => {
     return axios.post(API_URL, providerData);

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { getToken } from '../../iam/services/auth.services.js'; // ✅ token para autenticación
 
-const SERVICE_API_URL = 'http://localhost:5245/api/v1/service';
-const PROVIDER_API_URL = 'http://localhost:5245/api/v1/provider';
+const SERVICE_API_URL = 'https://utimebackendopen.azurewebsites.net/api/v1/service';
+const PROVIDER_API_URL = 'https://utimebackendopen.azurewebsites.net/api/v1/provider';
 
 // Axios para servicios
 const http = axios.create({

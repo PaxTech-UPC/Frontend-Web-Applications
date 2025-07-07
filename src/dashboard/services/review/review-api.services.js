@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const https = axios.create({
-    baseURL: "http://localhost:3000/reviews"
+    baseURL: "https://utimebackendopen.azurewebsites.net/api/v1/reviews"
 });
 
 export class reviewApiServices {
